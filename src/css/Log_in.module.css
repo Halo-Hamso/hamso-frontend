@@ -1,0 +1,203 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+
+.root{
+    box-sizing: border-box;
+
+    font-family: 'NanumMyeongjo', serif;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.flex_center{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.header{
+    width: 320px;
+height: 120px; 
+background: #FBF9F6;
+margin-top:5%;
+
+
+display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.header .logo_img{
+    width: 88px;
+    height: 120px;
+    flex-shrink: 0;
+    margin-right:14px;
+}
+
+.header .text_box{
+    width: 186px;
+    height: 76px;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.header .text1{
+    color: var(--MAIN, #B09977);
+font-size: 48px;
+font-weight: 800;
+letter-spacing: 5.76px;
+margin:0;
+}
+
+.header .text2{
+    color: #999;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+margin:0;
+}
+
+.main{
+    width: 585px;
+height: 624px;
+flex-shrink: 0;
+border-radius: 24px;
+border: 1px solid var(--MAIN, #B09977);
+margin-top:48px;
+margin-bottom:5%;
+
+display:flex;
+flex-direction:column;
+justify-content: center;
+align-items: center;
+}
+
+.main .flex_center{
+    margin-bottom:54px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.main .text1{
+    color: var(--MAIN, #B09977);
+font-size: 16px;
+font-weight: 700;
+margin:4px;
+}
+
+.main .text1_head{
+    color: var(--MAIN, #B09977);
+font-size: 16px;
+font-weight: 700;
+    margin-top:12.5%;
+    margin-bottom:4px;
+}
+
+.main .input_box1{
+    box-sizing: border-box;
+    width: 440px;
+height: 70px;
+flex-shrink: 0;
+border-radius: 16px;
+border: 1px solid #999;
+margin-bottom:32px;
+
+color: #999;
+font-size: 24px;
+font-weight: 400;
+
+
+display:flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+.main .input1{
+justify-self:flex-start;
+border:none;
+color: #999;
+font-family: 'NanumMyeongjo', serif;
+font-size: 24px;
+font-weight: 400;
+outline:none;
+
+
+padding-left:30px;
+}
+
+
+
+.main .input_box2{
+    box-sizing: border-box;
+    width: 440px;
+height: 70px;
+flex-shrink: 0;
+border-radius: 16px;
+border: 1px solid #999;
+margin-bottom:54px;
+
+color: #999;
+font-size: 24px;
+font-weight: 400;
+
+
+display:flex;
+justify-content: space-around;
+align-items: center;
+}
+.main .input2{
+border:none;
+outline:none;
+
+color: #999;
+font-family: 'NanumMyeongjo', serif;
+font-size: 24px;
+font-weight: 400;
+}
+
+
+.main .submit_btn{
+    width: 440px;
+height: 70px;
+flex-shrink: 0;
+background-color: var(--MAIN, #B09977);
+border-radius: 16px;
+border: 0px solid #999;
+margin-bottom:6px;
+cursor:pointer;
+
+
+color: #FFF;
+font-size: 24px;
+font-weight: 700;
+letter-spacing: 2.88px;
+font-family: 'NanumMyeongjo', serif;
+}
+
+.main .sign_up{
+    box-sizing:border-box;
+    width: 440px;
+height: 70px;
+flex-shrink: 0;
+border-radius: 16px;
+border: 0 solid rgba(176, 153, 119, 0.50);
+margin-bottom:12.5%;
+cursor:pointer;
+
+color: var(--MAIN, #B09977);
+font-family: 'NanumMyeongjo', serif;
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 30px; /* 125% */
+letter-spacing: 2.88px;
+}

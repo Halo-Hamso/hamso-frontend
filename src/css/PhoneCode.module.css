@@ -2,6 +2,7 @@
 @import url('https://webfontworld.github.io/DdangFonts/TangsBudaeJjigae.css');
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
 
+
 ::-webkit-scrollbar {
     width: 20px;
 }
@@ -51,7 +52,7 @@
     left: 5%;
 
     cursor: pointer;
-    background: url("../img/closeBtn.svg");
+    background: url("../images/hamso_logo.svg");
     background-repeat: no-repeat;
     background-size: cover;
 
