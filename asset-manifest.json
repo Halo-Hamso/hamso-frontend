@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.ff23574c.css",
-    "main.js": "/static/js/main.88635d62.js",
-    "static/js/787.cd5110fb.chunk.js": "/static/js/787.cd5110fb.chunk.js",
-    "static/media/eyeClose.svg": "/static/media/eyeClose.d7bf0069c4a68fde80a12c2282b7caf8.svg",
-    "static/media/hamso_logo.svg": "/static/media/hamso_logo.ddad293505de4510094f9f410b6698f2.svg",
-    "static/media/eyeOpen.svg": "/static/media/eyeOpen.4a4e32d1f69ef8e33009dc60e10b8ef9.svg",
-    "index.html": "/index.html",
-    "static/media/check_o.svg": "/static/media/check_o.2bd11daa13f75141d615.svg",
-    "static/media/check_x.svg": "/static/media/check_x.95332bdfd1ee0f252418.svg",
-    "static/media/direction.svg": "/static/media/direction.f404660813b6d218b54e63096ae66f0f.svg",
-    "main.ff23574c.css.map": "/static/css/main.ff23574c.css.map",
-    "main.88635d62.js.map": "/static/js/main.88635d62.js.map",
-    "787.cd5110fb.chunk.js.map": "/static/js/787.cd5110fb.chunk.js.map"
+    "main.css": "/hamso-frontend/static/css/main.219c5c1e.css",
+    "main.js": "/hamso-frontend/static/js/main.ddda88a6.js",
+    "static/js/787.cd5110fb.chunk.js": "/hamso-frontend/static/js/787.cd5110fb.chunk.js",
+    "static/media/eyeClose.svg": "/hamso-frontend/static/media/eyeClose.d7bf0069c4a68fde80a12c2282b7caf8.svg",
+    "static/media/hamso_logo.svg": "/hamso-frontend/static/media/hamso_logo.ddad293505de4510094f9f410b6698f2.svg",
+    "index.html": "/hamso-frontend/index.html",
+    "static/media/eyeOpen.svg": "/hamso-frontend/static/media/eyeOpen.4a4e32d1f69ef8e33009dc60e10b8ef9.svg",
+    "static/media/check_o.svg": "/hamso-frontend/static/media/check_o.2bd11daa13f75141d615.svg",
+    "static/media/check_x.svg": "/hamso-frontend/static/media/check_x.95332bdfd1ee0f252418.svg",
+    "static/media/direction.svg": "/hamso-frontend/static/media/direction.f404660813b6d218b54e63096ae66f0f.svg",
+    "main.219c5c1e.css.map": "/hamso-frontend/static/css/main.219c5c1e.css.map",
+    "main.ddda88a6.js.map": "/hamso-frontend/static/js/main.ddda88a6.js.map",
+    "787.cd5110fb.chunk.js.map": "/hamso-frontend/static/js/787.cd5110fb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff23574c.css",
-    "static/js/main.88635d62.js"
+    "static/css/main.219c5c1e.css",
+    "static/js/main.ddda88a6.js"
   ]
 }
