@@ -123,6 +123,9 @@
   justify-content: flex-start;
   align-items: center;
 }
+.main .input_box1:hover {
+  border: 1px solid var(--AMain, #475A5D);
+}
 
 .main .input1 {
   justify-self: flex-start;
@@ -156,6 +159,9 @@
   justify-content: space-between;
   align-items: center;
 }
+.main .input_box2:hover {
+  border: 1px solid var(--AMain, #475A5D);
+}
 
 .main .input2 {
   width: 360px;
@@ -186,6 +192,9 @@
   justify-content: space-between;
   align-items: center;
 }
+.main .input_box3:hover {
+  border: 1px solid var(--AMain, #475A5D);
+}
 
 .main .input_box4 {
   width: 180px;
@@ -201,6 +210,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.main .input_box4:hover {
+  border: 1px solid var(--AMain, #475A5D);
 }
 
 .main .input4 {
@@ -240,6 +252,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 
 .main .btn_o {
   width: 72px;
@@ -305,6 +318,9 @@
   font-weight: 400;
 
   padding-left:16px;
+}
+.main .select:hover {
+  border: 1px solid var(--AMain, #475A5D);
 }
 
 .main .text3 {
@@ -479,11 +495,11 @@
   }
   .main .btn_o {
     width: 15vw;
-    font-size:1vw;
+    font-size:3vw;
   }
   .main .btn_x {
     width: 15vw;
-    font-size:1vw;
+    font-size:3vw;
   }
   .main .input_select {
     width: 80vw;
