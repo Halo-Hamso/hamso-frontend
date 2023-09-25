@@ -507,8 +507,9 @@
   }
 
   .main .select {
-    width: 40vw;
+    width: 35vw;
     font-size:4vw;
+    margin-right:5vw;
   }
 
   .main .input_box4 {
@@ -542,10 +543,10 @@
   }
 
   .text6 {
-    font-size: 2vw;
+    font-size: 3vw;
   }
 
   .main .impossible {
-    font-size: 2vw;
+    font-size: 3vw;
   }
 }
