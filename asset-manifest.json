@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/hamso-frontend/static/css/main.09ae13f1.css",
+    "main.css": "/hamso-frontend/static/css/main.ccf50f91.css",
     "main.js": "/hamso-frontend/static/js/main.41abed82.js",
     "static/js/787.cd5110fb.chunk.js": "/hamso-frontend/static/js/787.cd5110fb.chunk.js",
     "static/media/eyeClose.svg": "/hamso-frontend/static/media/eyeClose.d7bf0069c4a68fde80a12c2282b7caf8.svg",
@@ -10,12 +10,12 @@
     "static/media/check_o.svg": "/hamso-frontend/static/media/check_o.2bd11daa13f75141d615.svg",
     "static/media/check_x.svg": "/hamso-frontend/static/media/check_x.95332bdfd1ee0f252418.svg",
     "static/media/direction.svg": "/hamso-frontend/static/media/direction.f404660813b6d218b54e63096ae66f0f.svg",
-    "main.09ae13f1.css.map": "/hamso-frontend/static/css/main.09ae13f1.css.map",
+    "main.ccf50f91.css.map": "/hamso-frontend/static/css/main.ccf50f91.css.map",
     "main.41abed82.js.map": "/hamso-frontend/static/js/main.41abed82.js.map",
     "787.cd5110fb.chunk.js.map": "/hamso-frontend/static/js/787.cd5110fb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.09ae13f1.css",
+    "static/css/main.ccf50f91.css",
     "static/js/main.41abed82.js"
   ]
 }
