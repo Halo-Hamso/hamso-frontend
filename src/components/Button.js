@@ -9,7 +9,8 @@ function Button(props){
     onClick = {props.onClick} 
     className={props.className}
     type = {props.type}
-    disabled={props.disabled}> {props.text}
+    disabled={props.disabled}
+    style={props.style}> {props.text}
         </button>;
 }
 

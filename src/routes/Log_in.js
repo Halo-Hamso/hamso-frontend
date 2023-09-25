@@ -22,9 +22,9 @@ function Log_in() {
   const [wrongId, setWrongId] = useState(false);
 
   const [wrongPswd, setWrongPswd] = useState(false);
-  const [visible,setVisible]=useState(false);
-  const [visibleBtn,setVisibleBtn]=useState(eyeClose);
-  const [type,setType]=useState("password");
+  const [visible, setVisible] = useState(false);
+  const [visibleBtn, setVisibleBtn] = useState(eyeClose);
+  const [type, setType] = useState("password");
 
   const [loginText, setLoginText] = useState("");
   const [textClass, setTextClass] = useState(login.loading);
@@ -45,7 +45,7 @@ function Log_in() {
   }
 
   const onClick_visible = () => {
-    if (!visible) { 
+    if (!visible) {
       //클릭 당시의 현재값을 기준으로, 조건문에서는 그것을 바꾸고 그 이후의 변화를 살필 것. true일 경우 true의 상황을 제공하는 게 아니라
       //true일 경우에는 false로 바꿔줘야함!!
       setVisible(true);
@@ -125,40 +125,46 @@ function Log_in() {
 
   return (
     <div className={login.root}>
-      <Link to="/" style={{textDecoration:'none'}}>
-      <header className = {login.header}>
-        <img className = {login.logo_img} src={hamso_logo}></img>
-        <div className={login.text_box}>
-          <p className={login.text1}>함소</p>
-          <p className={login.text2}>온전히 떠나보낼 수 있도록,</p>
-        </div>
-      </header>
+      <Link to="/" style={{ textDecoration: 'none' }}>
+        <header className={login.header}>
+          <img className={login.logo_img} src={hamso_logo}></img>
+          <div className={login.text_box}>
+            <p className={login.text1}>함소</p>
+            <p className={login.text2}>온전히 떠나보낼 수 있도록,</p>
+          </div>
+        </header>
       </Link>
       <main className={login.main}>
         <form onSubmit={onSubmit} className={login.flex_center}>
-          <div>
-            <p className={login.text1_head}>전화번호(아이디)</p>
-            <div className = {login.input_box1}>
-            <Input name="phoneNo" type="text" 
-            onChange={onChange}
-            className={login.input1}></Input>
+          <div style={{ marginBottom: '12px' }}>
+            <p className={login.text1_head}
+              style={{ marginBottom: '4px' }}>전화번호(아이디)</p>
+            <div className={login.input_box1}>
+              <Input name="phoneNo" type="text"
+                onChange={onChange}
+                placeholder="전화번호(아이디)"
+                className={login.input1}></Input>
             </div>
           </div>
-          <div>
-            <p className={login.text1}>비밀번호</p>
-            <div className = {login.input_box2}>
-              <Input name="password" type={type} 
-              onChange={onChange}
-              className={login.input2}></Input>
+          <div style={{marginBottom:'40px'}}>
+            <p className={login.text1}
+            style={{marginBottom:'4px'}}>비밀번호</p>
+            <div className={login.input_box2}>
+              <Input name="password" type={type}
+                onChange={onChange}
+                placeholder="●●●●●●●●●●"
+                className={login.input2}></Input>
               <img src={visibleBtn} onClick={onClick_visible}></img>
             </div>
           </div>
           {clicked && <div className={textClass}>{loginText}</div>}
-          <Button text="로그인하기" className={login.submit_btn}></Button>
-          <p style={{color:'#B09977'}}>비밀번호를 잊으셨나요? &nbsp;
-            <Link to='/password_finding' style={{color:'#B09977'}}>
+          <Button style={{marginBottom:'4px'}}
+          text="로그인하기" className={login.submit_btn}></Button>
+          <p style={{ color: '#999', fontSize: '12px',
+         marginBottom:'20px'}}>비밀번호를 잊으셨나요? &nbsp;
+            <Link to='/password_finding' style={{ color: '#999', fontSize: '12px' }}>
               <a>비밀번호 찾기</a>
-              </Link>
+            </Link>
           </p>
         </form>
 

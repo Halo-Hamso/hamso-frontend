@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -70,7 +69,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
-=======
-# hamso-frontend
->>>>>>> 0c2c9f86c7940505c3211ef3a134dc6b58136c09

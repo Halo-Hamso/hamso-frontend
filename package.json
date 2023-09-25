@@ -41,5 +41,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://halo_hamso"
+  "homepage": "https://halo-hamso.github.io/hamso-frontend/",
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
+  }
 }

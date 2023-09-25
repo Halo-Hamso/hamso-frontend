@@ -5,11 +5,13 @@ import{
 } from "react-router-dom";
 import Sign_up from "./Sign_up";
 import Log_in from "./Log_in";
+import Home from "./Home";
 
 function App(){
   return <Router> 
     <Routes>
-      <Route path = {`${process.env.PUBLIC_URL}`} element = {<Log_in/>}></Route>
+      <Route path = {`${process.env.PUBLIC_URL}/`} element = {<Log_in/>}></Route>
+      <Route path = '/home' element = {<Home></Home>}></Route>
       <Route path = '/sign_up' element = {<Sign_up/>}></Route>
     </Routes>
   </Router>
