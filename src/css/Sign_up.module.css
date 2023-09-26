@@ -175,6 +175,27 @@
   font-weight: 400;
 }
 
+.main .input_box_phone {
+  width: 280px;
+  height: 44px;
+  flex-shrink: 0;
+  margin-right:24px;
+
+  border: 1px solid var(--Line1, #D0D0D0);
+
+  color: #999;
+  font-size: 24px;
+  font-weight: 400;
+
+  padding-left:16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .input_box_phone:hover {
+  border: 1px solid var(--AMain, #475A5D);
+}
+
 .main .input_box3 {
   width: 280px;
   height: 44px;
@@ -192,7 +213,24 @@
   justify-content: space-between;
   align-items: center;
 }
-.main .input_box3:hover {
+.main .input_box3_abled {
+  width: 280px;
+  height: 44px;
+  flex-shrink: 0;
+  margin-right:24px;
+
+  border: 1px solid var(--Line1, #D0D0D0);
+
+  color: #999;
+  font-size: 24px;
+  font-weight: 400;
+
+  padding-left:16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .input_box3_abled:hover {
   border: 1px solid var(--AMain, #475A5D);
 }
 
@@ -211,13 +249,29 @@
   justify-content: space-between;
   align-items: center;
 }
-.main .input_box4:hover {
+.main .input_box4_abled {
+  width: 180px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid var(--Line1, #D0D0D0);
+
+  color: #999;
+  font-size: 24px;
+  font-weight: 400;
+
+  padding-left:16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.main .input_box4_abled:hover {
   border: 1px solid var(--AMain, #475A5D);
 }
 
 .main .input4 {
   width:176px;
-  height: 40px;
+  height: 36px;
   flex-shrink: 0;
   border: none;
   outline: none;
@@ -489,10 +543,19 @@
     font-size:4vw;
   }
   
+  .main .input_box_phone {
+    width: 60vw;
+    margin-right:5vw;
+  }
   .main .input_box3 {
     width: 60vw;
     margin-right:5vw;
   }
+  .main .input_box3_abled {
+    width: 60vw;
+    margin-right:5vw;
+  }
+
   .main .btn_o {
     width: 15vw;
     font-size:3vw;
@@ -516,6 +579,11 @@
     width: 40vw;
     font-size:4vw;
   }
+  .main .input_box4_abled {
+    width: 40vw;
+    font-size:4vw;
+  }
+
   .main .input4 {
     width: 38vw;
     font-size:4vw;

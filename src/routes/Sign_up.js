@@ -41,7 +41,7 @@ function Sign_up() {
   const [disInput, setDisInput] = useState(true);
   const [timer, setTimer] = useState(false);
   const [phoneChecked, setPhoneChecked] = useState(false);
-
+  const [codeClass,setCodeClass]=useState(sign_up.input_box3);
 
   const [joinbtn, setJoinBtn] = useState(true);
   const [btnClass, setBtnClass] = useState(sign_up.next_btn_x);
@@ -55,6 +55,7 @@ function Sign_up() {
   });
 
   const [relationshipInput, setRelationshipInput] = useState(true);
+  const [directlyClass,setDirectlyClass]=useState(sign_up.input_box4);
 
   const [nameText,setNameText]=useState(sign_up.text6);
   const [phoneText,setPhoneText]=useState(sign_up.text6);
@@ -355,6 +356,7 @@ function Sign_up() {
     setDisabledBtn2(false);
     console.log(response.data);
     console.log("요청 성공");
+    setCodeClass(sign_up.input_box3_abled)
     setTimer(true);
   }
 
@@ -384,8 +386,10 @@ function Sign_up() {
   const onRelationship = () => {
     if (formValues.relationship1 === "etc") {
       setRelationshipInput(false);
+      setDirectlyClass(sign_up.input_box4_abled)
     } else {
       setRelationshipInput(true);
+      setDirectlyClass(sign_up.input_box4)
     }
   }
 
@@ -606,7 +610,7 @@ function Sign_up() {
             className={sign_up.text1}>전화번호</p>
             <div style={{marginBottom:'4px'}}
             className={sign_up.input_btn1}>
-              <div className={sign_up.input_box3}>
+              <div className={sign_up.input_box_phone}>
                 <Input name="phoneNo" type="text"
                   onChange={onChange} 
                   value = {formValues.phoneNo}
@@ -624,7 +628,7 @@ function Sign_up() {
             className={sign_up.text1}>인증번호</p>
             <div style={{marginBottom:'4px'}}
             className={sign_up.input_btn1}>
-              <div className={sign_up.input_box3}>
+              <div className={codeClass}>
                 <Input name="code" type="number" disabled={disInput}
                   onChange={onChange} placeholder="인증번호를 입력해주세요."
                   className={sign_up.input2} />
@@ -672,7 +676,7 @@ function Sign_up() {
                 <option value="daughter">딸(女)</option>
                 <option value="etc">직접 입력</option>
               </select>
-              <div className={sign_up.input_box4}>
+              <div className={directlyClass}>
                 <Input name="relationship2" onChange={onChange} disabled={relationshipInput}
                   placeholder="직접 입력"
                   className={sign_up.input4} />
