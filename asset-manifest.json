@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/hamso-frontend/static/css/main.de40ca7c.css",
-    "main.js": "/hamso-frontend/static/js/main.41abed82.js",
+    "main.css": "/hamso-frontend/static/css/main.88cbc152.css",
+    "main.js": "/hamso-frontend/static/js/main.c6faca26.js",
     "static/js/787.cd5110fb.chunk.js": "/hamso-frontend/static/js/787.cd5110fb.chunk.js",
     "static/media/eyeClose.svg": "/hamso-frontend/static/media/eyeClose.d7bf0069c4a68fde80a12c2282b7caf8.svg",
     "static/media/hamso_logo.svg": "/hamso-frontend/static/media/hamso_logo.ddad293505de4510094f9f410b6698f2.svg",
@@ -10,12 +10,12 @@
     "static/media/check_o.svg": "/hamso-frontend/static/media/check_o.2bd11daa13f75141d615.svg",
     "static/media/check_x.svg": "/hamso-frontend/static/media/check_x.95332bdfd1ee0f252418.svg",
     "static/media/direction.svg": "/hamso-frontend/static/media/direction.f404660813b6d218b54e63096ae66f0f.svg",
-    "main.de40ca7c.css.map": "/hamso-frontend/static/css/main.de40ca7c.css.map",
-    "main.41abed82.js.map": "/hamso-frontend/static/js/main.41abed82.js.map",
+    "main.88cbc152.css.map": "/hamso-frontend/static/css/main.88cbc152.css.map",
+    "main.c6faca26.js.map": "/hamso-frontend/static/js/main.c6faca26.js.map",
     "787.cd5110fb.chunk.js.map": "/hamso-frontend/static/js/787.cd5110fb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.de40ca7c.css",
-    "static/js/main.41abed82.js"
+    "static/css/main.88cbc152.css",
+    "static/js/main.c6faca26.js"
   ]
 }
