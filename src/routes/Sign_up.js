@@ -8,7 +8,7 @@ import Timer from "../components/Timer"
 
 import sign_up from "../css/Sign_up.module.css";
 
-
+import direction from "../images/direction.svg"
 import hamso_logo from "../images/hamso_logo.svg";
 import eyeOpen from "../images/eyeOpen.svg";
 import eyeClose from "../images/eyeClose.svg";
@@ -41,7 +41,7 @@ function Sign_up() {
   const [disInput, setDisInput] = useState(true);
   const [timer, setTimer] = useState(false);
   const [phoneChecked, setPhoneChecked] = useState(false);
-
+  const [codeClass,setCodeClass]=useState(sign_up.input_box3);
 
   const [joinbtn, setJoinBtn] = useState(true);
   const [btnClass, setBtnClass] = useState(sign_up.next_btn_x);
@@ -55,6 +55,7 @@ function Sign_up() {
   });
 
   const [relationshipInput, setRelationshipInput] = useState(true);
+  const [directlyClass,setDirectlyClass]=useState(sign_up.input_box4);
 
   const [nameText,setNameText]=useState(sign_up.text6);
   const [phoneText,setPhoneText]=useState(sign_up.text6);
@@ -355,6 +356,7 @@ function Sign_up() {
     setDisabledBtn2(false);
     console.log(response.data);
     console.log("요청 성공");
+    setCodeClass(sign_up.input_box3_abled)
     setTimer(true);
   }
 
@@ -384,8 +386,10 @@ function Sign_up() {
   const onRelationship = () => {
     if (formValues.relationship1 === "etc") {
       setRelationshipInput(false);
+      setDirectlyClass(sign_up.input_box4_abled)
     } else {
       setRelationshipInput(true);
+      setDirectlyClass(sign_up.input_box4)
     }
   }
 
@@ -571,6 +575,9 @@ function Sign_up() {
     <div className={sign_up.root}>
       <Link to = '/' style={{textDecoration:'none'}}>
       <header className={sign_up.header}>
+      <Link to = '/hamso-frontend' style={{textDecoration:'none'}}>
+        <img src={direction} style={{marginRight:'0.1vw'}}></img>
+        </Link>
         <img src={hamso_logo} className={sign_up.logo_img}></img>
         <div className={sign_up.text_box}>
           <p className={sign_up.text1}>함소</p>
@@ -581,29 +588,29 @@ function Sign_up() {
 
       <main className={sign_up.main}>
 
-        <div className={sign_up.text_head} style={{marginBottom:'40px'}}>
-          <p>
-            회원가입을 위해
-            <br></br>
-            정보를 입력해주세요.
-          </p>
+        <div className={sign_up.text_head}>
+            회원가입을 위해 정보를 입력해주세요.
         </div>
 
-        <form onSubmit={onSubmit} className={sign_up.flex_center} style={{gap:'58px'}}>
-          <div>
-            <p className={sign_up.text1}>이름</p>
+        <form onSubmit={onSubmit} className={sign_up.flex_center}>
+          <div style={{marginBottom:'20px'}}>
+            <p className={sign_up.text1}
+            style={{marginBottom:'4px'}}>이름</p>
             <div className={sign_up.input_box1}>
               <Input name="name" type="text"
-                onChange={onChange} placeholder="이름을 입력해주세요."
+                onChange={onChange} placeholder="이름 입력"
                 className={sign_up.input1} />
             </div>
-            <p className={nameText}>* 이름을 입력해주세요</p>
+            <p className={nameText}
+            style={{marginBottom:'4px'}}>* 이름을 입력해주세요</p>
           </div>
 
-          <div>
-            <p className={sign_up.text1}>전화번호</p>
-            <div className={sign_up.input_btn1}>
-              <div className={sign_up.input_box3}>
+          <div style={{marginBottom:'20px'}}>
+            <p style={{marginBottom:'4px'}}
+            className={sign_up.text1}>전화번호</p>
+            <div style={{marginBottom:'4px'}}
+            className={sign_up.input_btn1}>
+              <div className={sign_up.input_box_phone}>
                 <Input name="phoneNo" type="text"
                   onChange={onChange} 
                   value = {formValues.phoneNo}
@@ -616,10 +623,12 @@ function Sign_up() {
             <p className={phoneText}>{phoneMessage}</p>
           </div>
 
-          <div>
-            <p className={sign_up.text1}>인증번호</p>
-            <div className={sign_up.input_btn1}>
-              <div className={sign_up.input_box3}>
+          <div style={{marginBottom:'20px'}}>
+            <p style={{marginBottom:'4px'}}
+            className={sign_up.text1}>인증번호</p>
+            <div style={{marginBottom:'4px'}}
+            className={sign_up.input_btn1}>
+              <div className={codeClass}>
                 <Input name="code" type="number" disabled={disInput}
                   onChange={onChange} placeholder="인증번호를 입력해주세요."
                   className={sign_up.input2} />
@@ -633,10 +642,11 @@ function Sign_up() {
           </div>
 
 
-          <div>
-            <div style={{ marginBottom: '28px' }}>
+          <div style={{marginBottom:'20px'}}>
+            <div style={{ marginBottom: '20px' }}>
               <p className={sign_up.text1}>비밀번호</p>
-              <div className={sign_up.input_box2}>
+              <div style={{marginBottom:'4px'}}
+              className={sign_up.input_box2}>
                 <Input name="password" type={type} onChange={return_pw} placeholder="●●●●●●●●"
                   className={sign_up.input1} />
                 <img src={visibleBtn} onClick={onClick_visible}></img>
@@ -644,7 +654,7 @@ function Sign_up() {
               <p className={pswdClass1}>{pswdStr1}</p>
             </div>
 
-            <div>
+            <div style={{marginBottom:'20px'}}>
               <p className={sign_up.text1}>비밀번호 확인</p>
               <div className={sign_up.input_box2}>
                 <Input name="check_pswd" type="password" onChange={return_pw_check}
@@ -655,8 +665,8 @@ function Sign_up() {
             </div>
           </div>
 
-          <div>
-            <p className={sign_up.text1}>유족과의 관계</p>
+          <div style={{marginBottom:'36px'}}>
+            <p className={sign_up.text1}>고인과의 관계</p>
 
             <div className={sign_up.input_select}>
               <select name="relationship1" className={sign_up.select} onChange={onChange}>
@@ -666,7 +676,7 @@ function Sign_up() {
                 <option value="daughter">딸(女)</option>
                 <option value="etc">직접 입력</option>
               </select>
-              <div className={sign_up.input_box4}>
+              <div className={directlyClass}>
                 <Input name="relationship2" onChange={onChange} disabled={relationshipInput}
                   placeholder="직접 입력"
                   className={sign_up.input4} />
@@ -674,10 +684,14 @@ function Sign_up() {
             </div>
           </div>
 
-          <div className={sign_up.flex_center} style={{gap:'0px'}}>
-            <div className={sign_up.flex_center} style={{gap:'8px', marginBottom:'36px'}}>
-              <label htmlFor="all" className={sign_up.checkbox_label}>
-                <div style={{width:'36px', height:'36px'}} className = {allCheckedBtn}></div>
+          <div className={sign_up.flex_center}>
+            <div style={{marginBottom:'24px'}}
+            className={sign_up.flex_center}>
+              <label style={{marginBottom:'8px'}}
+              htmlFor="all" className={sign_up.checkbox_label}>
+                <div style={{width:'28px', height:'28px',
+                marginRight:'8px'}} 
+                className = {allCheckedBtn}></div>
                 <Input id = "all" type="checkbox" style={{display:'none'}}
                   checked={allChecked} onClick={handleAllChecked}
                   className={allCheckedBtn} />
@@ -688,37 +702,45 @@ function Sign_up() {
               </div>
             </div>
 
-            <div className={sign_up.flex_center} style={{gap:'12px', marginBottom:'24px'}}>
-              <label htmlFor = "use" className={sign_up.checkbox_label} style={{gap:'14px'}}>
-                <div style={{width:'28px', height:'28px'}} className={useCheckedBtn}></div>
+            <div style={{marginBottom:'24px'}}
+            className={sign_up.flex_center} >
+              <label style={{marginBottom:'8px'}}
+              htmlFor = "use" className={sign_up.checkbox_label}>
+                <div style={{width:'24px', height:'24px',
+              marginRight:'4px'}} className={useCheckedBtn}></div>
                 <Input id="use" type="checkbox" style={{display:'none'}}
                   checked={useChecked} onClick={handleUseChecked}/>
-                <p className={sign_up.text3}><a style={{ color: '#B09977' }}>[필수]</a>&nbsp;함소 이용약관</p>
+                <p className={sign_up.text3}><a style={{ color: '#69534E' }}>[필수]</a>&nbsp;함소 이용약관</p>
               </label>
               <div className={sign_up.text5}>
                 {agree_text[1]}
               </div>
             </div>
 
-            <div className={sign_up.flex_center} style={{gap:'12px', marginBottom:'24px'}}>
-              <label htmlFor="info" className={sign_up.checkbox_label} style={{gap:'14px'}}>
-                <div style={{width:'28px', height:'28px'}} className={infoCheckedBtn}></div>
+            <div style={{marginBottom:'24px'}}
+            className={sign_up.flex_center} >
+              <label style={{marginBottom:'8px'}}
+              htmlFor="info" className={sign_up.checkbox_label}>
+                <div style={{marginRight:'4px', 
+                width:'24px', height:'24px'}} className={infoCheckedBtn}></div>
                 <Input id="info" type="checkbox"
                   checked={infoChecked} onClick={handleInfoChecked}
                   style={{display:'none'}}/>
-                <p className={sign_up.text3}><a style={{ color: '#B09977' }}>[필수]</a>&nbsp;개인정보 수집 및 이용</p>
+                <p className={sign_up.text3}><a style={{ color: '#69534E' }}>[필수]</a>&nbsp;개인정보 수집 및 이용</p>
               </label>
               <div className={sign_up.text5}>
                 {agree_text[2]}
               </div>
             </div>
 
-            <div className={sign_up.flex_center} style={{gap:'12px', marginBottom:'80px'}}>
-              <label htmlFor="ad" className={sign_up.checkbox_label} style={{gap:'14px'}}>
-                <div style={{width:'28px', height:'28px'}} className={adCheckedBtn}></div>
+            <div className={sign_up.flex_center} style={{marginBottom:'56px'}}>
+              <label style={{marginBottom:'8px'}}
+              htmlFor="ad" className={sign_up.checkbox_label}>
+                <div style={{marginRight:'4px', 
+                width:'24px', height:'24px'}} className={adCheckedBtn}></div>
                 <Input id="ad" type="checkbox" style={{display:'none'}}
                   checked={adChecked} onClick={handleAdChecked}/>
-                <p className={sign_up.text3}><a style={{ color: '#B09977' }}>[선택]</a>&nbsp;홍보 및 이벤트 활용</p>
+                <p className={sign_up.text3}><a style={{ color: '#69534E' }}>[선택]</a>&nbsp;홍보 및 이벤트 활용</p>
               </label>
               <div className={sign_up.text5}>
                 {agree_text[3]}

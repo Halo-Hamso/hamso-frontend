@@ -1,385 +1,456 @@
 @import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
-
+/* vw와 rem 적극활용 */
+/* 웬만하면 마진도 죄다 css에 넣어라 결국 모바일뷰포트 만들 때 불편하다 */
 * {
   margin: 0;
   padding: 0;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
-.root{
-    box-sizing: border-box;
+.root {
+  font-family: 'NanumMyeongjo', serif;
+  display: flex;
+  flex-direction: column;
 
-    font-family: 'NanumMyeongjo', serif;
+  justify-content: center;
+  align-items: center;
 
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-
+  padding:5%;
 }
 
-.flex_center{
-  margin-bottom:0;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-}
-
-.header{
-    width: 320px;
-height: 120px; 
-background-color: #FBF9F6;
-margin-top:5%;
-
-
-display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.header .logo_img{
-    width: 88px;
-    height: 120px;
-    flex-shrink: 0;
-    margin-right:14px;
-}
-
-.header .text_box{
-    width: 186px;
-    height: 76px;
-
-    display:flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.header .text1{
-    color: var(--MAIN, #B09977);
-font-size: 48px;
-font-weight: 800;
-letter-spacing: 5.76px;
-margin:0;
-}
-
-.header .text2{
-    color: #999;
-font-size: 16px;
-font-style: normal;
-font-weight: 700;
-margin:0;
-}
-
-.main{
-    width: 585px;
-flex-shrink: 0;
-margin-top:48px;
-margin-bottom:5%;
-
-display:flex;
-flex-direction:column;
-align-items: center;
-
-}
-
-.main .flex_center{
-    margin-bottom:54px;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-
-    gap:58px;
-}
-
-.main .text_head{
-  width:525px;
-
-  color: #000;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 24px; /* 120% */
-  letter-spacing: 2.4px;
-
-  display:flex;
-  justify-content:flex-start;
+.flex_center {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-.main .text1{
-    color: var(--MAIN, #B09977);
-font-size: 16px;
-font-weight: 700;
-margin-bottom:4px;
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:40px;
 }
 
-.main .input_box1{
-    box-sizing: border-box;
-    width: 525px;
-height: 70px;
-flex-shrink: 0;
-border-radius: 16px;
-border: 1px solid var(--MAIN, #B09977);
-
-color: #999;
-font-size: 24px;
-font-weight: 400;
-
-padding-left:20px;
-display:flex;
-justify-content: flex-start;
-align-items: center;
+.header .logo_img {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
 }
 
-.main .input1{
-justify-self:flex-start;
-width:520px;
+.header .text_box {
+  width: 186px;
+  height: 76px;
 
-border:none;
-color: #999;
-font-family: 'NanumMyeongjo', serif;
-font-size: 16px;
-font-weight: 400;
-outline:none;
+  margin-left: -12px;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-
-
-.main .input_box2{
-    box-sizing: border-box;
-    width: 525px;
-height: 70px;
-flex-shrink: 0;
-border-radius: 16px;
-border: 1px solid var(--MAIN, #B09977);
-
-color: #999;
-font-size: 24px;
-font-weight: 400;
-
-padding-left:20px;
-padding-right:20px;
-display:flex;
-justify-content: space-between;
-align-items: center;
-}
-.main .input2{
-width:360px;
-border:none;
-outline:none;
-flex-basis:320px;
-margin-left:20px;
-
-color: #999;
-font-family: 'NanumMyeongjo', serif;
-font-size: 16px;
-font-weight: 400;
+.header .text1 {
+  color: var(--Main, #493B39);
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 48px;
+  /* 133.333% */
+  letter-spacing: 4.32px;
 }
 
-.main .input_box3{
-  box-sizing: border-box;
+.header .text2 {
+  color: #999;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 12px;
+  /* 100% */
+}
+
+.main {
   width: 380px;
-height: 70px;
-flex-shrink: 0;
-border-radius: 16px;
-border: 1px solid var(--MAIN, #B09977);
-margin-left:0;
+  flex-shrink: 0;
 
-color: #999;
-font-size: 24px;
-font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-
-display:flex;
-justify-content: space-between;
-align-items: center;
 }
 
-.main .input_box4{
-  box-sizing: border-box;
-  width: 248px;
-height: 70px;
-flex-shrink: 0;
-border-radius: 16px;
-border: 1px solid var(--MAIN, #B09977);
-
-color: #999;
-font-size: 24px;
-font-weight: 400;
-
-
-display:flex;
-justify-content: space-between;
-align-items: center;
+.main .flex_center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.main .input4{
-  width:244px;
-  height:66px;
-  border:none;
-  outline:none;
-  flex-basis:248px;
-  border-radius: 16px;
-  border:0;
-  
-  padding-left:20px;
+
+.main .text_head {
+  color: var(--Sub1, #69534E);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  /* 140% */
+  margin-bottom:48px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.main .text1 {
+  color: var(--Asub1, #799094);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  /* 157.143% */
+}
+
+.main .input_box1 {
+  width: 380px;
+  height: 44px;
+  flex-shrink: 0;
+
+  border: 1px solid var(--Line1, #D0D0D0);
+
+  color: #999;
+  font-size: 24px;
+  font-weight: 400;
+
+  padding-left:16px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.main .input_box1:hover {
+  border: 1px solid var(--AMain, #475A5D);
+}
+
+.main .input1 {
+  justify-self: flex-start;
+  width: 380px;
+
+  border: none;
   color: #999;
   font-family: 'NanumMyeongjo', serif;
   font-size: 16px;
   font-weight: 400;
-  }
+  outline: none;
+
+}
 
 
-.main .input_btn1{
-  box-sizing: border-box;
-  width : 525px;
-  cursor:pointer;
 
-  display:flex;
+.main .input_box2 {
+  width: 380px;
+  height: 44px;
+  flex-shrink: 0;
+
+  border: 1px solid var(--Line1, #D0D0D0);
+
+  color: #999;
+  font-size: 24px;
+  font-weight: 400;
+
+  padding-left:16px;
+  padding-right:16px;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.main .input_select{
-  box-sizing: border-box;
-  width : 525px;
+.main .input_box2:hover {
+  border: 1px solid var(--AMain, #475A5D);
+}
 
-  display:flex;
+.main .input2 {
+  width: 360px;
+  border: none;
+  outline: none;
+  flex-basis: 320px;
+
+  color: #999;
+  font-family: 'NanumMyeongjo', serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.main .input_box_phone {
+  width: 280px;
+  height: 44px;
+  flex-shrink: 0;
+  margin-right:24px;
+
+  border: 1px solid var(--Line1, #D0D0D0);
+
+  color: #999;
+  font-size: 24px;
+  font-weight: 400;
+
+  padding-left:16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .input_box_phone:hover {
+  border: 1px solid var(--AMain, #475A5D);
+}
+
+.main .input_box3 {
+  width: 280px;
+  height: 44px;
+  flex-shrink: 0;
+  margin-right:24px;
+
+  border: 1px solid var(--Line1, #D0D0D0);
+
+  color: #999;
+  font-size: 24px;
+  font-weight: 400;
+
+  padding-left:16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .input_box3_abled {
+  width: 280px;
+  height: 44px;
+  flex-shrink: 0;
+  margin-right:24px;
+
+  border: 1px solid var(--Line1, #D0D0D0);
+
+  color: #999;
+  font-size: 24px;
+  font-weight: 400;
+
+  padding-left:16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .input_box3_abled:hover {
+  border: 1px solid var(--AMain, #475A5D);
+}
+
+.main .input_box4 {
+  width: 180px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid var(--Line1, #D0D0D0);
+
+  color: #999;
+  font-size: 24px;
+  font-weight: 400;
+
+  padding-left:16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .input_box4_abled {
+  width: 180px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid var(--Line1, #D0D0D0);
+
+  color: #999;
+  font-size: 24px;
+  font-weight: 400;
+
+  padding-left:16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.main .input_box4_abled:hover {
+  border: 1px solid var(--AMain, #475A5D);
+}
+
+.main .input4 {
+  width:176px;
+  height: 36px;
+  flex-shrink: 0;
+  border: none;
+  outline: none;
+  border: 0;
+  margin-left:-16px;
+
+  padding-left:16px;
+  color: #999;
+  font-family: 'NanumMyeongjo', serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+
+.main .input_btn1 {
+  box-sizing: border-box;
+  cursor: pointer;
+
+
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.main .btn_o{
-  width: 90px;
-height: 52px;
-flex-shrink: 0;
-border-radius: 12px;
-background: var(--MAIN, #B09977);
-border : 0;
-cursor:pointer;
+.main .input_select {
+  width: 380px;
+  height: 44px;
+  flex-shrink: 0;
 
-color: #FFF;
-font-family: 'NanumMyeongjo', serif;
-font-size: 16px;
-font-style: normal;
-font-weight: 700;
-line-height: 20px; /* 125% */
-}
-.main .btn_x{
-  width: 90px;
-height: 52px;
-flex-shrink: 0;
-border-radius: 12px;
-background-color: rgba(153, 153, 153, 0.60);
-border : 0;
-cursor:pointer;
-
-color: #FFF;
-font-family: 'NanumMyeongjo', serif;
-font-size: 16px;
-font-style: normal;
-font-weight: 700;
-line-height: 20px; /* 125% */
-}
-.main .submit_btn{
-    width: 440px;
-height: 70px;
-flex-shrink: 0;
-background-color: var(--MAIN, #B09977);
-border-radius: 16px;
-border: 0px solid #999;
-cursor:pointer;
-
-
-color: #FFF;
-font-size: 24px;
-font-weight: 700;
-letter-spacing: 2.88px;
-font-family: 'NanumMyeongjo', serif;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.main .select{
-  box-sizing: border-box;
-  width: 245px;
-height: 68px;
-flex-shrink: 0;
-border-radius: 16px;
-border: 1px solid #999;
 
-color: #333;
-padding-left:20px;
-font-family: 'NanumMyeongjo', serif;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-}
-.main .text3{
-  color: #333;
-  font-size: 20px;
+.main .btn_o {
+  width: 72px;
+  height: 36px;
+  flex-shrink: 0;
+  background: var(--MAIN, #493B39);
+  border: 0;
+  cursor: pointer;
+
+  color: #FFF;
+  font-family: 'NanumMyeongjo', serif;
+  font-size: 12px;
   font-style: normal;
   font-weight: 700;
+  line-height: 20px;
+  /* 125% */
 }
-.main .text4{
-  width: 525px;
+
+.main .btn_x {
+  width: 72px;
+  height: 36px;
+  flex-shrink: 0;
+  background-color: rgba(153, 153, 153, 0.60);
+  border: 0;
+  cursor: pointer;
+
+  color: #FFF;
+  font-family: 'NanumMyeongjo', serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  /* 125% */
+}
+
+.main .submit_btn {
+  width: 380px;
+  height: 70px;
+  flex-shrink: 0;
+  background-color: var(--MAIN, #493B39);
+  border: 0px solid #999;
+  cursor: pointer;
+
+
+  color: #FFF;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2.88px;
+  font-family: 'NanumMyeongjo', serif;
+}
+
+.main .select {
+  width: 180px;
+  height: 44px;
+  flex-shrink: 0;
+
+  border: 1px solid var(--Line1, #D0D0D0);
+
+  color: #333;
+  font-family: 'NanumMyeongjo', serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+
+  padding-left:16px;
+}
+.main .select:hover {
+  border: 1px solid var(--AMain, #475A5D);
+}
+
+.main .text3 {
+  color: #333;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.main .text4 {
+  width: 380px;
+  color: #666;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  /* 150% */
+}
+
+.main .text5 {
+  overflow: auto;
+  width: 380px;
+  height: 171px;
+  flex-shrink: 0;
+  border: 1px solid #CCC;
 
   color: #444;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-}
-.main .text5{
-  overflow:auto;
-  width: 525px;
-height: 171px;
-flex-shrink: 0;
-border-radius: 12px;
-border: 1px solid #CCC;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
 
-  color: #444;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height:22px;
-
-padding:16px;
-padding-top:12px;
+  padding:12px;
+  padding-right:20px;
 }
 
-.text6{
+.text6 {
   color: #F00;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 24px;
-}
-.text_none{
-  display:none;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  /* 100% */
+  margin-top:4px;
 }
 
-.main .checkbox_label{
-  align-self:flex-start;
+.text_none {
+  display: none;
+}
 
-  display:flex;
-  justify-content:center;
+.main .checkbox_label {
+  align-self: flex-start;
+
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap:16px;
-}
-.main .checked{
-background-size:cover;
-flex-shrink: 0;
-border:0;
-outline:none;
-background-image:url("../images/check_o.svg");
-}
-.main .unchecked{
-  background-size:cover;  
-flex-shrink: 0;
-border:0;
-outline:none;
-background-image:url("../images/check_x.svg");
 }
 
-.main .possible{
+.main .checked {
+  background-size: cover;
+  flex-shrink: 0;
+  border: 0;
+  outline: none;
+  background-image: url("../images/check_o.svg");
+}
+
+.main .unchecked {
+  background-size: cover;
+  flex-shrink: 0;
+  border: 0;
+  outline: none;
+  background-image: url("../images/check_x.svg");
+}
+
+.main .possible {
   color: blue;
   font-size: 16px;
   font-style: normal;
@@ -387,45 +458,163 @@ background-image:url("../images/check_x.svg");
   line-height: 24px;
 }
 
-.main .impossible{
-  color: red;
-  font-size: 16px;
+.main .impossible {
+  color: #F00;
+  font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 12px;
+  /* 100% */
 }
 
-.main .next_btn_o{
-    width: 525px;
-    height: 68px;
-    flex-shrink: 0;
-    border:0;
-    border-radius: 16px;
-background-color: var(--MAIN, #B09977);
-cursor:pointer;
-
-color: var(--MAIN, white);
-font-family: 'NanumMyeongjo', serif;
-font-size: 24px;
-font-style: normal;
-font-weight: 700;
-line-height: 30px; /* 125% */
-letter-spacing: 2.88px;
-}
-.main .next_btn_x{
-  width: 525px;
+.main .next_btn_o {
+  width: 380px;
   height: 68px;
   flex-shrink: 0;
-  border:0;
-  border-radius: 12px;
-background-color: rgba(153, 153, 153, 0.60);
-cursor:pointer;
+  border: 0;
+  background-color: var(--Line1, #69534E);
+  cursor: pointer;
 
-color: var(--MAIN, white);
-font-family: 'NanumMyeongjo', serif;
-font-size: 24px;
-font-style: normal;
-font-weight: 700;
-line-height: 30px; /* 125% */
-letter-spacing: 2.88px;
+  color: var(--MAIN, white);
+  font-family: 'NanumMyeongjo', serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  /* 125% */
+  letter-spacing: 2.88px;
+}
+
+.main .next_btn_x {
+  width: 380px;
+  height: 68px;
+  flex-shrink: 0;
+  border: 0;
+  background-color: rgba(153, 153, 153, 0.60);
+  cursor: pointer;
+
+  color: var(--MAIN, white);
+  font-family: 'NanumMyeongjo', serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  /* 125% */
+  letter-spacing: 2.88px;
+}
+
+@media screen and 
+(max-width:480px) and 
+(min-width:280px){
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .header {
+    margin-bottom:5vw;
+  }
+
+  .main {
+    width: 80vw;
+  }
+  .main .text_head {
+    font-size: 4vw;
+    margin-bottom:5vw;
+  }
+
+  .main .input_box1 {
+    width: 80vw;
+  }
+  
+  .main .input1 {
+    width: 80vw;
+    font-size:4vw; 
+  }
+  
+  .main .input_box2 {
+    width: 80vw;
+    padding-right:5vw;
+  }
+  
+  .main .input2 {
+    width: 70vw;
+    font-size:4vw;
+  }
+  
+  .main .input_box_phone {
+    width: 60vw;
+    margin-right:5vw;
+  }
+  .main .input_box3 {
+    width: 60vw;
+    margin-right:5vw;
+  }
+  .main .input_box3_abled {
+    width: 60vw;
+    margin-right:5vw;
+  }
+
+  .main .btn_o {
+    width: 15vw;
+    font-size:3vw;
+  }
+  .main .btn_x {
+    width: 15vw;
+    font-size:3vw;
+  }
+  .main .input_select {
+    width: 80vw;
+    font-size:3vw;
+  }
+
+  .main .select {
+    width: 35vw;
+    font-size:4vw;
+    margin-right:5vw;
+  }
+
+  .main .input_box4 {
+    width: 40vw;
+    font-size:4vw;
+  }
+  .main .input_box4_abled {
+    width: 40vw;
+    font-size:4vw;
+  }
+
+  .main .input4 {
+    width: 38vw;
+    font-size:4vw;
+  }
+  
+  .main .submit_btn {
+    width: 80vw;
+  }
+  
+  .main .text4 {
+    width: 80vw;
+  }
+  
+  .main .text5 {
+    width: 80vw;
+  }
+
+  
+  .main .next_btn_o {
+    width: 80vw;
+  }
+  
+  .main .next_btn_x {
+    width: 80vw;
+  }
+
+  .text6 {
+    font-size: 3vw;
+  }
+
+  .main .impossible {
+    font-size: 3vw;
+  }
 }
