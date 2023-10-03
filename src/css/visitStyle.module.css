@@ -1,0 +1,110 @@
+.visitInfoBox {
+  width: 525px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+.hamsoText {
+  color: #b09977;
+  font-family: NanumMyeongjo;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 56px; /* 116.667% */
+  letter-spacing: 5.76px;
+}
+.hamsoUnderText {
+  color: #999;
+  font-family: NanumMyeongjo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 125% */
+}
+.imgBackground {
+  display: flex;
+  margin-left: 18px;
+  width: 320px;
+  height: 120px;
+  background: #fbf9f6;
+  align-items: center;
+}
+.logoBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inputTitle {
+  color: var(--MAIN, #b09977);
+  font-family: NanumMyeongjo;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px; /* 125% */
+
+  margin-top: 58px;
+}
+.inputBox {
+  width: 525px;
+  height: 68px;
+
+  border-radius: 16px;
+  border: 1px solid #b09977;
+  padding-left: 20px;
+
+  color: #333;
+  font-family: NanumMyeongjo;
+  font-size: 16px;
+
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+}
+
+.text {
+  color: #000;
+  font-family: NanumMyeongjo;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 120% */
+  letter-spacing: 2.4px;
+
+  margin-top: 26px;
+}
+
+.submitBtn {
+  width: 525px;
+  height: 68px;
+
+  border: 0px;
+  border-radius: 16px;
+  background: var(--MAIN, #b09977);
+  margin-top: 80px;
+  margin-bottom: 62px;
+
+  color: #fff;
+  font-family: NanumMyeongjo;
+  font-size: 24px;
+
+  font-weight: 700;
+  line-height: 28px; /* 116.667% */
+  letter-spacing: 2.88px;
+}
+button:hover {
+  cursor: pointer;
+}
+
+.smallInputBox {
+  width: 245px;
+  height: 68px;
+
+  border-radius: 16px;
+  border: 1px solid #b09977;
+  padding-left: 20px;
+
+  color: #333;
+  font-family: NanumMyeongjo;
+  font-size: 16px;
+
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+}
