@@ -11,7 +11,7 @@ function App() {
         <Route path={`${process.env.PUBLIC_URL}/`} element={<Log_in />}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/sign_up" element={<Sign_up />}></Route>
-        <Route path="/visitInfo" element={<VisitInfo />} />
+        <Route path="/visitinfo" element={<VisitInfo />} />
       </Routes>
     </Router>
   );
