@@ -575,7 +575,7 @@ function Sign_up() {
     <div className={sign_up.root}>
       <Link to = '/' style={{textDecoration:'none'}}>
       <header className={sign_up.header}>
-      <Link to = '/hamso-frontend' style={{textDecoration:'none'}}>
+      <Link to = '/' style={{textDecoration:'none'}}>
         <img src={direction} style={{marginRight:'0.1vw'}}></img>
         </Link>
         <img src={hamso_logo} className={sign_up.logo_img}></img>

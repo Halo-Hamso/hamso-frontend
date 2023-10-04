@@ -1,0 +1,174 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'NanumMyeongjo', serif;
+}
+
+/* menu바 스타일*/
+.menu {
+    width: 250px;
+    height: 100vh;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    flex-shrink: 0;
+    position:relative;
+    /*flex와 position:relative-absolute 같이 사용 가능
+    개별요소에 main-axis속성 부여하고싶으면 후자 사용 추천*/
+
+    background-color: white;
+    box-shadow: 2px 0px 4px 0px rgba(121, 144, 148, 0.40);
+
+    /*box-shadow: 4px 0px 2px 0px black; */
+    /*box-shadow 활용법 => 가로 4px, 세로 0px,
+    흐린 정도 5px, 그림자 크기 확장 0px, 그림자 색깔
+    
+    양음+좌우는 기본 좌표계에서 위아래 반전(cmd생각)*/
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header {
+    margin-bottom: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo_img {
+    width: 96px;
+    height: 96px;
+    flex-shrink: 0;
+    margin-right: -12px;
+}
+
+.home {
+    width: 80%;
+    margin-bottom:36px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.account_book {
+    width: 80%;
+    margin-bottom: 36px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.stuff {
+    width: 80%;
+    margin-bottom: 36px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.text_box {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.name_phone{
+    margin-right:28px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.log_out {
+    width: 44px;
+    height: 20px;
+    flex-shrink: 0;
+    border: 0;
+    background-color: var(--Main, #493B39);
+
+    color: #FFF;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 8px;
+    /* 100% */
+}
+
+.text1 {
+    color: var(--Main, #493B39);
+    font-family: 'NanumMyeongjo', serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 48px;
+    /* 133.333% */
+    letter-spacing: 4.32px;
+}
+
+.text2 {
+    color: #999;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 12px;
+    /* 100% */
+}
+
+.text3 {
+    color: var(--AMain, #475A5D);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    /* 150% */
+}
+
+.text4 {
+    color: var(--Main, #493B39);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+}
+
+.text5 {
+    position:absolute;
+    bottom:10vh;
+
+    color: var(--Main, #493B39);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+}
+
+.profile {
+    margin-bottom: 54px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-right:16px;
+}
+
+/* menu바 스타일 (밑)*/
