@@ -122,7 +122,6 @@ function Log_in() {
     submitLogin();
   }, [submit]);
 
-  console.log(formValues);
   return (
     <div className={login.root}>
       <Link to="/" style={{ textDecoration: "none" }}>
