@@ -7,15 +7,25 @@
     font-family: 'NanumMyeongjo', serif;
 }
 
+.root {
+    background-color: #799094;
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+}
+
+/* menu바 스타일*/
+/* menu바 스타일*/
+/* menu바 스타일*/
 /* menu바 스타일*/
 .menu {
-    width: 250px;
-    height: 100vh;
+    height: 100%;
     z-index: 1;
     top: 0;
     left: 0;
     flex-shrink: 0;
-    position:relative;
+    position: relative;
     /*flex와 position:relative-absolute 같이 사용 가능
     개별요소에 main-axis속성 부여하고싶으면 후자 사용 추천*/
 
@@ -49,9 +59,79 @@
     margin-right: -12px;
 }
 
+.mainboard {
+    display: grid;
+    grid-template-rows: 4fr 3fr;
+    gap: 10px;
+
+}
+
+.board {
+    margin-top: 10px;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    padding-left: 52px;
+    padding-top: 28px;
+    padding-right: 5%;
+}
+
+.text_account {
+    margin-bottom: 4px;
+    color: #333;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 32px;
+    /* 133.333% */
+
+    display: flex;
+    align-self: center;
+}
+
+.text_update {
+    margin-bottom: 24px;
+
+    color: #666;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 10px;
+    /* 100% */
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+}
+
+.searchBox {
+    width: 330px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid var(--Line1, #D0D0D0);
+    margin-bottom:12px;
+
+    color: #999;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 166.667% */
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .home {
     width: 80%;
-    margin-bottom:36px;
+    margin-bottom: 36px;
 
     display: flex;
     justify-content: flex-start;
@@ -77,20 +157,22 @@
 }
 
 .text_box {
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-.name_phone{
-    margin-right:28px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
 }
+
+.name_phone {
+    margin-right: 28px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
 .log_out {
     width: 44px;
     height: 20px;
@@ -145,8 +227,8 @@
 }
 
 .text5 {
-    position:absolute;
-    bottom:10vh;
+    position: absolute;
+    bottom: 10vh;
 
     color: var(--Main, #493B39);
     font-size: 16px;
@@ -168,7 +250,127 @@
     width: 24px;
     height: 24px;
     flex-shrink: 0;
-    margin-right:16px;
+    margin-right: 16px;
 }
 
 /* menu바 스타일 (밑)*/
+/* menu바 스타일 (밑)*/
+/* menu바 스타일 (밑)*/
+
+
+/* 표 스타일 (위) *//* 표 스타일 (위) *//* 표 스타일 (위) */
+.table {
+    margin-bottom:8px;
+    width: 100%;
+    color: #666;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+
+    border-collapse: collapse;
+    /* 표의 셀 사이의 미세한 기본간격을 없애는 법 */
+}
+
+
+td {
+    height:36px;
+    text-align: center;
+    border: 1px solid var(--Asub1, #799094);
+    background-color: var(--Asub2, #D3D7D8);  
+    margin:0;
+}
+
+.bar_blank {
+    width: 100%;
+    height: 28px;
+    flex-shrink: 0;
+    border: 1px solid var(--Line1, #D0D0D0);
+
+    margin-bottom:8px;
+}
+
+.index {
+    align-self: flex-end;
+}
+
+.clicked_index {
+    width: 20px;
+    height: 20px;
+    background-color: #B4AEB0;
+    margin-right: 20px;
+    border-radius: 50%;
+
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 1000;
+    line-height: 22px;
+    /* 157.143% */
+    border: none;
+}
+
+.unclicked_index {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    /* 157.143% */
+    border: none;
+}
+/* 표 스타일 (밑) *//* 표 스타일 (밑) *//* 표 스타일 (밑) */
+
+
+.statistics {
+    margin-bottom: 12px;
+    background-color: white;
+
+    display: grid;
+    grid-template-rows: 3fr 10fr;
+}
+
+.chart {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.chart_box {
+    width: 200px;
+    height: 200px;
+}
+
+.table_chart {
+    display: flex;
+    flex-direction: column;
+}
+
+.text_statistics {
+    margin-left: 52px;
+
+    color: #333;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 32px;
+    /* 133.333% */
+
+    display: flex;
+    align-self: center;
+}
+
+.text_statistics2 {
+    color: #333;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+    /* 144.444% */
+}
