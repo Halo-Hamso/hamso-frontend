@@ -291,14 +291,12 @@
 }
 .table_head{
     background-color: var(--Asub2, #D3D7D8); 
-    margin-bottom:8px; 
 }
 
 td {
     height:36px;
     text-align: center;
     border: 1px solid var(--Asub1, #799094);
-    margin:0;
 }
 
 .bar_blank {
