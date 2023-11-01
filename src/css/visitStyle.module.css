@@ -1,0 +1,142 @@
+.visitInfoBox {
+  width: 525px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+input:focus {
+  outline: 2px solid #475a5d;
+}
+.hamsoText {
+  color: var(--Main, #493b39);
+  font-family: NanumMyeongjo;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 48px; /* 133.333% */
+  letter-spacing: 4.32px;
+}
+.hamsoUnderText {
+  color: #999;
+  font-family: NanumMyeongjo;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 12px; /* 100% */
+}
+.imgBackground {
+  display: flex;
+  margin-left: 18px;
+  width: 320px;
+  height: 120px;
+
+  align-items: center;
+}
+.logoBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inputTitle {
+  color: var(--Asub1, #799094);
+  font-family: NanumMyeongjo;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px; /* 157.143% */
+
+  margin-top: 36px;
+}
+.inputBox {
+  width: 380px;
+  height: 44px;
+  border: 1px solid var(--Line1, #d0d0d0);
+
+  padding-left: 16px;
+
+  color: #333;
+  font-family: NanumMyeongjo;
+  font-size: 16px;
+
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+}
+
+.text {
+  color: var(--Sub1, #69534e);
+  text-align: center;
+  font-family: NanumMyeongjo;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px; /* 140% */
+
+  margin-top: 26px;
+}
+
+.submitBtn {
+  width: 380px;
+  height: 44px;
+
+  border: 0px;
+
+  background: var(--AMain, #475a5d);
+  margin-top: 80px;
+  margin-bottom: 62px;
+
+  color: #fff;
+  font-family: NanumMyeongjo;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px; /* 144.444% */
+  letter-spacing: 2.16px;
+}
+button:hover {
+  cursor: pointer;
+}
+
+.smallInputBox {
+  width: 180px;
+  height: 44px;
+
+  border: 1px solid var(--Line1, #d0d0d0);
+  padding-left: 16px;
+
+  color: #333;
+  font-family: NanumMyeongjo;
+  font-size: 16px;
+
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+}
+
+button {
+  width: 180px;
+  height: 44px;
+
+  border: 1px solid var(--Line1, #d0d0d0);
+  padding-left: 16px;
+
+  color: #333;
+  font-family: NanumMyeongjo;
+  font-size: 16px;
+
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+  display: flex;
+  align-items: center;
+}
+li {
+  list-style: none;
+  display: block;
+}
+button:hover {
+  background-color: #d0d0d0;
+}
+.dropDown {
+  border: 0;
+  border-right: 1px solid var(--Line1, #d0d0d0);
+  border-left: 1px solid var(--Line1, #d0d0d0);
+
+  background-color: #fff;
+}
