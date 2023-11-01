@@ -15,10 +15,10 @@
     grid-template-columns: 2fr 8fr;
 }
 
-/* menu바 스타일*/
-/* menu바 스타일*/
-/* menu바 스타일*/
-/* menu바 스타일*/
+/* menu바 스타일 시작*/
+/* menu바 스타일 시작*/
+/* menu바 스타일 시작*/
+/* menu바 스타일 시작*/
 .menu {
     height: 100%;
     z-index: 1;
@@ -59,76 +59,6 @@
     margin-right: -12px;
 }
 
-.mainboard {
-    display: grid;
-    grid-template-rows: 4fr 3fr;
-    gap: 10px;
-
-}
-
-.board {
-    margin-top: 10px;
-    background-color: white;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-
-    padding-left: 52px;
-    padding-top: 28px;
-    padding-right: 5%;
-}
-
-.text_account {
-    margin-bottom: 4px;
-    color: #333;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 32px;
-    /* 133.333% */
-
-    display: flex;
-    align-self: center;
-}
-
-.text_update {
-    margin-bottom: 24px;
-
-    color: #666;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 10px;
-    /* 100% */
-}
-
-.search {
-    display: flex;
-    flex-direction: column;
-}
-
-.searchBox {
-    width: 330px;
-    height: 32px;
-    flex-shrink: 0;
-    border-radius: 4px;
-    border: 1px solid var(--Line1, #D0D0D0);
-    margin-bottom:12px;
-
-    color: #999;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
-    /* 166.667% */
-
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
 .home {
     width: 80%;
     margin-bottom: 36px;
@@ -136,6 +66,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    cursor:pointer;
 }
 
 .account_book {
@@ -145,6 +77,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    cursor:pointer;
 }
 
 .stuff {
@@ -154,6 +88,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    cursor:pointer;
 }
 
 .text_box {
@@ -226,7 +162,7 @@
     /* 150% */
 }
 
-.text5 {
+.my_page {
     position: absolute;
     bottom: 10vh;
 
@@ -236,6 +172,8 @@
     font-weight: 400;
     line-height: 24px;
     /* 150% */
+
+    cursor:pointer;
 }
 
 .profile {
@@ -253,12 +191,92 @@
     margin-right: 16px;
 }
 
-/* menu바 스타일 (밑)*/
-/* menu바 스타일 (밑)*/
-/* menu바 스타일 (밑)*/
+/* menu바 스타일 (끝)*/
+/* menu바 스타일 (끝)*/
+/* menu바 스타일 (끝)*/
 
 
-/* 표 스타일 (위) *//* 표 스타일 (위) *//* 표 스타일 (위) */
+
+/* mainboard - 검색창 (시작) */
+/* mainboard - 검색창 (시작) */
+/* mainboard - 검색창 (시작) */
+.mainboard {
+    display: grid;
+    grid-template-rows: 4fr 3fr;
+    gap: 10px;
+
+}
+
+.board {
+    margin-top: 10px;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    padding-left: 52px;
+    padding-top: 28px;
+    padding-right: 5%;
+}
+
+.text_account {
+    margin-bottom: 4px;
+    color: #333;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 32px;
+    /* 133.333% */
+
+    display: flex;
+    align-self: center;
+}
+
+.text_update {
+    margin-bottom: 24px;
+
+    color: #666;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 10px;
+    /* 100% */
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+}
+
+.searchBox {
+    width: 330px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid var(--Line1, #D0D0D0);
+    margin-bottom:12px;
+
+    color: #999;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 166.667% */
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+/* mainboard - 검색창 (시작) */
+/* mainboard - 검색창 (시작) */
+/* mainboard - 검색창 (시작) */
+
+
+/* mainboard - 표 스타일 (시작) */
+/* mainboard - 표 스타일 (시작) */
+/* mainboard - 표 스타일 (시작) */
 .table {
     margin-bottom:8px;
     width: 100%;
@@ -267,17 +285,19 @@
     font-style: normal;
     font-weight: 700;
     line-height: 22px;
-
+    
     border-collapse: collapse;
     /* 표의 셀 사이의 미세한 기본간격을 없애는 법 */
 }
-
+.table_head{
+    background-color: var(--Asub2, #D3D7D8); 
+    margin-bottom:8px; 
+}
 
 td {
     height:36px;
     text-align: center;
     border: 1px solid var(--Asub1, #799094);
-    background-color: var(--Asub2, #D3D7D8);  
     margin:0;
 }
 
@@ -324,9 +344,14 @@ td {
     /* 157.143% */
     border: none;
 }
-/* 표 스타일 (밑) *//* 표 스타일 (밑) *//* 표 스타일 (밑) */
+/* 표 스타일 (끝) */
+/* 표 스타일 (끝) */
+/* 표 스타일 (끝) */
 
 
+/* mainboard - 통계 (시작) */
+/* mainboard - 통계 (시작) */
+/* mainboard - 통계 (시작) */
 .statistics {
     margin-bottom: 12px;
     background-color: white;
@@ -374,3 +399,6 @@ td {
     line-height: 26px;
     /* 144.444% */
 }
+/* mainboard - 통계 (시작) */
+/* mainboard - 통계 (시작) */
+/* mainboard - 통계 (시작) */

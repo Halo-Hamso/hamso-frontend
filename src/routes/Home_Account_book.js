@@ -148,7 +148,7 @@ function Home_Account_book() {
                     <img src={right_now} className={home.icon}></img>
                     <p className={home.text4}>실시간 용품 관리</p>
                 </div>
-                <div className={home.text5}>마이 페이지</div>
+                <div className={home.my_page}>마이 페이지</div>
             </div>
 
             <main className={home.mainboard}>
@@ -176,6 +176,16 @@ function Home_Account_book() {
                                 <td>부의금</td>
                             </tr>
                         </thead>
+                        <tbody>
+                            <tr>
+                                <td>#0004</td>
+                                <td>신혜영</td>
+                                <td>헤일로컴퍼니</td>
+                                <td>김태운</td>
+                                <td>직장 상사</td>
+                                <td>200,000원</td>
+                            </tr>
+                        </tbody>
                         {/*<tbody>
                                 {accountScreen[currentNum].map(
                                     (item)=><tr>
@@ -184,7 +194,7 @@ function Home_Account_book() {
                                         <td>{item.belong}</td>
                                         <td>{item.who}</td>
                                         <td>{item.relationship}</td>
-                                        <td>{item.money}</td>
+                                        <td>{item.money}원</td>
                                     </tr>)}
                                 </tbody>*/}
                     </table>
