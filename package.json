@@ -44,7 +44,9 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://43.201.91.105/",
+
+  "homepage": "http://43.201.91.105",
+
   "devDependencies": {
     "gh-pages": "^6.0.0"
   }
