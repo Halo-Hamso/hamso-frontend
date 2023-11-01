@@ -310,6 +310,10 @@ td {
 
 .index {
     align-self: flex-end;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .clicked_index {
@@ -323,9 +327,13 @@ td {
     font-size: 12px;
     font-style: normal;
     font-weight: 1000;
-    line-height: 22px;
     /* 157.143% */
     border: none;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:0;
 }
 
 .unclicked_index {
@@ -338,9 +346,12 @@ td {
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 22px;
     /* 157.143% */
     border: none;
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 /* 표 스타일 (끝) */
 /* 표 스타일 (끝) */
