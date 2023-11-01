@@ -10,7 +10,9 @@ function Button(props){
     className={props.className}
     type = {props.type}
     disabled={props.disabled}
-    style={props.style}> {props.text}
+    style={props.style}
+    value={props.value}
+    > {props.text}
         </button>;
 }
 

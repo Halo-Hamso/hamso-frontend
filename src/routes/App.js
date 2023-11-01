@@ -3,6 +3,9 @@ import Sign_up from "./Sign_up";
 import Log_in from "./Log_in";
 import Home from "./Home";
 import VisitInfo from "./VisitInfo";
+import Home_Account_book from "./Home_Account_book";
+
+
 
 function App() {
   return (
@@ -11,6 +14,7 @@ function App() {
         <Route path={`${process.env.PUBLIC_URL}/`} element={<Log_in />}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/sign_up" element={<Sign_up />}></Route>
+        <Route path = '/home_account_book' element={<Home_Account_book></Home_Account_book>}></Route>
         <Route path="/visitinfo" element={<VisitInfo />} />
       </Routes>
     </Router>
