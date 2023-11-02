@@ -1,22 +1,24 @@
 import sign_up from '../css/Sign_up.module.css';
 import hamso_logo from '../images/hamso_logo.svg';
 import visitStyle from '../css/visitStyle.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { visitInfoApi } from '../Apis/CustomApis';
 import directionDown from '../images/directionDown.svg';
+
 function VisitInfo() {
   const [selected, setSelected] = useState(false);
   const [directInput, setDirectInput] = useState(true);
   const [selectInfo, setSelectInfo] = useState('유족 관계 선택');
   const [visitInfo, setVisitInfo] = useState({
+    memberId: '1',
     name: '',
     team: '',
     visitedTo: '',
     relation: '유족 관계 선택',
     money: '',
   });
-
+  const navigate = useNavigate();
   const handleDirectInfo = (e) => {
     const id = e.target.id;
     const value = e.target.value;
@@ -34,9 +36,13 @@ function VisitInfo() {
     console.log(directInput);
     setVisitInfo({ ...visitInfo, [id]: value });
   };
+  console.log(visitInfo);
   const handleSubmitBtn = () => {
     visitInfoApi(visitInfo)
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        navigate('/');
+      })
       .catch((err) => console.log(err));
   };
 
@@ -91,7 +97,9 @@ function VisitInfo() {
             <button
               className={visitStyle.smallInputBox}
               style={{
-                alignContent: 'center',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'start',
                 background: '#FFF',
                 width: '180px',
               }}
@@ -117,7 +125,7 @@ function VisitInfo() {
           </div>
           {selected ? (
             <ul onClick={handleVisitInfo}>
-              <li>
+              <li class="category">
                 <button
                   id="relation"
                   value={'친구'}

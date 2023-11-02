@@ -110,22 +110,6 @@ button:hover {
   line-height: 20px; /* 125% */
 }
 
-button {
-  width: 180px;
-  height: 44px;
-
-  border: 1px solid var(--Line1, #d0d0d0);
-  padding-left: 16px;
-
-  color: #333;
-  font-family: NanumMyeongjo;
-  font-size: 16px;
-
-  font-weight: 400;
-  line-height: 20px; /* 125% */
-  display: flex;
-  align-items: center;
-}
 li {
   list-style: none;
   display: block;
@@ -137,6 +121,21 @@ button:hover {
   border: 0;
   border-right: 1px solid var(--Line1, #d0d0d0);
   border-left: 1px solid var(--Line1, #d0d0d0);
-
+  padding-left: 16px;
   background-color: #fff;
+
+  width: 180px;
+  height: 44px;
+
+  color: #333;
+  font-family: NanumMyeongjo;
+  font-size: 16px;
+
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+  display: flex;
+  align-items: center;
+}
+
+.selectBox {
 }
