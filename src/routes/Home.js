@@ -15,27 +15,33 @@ import eyeClose from "../images/eyeClose.svg";
 import axios from "axios";
 
 function Home() {
-  //로그인 여부 확인 (위)//
-  const [login, setLogin] = useState(false);
-  const [userData, setUserData] = useState({});
-  const login_check = () => {
-    const storedTokenData = JSON.parse(sessionStorage.getItem("tokenData"));
-    if (storedTokenData) {
-      setLogin(true);
-      setUserData(JSON.parse(sessionStorage.getItem("userData")));
-    } else {
-      window.location.href = "/";
+    //로그인 여부 확인 (시작)//
+    const [login, setLogin] = useState(false);
+    const [userData, setUserData] = useState({});
+    const login_check = () => {
+        const storedUserData = JSON.parse(sessionStorage.getItem('userData'));
+        if (storedUserData) {
+            setLogin(true);
+            setUserData(storedUserData);
+        } else {
+            alert("로그인이 필요한 페이지입니다!");
+            // window.location.href = "/";
+        }
     }
-  };
-  useEffect(login_check, []);
-  //로그인 여부 확인 (밑)//
+    useEffect(login_check, []);
+    //로그인 여부 확인 (끝)//
 
-  //로그아웃 함수//
-  const log_out = () => {
-    sessionStorage.clear();
-    window.location.href = "/";
-  }; // 로그아웃 함수(밑)//
+    //로그아웃 함수(시작)//
+    const log_out = () => {
+        sessionStorage.clear();
+        window.location.href = "/";
+    }
+    //로그아웃 함수(끝)//
 
+
+
+
+    
   return (
     <div>
       <div className={home.menu}>

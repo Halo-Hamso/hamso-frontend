@@ -18,8 +18,8 @@ import axios from 'axios'
 
 function Sign_up() {
 
-  const JOINURL = "#";
-  const PHONEURL = "#";
+  const JOINURL = "http://3.34.24.140:9998/auth/sign_up";
+  const PHONEURL = "http://3.34.24.140:9998/sms/send";
 
   const [phoneLength1,setPhoneLength1] = useState(0);
   const [phoneLength,setPhoneLength] = useState(0);
@@ -349,15 +349,18 @@ function Sign_up() {
     const content = "";
     const response = await axios.post(PHONEURL, { to, content });
 
-    setDisInput(false);
-    setBackCode(response.data);
-    setCodeText(sign_up.text6);
-    setAccessBtn2(sign_up.btn_o);
-    setDisabledBtn2(false);
-    console.log(response.data);
-    console.log("요청 성공");
-    setCodeClass(sign_up.input_box3_abled)
-    setTimer(true);
+    if(Number.isInteger(response.data)){
+      console.log("요청 성공");
+      setDisInput(false);
+      setBackCode(response.data);
+      setCodeText(sign_up.text6);
+      setAccessBtn2(sign_up.btn_o);
+      setDisabledBtn2(false);
+      setCodeClass(sign_up.input_box3_abled)
+      setTimer(true);
+    }else{
+      console.log(response.data);
+    }
   }
 
   const onClick_phoneCheck = (event) => {
@@ -401,23 +404,28 @@ function Sign_up() {
     event.target.phoneNo.value.slice(0,3) +
     event.target.phoneNo.value.slice(4,8) +
     event.target.phoneNo.value.slice(9,13);
-    let relationship;
+    let relation;
     if (event.target.relationship1.value === "etc") {
-      relationship = event.target.relationship2.value;
+      relation = event.target.relationship2.value;
     } else {
-      relationship = event.target.relationship1.value;
+      relation = event.target.relationship1.value;
     }
-    console.log(name, password, phoneNo, relationship);
+    console.log(name, password, phoneNo, relation);
 
     const response = await axios.post(JOINURL, {
-      password, name, phoneNo, relationship
+      password, name, phoneNo, relation
     });
 
     console.log('data 제출 성공', response.data);
 
-    if (response.data) {
+    if (response.data.name &&
+      response.data.phoneNo) {
       console.log("sign_up succceed!");
-      window.location.href = "/sign_up_success";
+      alert("회원가입이 성공적으로 처리되었습니다!");
+      window.location.href = "/";
+    }
+    else{
+      alert(`${phoneNo}는 이미 존재하는 번호입니다.`);
     }
   }
 

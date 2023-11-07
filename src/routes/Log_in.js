@@ -14,8 +14,7 @@ import eyeClose from "../images/eyeClose.svg";
 import eyeOpen from "../images/eyeOpen.svg";
 
 function Log_in() {
-  const LOGINURL = "#";
-  const MEMBERURL = "#";
+  const LOGINURL = "http://3.34.24.140:9998/auth/login";
 
   const [loading, setLoading] = useState(false);
   const [wrongId, setWrongId] = useState(false);
@@ -71,47 +70,18 @@ function Log_in() {
     try {
       const response = await axios.post(LOGINURL, { phoneNo, password });
 
-      const tokenData = {
-        grantType: response.data.grantType,
-        accessToken: response.data.accessToken,
-        refreshToken: response.data.refreshToken,
+      const userData = {
+        phoneNo: response.data.phoneNo,
+        name: response.data.name,
+        token: response.data.token,
       };
-      sessionStorage.setItem("tokenData", JSON.stringify(tokenData));
+      sessionStorage.setItem("userData", JSON.stringify(userData));
 
-      try {
-        const storedTokenData = JSON.parse(sessionStorage.getItem("tokenData"));
-        const response_member = await axios.get(MEMBERURL, {
-          headers: {
-            Authorization: `Bearer ${storedTokenData.accessToken}`,
-          },
-        });
-
-        const userData = {
-          phoneNo: response_member.data.phoneNo,
-          password: response_member.data.password,
-          name: response_member.data.name,
-          realtionship: response_member.data.realtionship,
-        };
-        sessionStorage.setItem("userData", JSON.stringify(userData));
-
-        if (userData.phoneNo === "auth_phoneNo") {
-          window.location.href = "/auth_home";
-        } else {
-          window.location.href = "/";
-        }
-      } catch (error) {
-        console.log("get response_member failed!", error);
-      }
     } catch (error) {
       console.log("login failed", error);
       setLoading(false);
-      setLoginText("아이디 또는 비밀번호가 일치하지 않습니다!");
+      setLoginText("존재하지 않는 회원이거나 비밀번호가 일치하지 않습니다!");
       setTextClass(login.wrong);
-      if (error.response.status == 404) {
-        console.log("Id wrong");
-      } else if (error.response.status == 401) {
-        console.log("Password wrong");
-      }
     }
   };
   const onSubmit = () => {

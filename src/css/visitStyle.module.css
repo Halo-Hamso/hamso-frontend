@@ -91,7 +91,7 @@ input:focus {
   line-height: 26px; /* 144.444% */
   letter-spacing: 2.16px;
 }
-button:hover {
+.button:hover {
   cursor: pointer;
 }
 
@@ -110,7 +110,7 @@ button:hover {
   line-height: 20px; /* 125% */
 }
 
-button {
+.button {
   width: 180px;
   height: 44px;
 
@@ -130,7 +130,7 @@ li {
   list-style: none;
   display: block;
 }
-button:hover {
+.button:hover {
   background-color: #d0d0d0;
 }
 .dropDown {

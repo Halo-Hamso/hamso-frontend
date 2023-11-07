@@ -22,31 +22,37 @@ import { PieChart } from 'react-minimal-pie-chart';
 import axios from 'axios'
 
 function Home_Account_book() {
-    //로그인 여부 확인 (위)//
+    //로그인 여부 확인 (시작)//
     const [login, setLogin] = useState(false);
     const [userData, setUserData] = useState({});
     const login_check = () => {
-        const storedTokenData = JSON.parse(sessionStorage.getItem('tokenData'));
-        if (storedTokenData) {
+        const storedUserData = JSON.parse(sessionStorage.getItem('userData'));
+        if (storedUserData) {
             setLogin(true);
-            setUserData(JSON.parse(sessionStorage.getItem('userData')))
+            setUserData(storedUserData);
         } else {
+            alert("로그인이 필요한 페이지입니다!");
             // window.location.href = "/";
         }
     }
     useEffect(login_check, []);
-    //로그인 여부 확인 (밑)//
+    //로그인 여부 확인 (끝)//
 
-    //로그아웃 함수//
+    //로그아웃 함수(시작)//
     const log_out = () => {
         sessionStorage.clear();
         window.location.href = "/";
     }
-    //로그아웃 함수(밑)//
+    //로그아웃 함수(끝)//
 
 
-    const [accountURL, setAccountURL] = useState("/");
 
+
+
+    const accountURL = `http://3.34.24.140:9998/account-book/${userData.phoneNo}`;
+    //id가 phoneNo
+    
+    const [modalMenu,setModalMenu] = useState(false);
     const [account, setAccount] = useState("");
     const [accountList, setAccountList] = useState({});
     const [accountScreen, setAccountScreen] = useState([]);
@@ -56,7 +62,9 @@ function Home_Account_book() {
     const [statisticsList, setStatisticsList] = useState({});
     const [personalList, setPersonalList] = useState({});
 
-
+    const onClick_menu = () =>{
+        setModalMenu(!modalMenu);
+    }
     const onChange = (event) => {
         event.preventDefault();
         setAccount(event.target.value);
@@ -64,8 +72,11 @@ function Home_Account_book() {
     const fetchAccount = async () => {
         try {
             const response = await axios.get(accountURL);
-            setAccountList(response.data);
+            setAccountList(response.data.accountList);
             console.log("accountList fetch succeeded!");
+
+//            setScreenNum(response.data.pageinfo.totalPages);
+            setCurrentNum(1);
         } catch (error) {
             console.log("accountList fetch failed ;", error);
         }
@@ -89,31 +100,27 @@ function Home_Account_book() {
                 tmp.splice(0);
             }
         }
-        setScreenNum(accountScreen.length);
+//        setScreenNum(accountScreen.length);
+        setScreenNum(5);
+        setCurrentNum(1);
+    }, [])
 
+    useEffect(()=>{
         numList.splice(0);
         for (let i = 0; i < 5; i++) {
             numList.push(i + 1);
         }
-        setCurrentNum(1);
-    }, [])
-
-
-    const ChartBox = styled.div`
-    display:flex;
-    justify-content:space-evenly;
-    align-items:flex-start;
-
-    div{
-        display:flex;
-        justify-content:center;
-        align-items:center;
-    }
-    `
+    },[screenNum])
 
     return (
         <div className={home.root}>
-            <div className={home.menu}>
+            <div
+                className={home.btn_close}
+                onClick={onClick_menu}>
+                {modalMenu ? "✕" : "☰"}
+            </div>
+            <div className={modalMenu ? home.menu_active : home.menu}>
+
                 <Link to="/" style={{ textDecoration: 'none' }}>
                     <header className={home.header}>
                         <img className={home.logo_img} src={hamso_logo}></img>
@@ -160,7 +167,7 @@ function Home_Account_book() {
                     <div className={home.searchBox}>
                         <img src={glasses} onClick={fetchAccount}></img>
                         <input
-                            style={{ border: 0, width: 240, height: '80%' }}
+                            className={home.searchInput}
                             onChange={onChange}
                             placeholder="검색내용 (ex, 신혜영, 헤일로컴퍼니...)">
                         </input>
@@ -222,7 +229,7 @@ function Home_Account_book() {
                 </div>
                 <div className={home.statistics}>
                     <div className={home.text_statistics}>부의금 통계</div>
-                    <ChartBox>
+                    <div className={home.ChartBox}>
                         <div className={home.chart}>
                             <div className={home.chart_box}>
                                 <PieChart
@@ -271,7 +278,7 @@ function Home_Account_book() {
                                     </div>)*/}
                             </div>
                         </div>
-                    </ChartBox>
+                    </div>
                 </div>
             </main>
         </div>
