@@ -18,6 +18,7 @@ function VisitInfo() {
     relation: '유족 관계 선택',
     money: '',
   });
+
   const navigate = useNavigate();
   const handleDirectInfo = (e) => {
     const id = e.target.id;
