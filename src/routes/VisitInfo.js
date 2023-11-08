@@ -48,7 +48,7 @@ function VisitInfo() {
   };
 
   return (
-    <div>
+    <div style={{ margin: '0 auto' }}>
       <div className={visitStyle.visitInfoBox}>
         <div className={visitStyle.logoBox}>
           <div className={visitStyle.imgBackground}>
@@ -69,7 +69,7 @@ function VisitInfo() {
           <p>조문객님의 정보를 입력해주세요</p>
           <p>1분으로 유족분들에게 큰 힘이 됩니다.</p>
         </div>
-        <div style={{ width: '380px', margin: '0 auto' }}>
+        <div className={visitStyle.form}>
           <div className={visitStyle.inputTitle}>이름</div>
           <input
             id="name"
@@ -100,17 +100,14 @@ function VisitInfo() {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'start',
+                justifyContent: 'space-between',
                 background: '#FFF',
                 width: '180px',
               }}
               onClick={() => setSelected(!selected)}
             >
               {visitInfo.relation}
-              <img
-                src={directionDown}
-                style={{ position: 'absolute', marginLeft: '130px' }}
-              ></img>
+              <img src={directionDown} style={{ marginRight: '10px' }}></img>
             </button>
 
             <input

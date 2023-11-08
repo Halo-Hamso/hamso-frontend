@@ -136,3 +136,29 @@ button:hover {
   display: flex;
   align-items: center;
 }
+
+.form {
+  width: 380px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 480px) and (min-width: 280px) {
+  .visitInfoBox {
+    width: 80vw;
+    margin: 0 auto;
+  }
+  .inputBox {
+    width: 80vw;
+  }
+  .smallInputBox {
+    width: 37vw;
+    white-space: nowrap;
+  }
+  .form {
+    width: 80vw;
+  }
+  .submitBtn {
+    width: 80vw;
+  }
+  .imgMargin {
+  }
+}
