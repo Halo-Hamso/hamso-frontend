@@ -159,6 +159,7 @@ button:hover {
   .submitBtn {
     width: 80vw;
   }
-  .imgMargin {
+  .dropDown {
+    width: 38.5vw;
   }
 }

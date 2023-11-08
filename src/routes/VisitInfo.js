@@ -34,10 +34,9 @@ function VisitInfo() {
     else if ((id == 'relation') & (name != 'true')) {
       setDirectInput(true);
     }
-    console.log(directInput);
     setVisitInfo({ ...visitInfo, [id]: value });
   };
-  console.log(visitInfo);
+
   const handleSubmitBtn = () => {
     visitInfoApi(visitInfo)
       .then((res) => {
@@ -107,7 +106,7 @@ function VisitInfo() {
               onClick={() => setSelected(!selected)}
             >
               {visitInfo.relation}
-              <img src={directionDown} style={{ marginRight: '10px' }}></img>
+              <img src={directionDown} style={{ marginRight: '5px' }}></img>
             </button>
 
             <input
