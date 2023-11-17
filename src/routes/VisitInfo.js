@@ -5,11 +5,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { visitInfoApi } from '../Apis/CustomApis';
 import directionDown from '../images/directionDown.svg';
+import styled from 'styled-components';
 
 function VisitInfo() {
   const [selected, setSelected] = useState(false);
   const [directInput, setDirectInput] = useState(true);
-  const [selectInfo, setSelectInfo] = useState('유족 관계 선택');
   const [visitInfo, setVisitInfo] = useState({
     memberId: '1',
     name: '',
@@ -18,18 +18,20 @@ function VisitInfo() {
     relation: '유족 관계 선택',
     money: '',
   });
-
+  const [btnActive, setBtnActive] = useState(false);
   const navigate = useNavigate();
   const handleDirectInfo = (e) => {
     const id = e.target.id;
     const value = e.target.value;
+    setBtnActive(Object.values(visitInfo).every((e) => e !== ''));
     setVisitInfo({ ...visitInfo, [id]: value });
   };
   const handleVisitInfo = (e) => {
     const id = e.target.id;
     const value = e.target.value;
     const name = e.target.name;
-
+    setBtnActive(Object.values(visitInfo).every((e) => e !== ''));
+    console.log(btnActive, e);
     if (id == 'relation') setSelected(!selected);
     else if ((id == 'relation') & (name != 'true')) {
       setDirectInput(true);
@@ -76,7 +78,7 @@ function VisitInfo() {
             className={visitStyle.inputBox}
             placeholder="이름 입력"
           ></input>
-
+          {visitInfo.name === '' ? <Error>*이름을 입력해주세요.</Error> : ''}
           <div className={visitStyle.inputTitle}>소속</div>
           <input
             id="team"
@@ -84,7 +86,7 @@ function VisitInfo() {
             className={visitStyle.inputBox}
             placeholder="소속 입력"
           ></input>
-
+          {visitInfo.team === '' ? <Error>*소속을 입력해주세요.</Error> : ''}
           <div className={visitStyle.inputTitle}>방문한 유족 성함</div>
           <input
             id="visitedTo"
@@ -92,6 +94,11 @@ function VisitInfo() {
             className={visitStyle.inputBox}
             placeholder="방문한 유족 성함 입력"
           ></input>
+          {visitInfo.visitedTo === '' ? (
+            <Error>*방문한 유족 성함을 입력해주세요.</Error>
+          ) : (
+            ''
+          )}
           <div className={visitStyle.inputTitle}>유족과의 관계</div>
           <div style={{ display: 'flex' }}>
             <button
@@ -193,7 +200,10 @@ function VisitInfo() {
           </span>
           <button
             onClick={handleSubmitBtn}
-            style={{ justifyContent: 'center' }}
+            style={{
+              justifyContent: 'center',
+              background: btnActive ? '#475a5d' : '#D0D0D0',
+            }}
             className={visitStyle.submitBtn}
           >
             제출하기
@@ -205,3 +215,11 @@ function VisitInfo() {
 }
 
 export default VisitInfo;
+
+const Error = styled.div`
+  font-family: NanumMyeongjo;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 5px;
+  color: #ff0000;
+`;
