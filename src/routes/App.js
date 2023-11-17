@@ -5,6 +5,7 @@ import Home from './Home';
 import VisitInfo from './VisitInfo';
 import Home_Account_book from './Home_Account_book';
 import UserHome from './UserHome';
+import BusinessHome from './BusinessHome';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         ></Route>
         <Route path="/visitinfo" element={<VisitInfo />} />
         <Route path="/userhome" element={<UserHome />} />
+        <Route path="/businesshome" element={<BusinessHome />} />
       </Routes>
     </Router>
   );
