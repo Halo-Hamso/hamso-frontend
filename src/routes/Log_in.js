@@ -1,21 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-import Button from "../components/Button";
-import Input from "../components/Input";
+import Button from '../components/Button';
+import Input from '../components/Input';
 
-import login from "../css/Log_in.module.css";
+import login from '../css/Log_in.module.css';
 
-import axios from "axios";
+import axios from 'axios';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import hamso_logo from "../images/hamso_logo.svg";
-import eyeClose from "../images/eyeClose.svg";
-import eyeOpen from "../images/eyeOpen.svg";
+import hamso_logo from '../images/hamso_logo.svg';
+import eyeClose from '../images/eyeClose.svg';
+import eyeOpen from '../images/eyeOpen.svg';
 
 function Log_in() {
-  const LOGINURL = "#";
-  const MEMBERURL = "#";
+  const LOGINURL = '#';
+  const MEMBERURL = '#';
 
   const [loading, setLoading] = useState(false);
   const [wrongId, setWrongId] = useState(false);
@@ -23,16 +23,16 @@ function Log_in() {
   const [wrongPswd, setWrongPswd] = useState(false);
   const [visible, setVisible] = useState(false);
   const [visibleBtn, setVisibleBtn] = useState(eyeClose);
-  const [type, setType] = useState("password");
+  const [type, setType] = useState('password');
 
-  const [loginText, setLoginText] = useState("");
+  const [loginText, setLoginText] = useState('');
   const [textClass, setTextClass] = useState(login.loading);
   const [submit, setSubmit] = useState(false);
   const [clicked, setClicked] = useState(false);
 
   const [formValues, setFormValues] = useState({
-    phoneNo: "",
-    password: "",
+    phoneNo: '',
+    password: '',
   });
 
   const onChange = (event) => {
@@ -49,18 +49,18 @@ function Log_in() {
       //true일 경우에는 false로 바꿔줘야함!!
       setVisible(true);
       setVisibleBtn(eyeOpen);
-      setType("text");
+      setType('text');
     } else {
       setVisible(false);
       setVisibleBtn(eyeClose);
-      setType("password");
+      setType('password');
     }
     console.log(visible);
   };
 
   const submitLogin = async () => {
     setLoading(true);
-    setLoginText("로그인 중입니다...");
+    setLoginText('로그인 중입니다...');
     setTextClass(login.loading);
     setWrongId(false);
     setWrongPswd(false);
@@ -76,10 +76,10 @@ function Log_in() {
         accessToken: response.data.accessToken,
         refreshToken: response.data.refreshToken,
       };
-      sessionStorage.setItem("tokenData", JSON.stringify(tokenData));
+      sessionStorage.setItem('tokenData', JSON.stringify(tokenData));
 
       try {
-        const storedTokenData = JSON.parse(sessionStorage.getItem("tokenData"));
+        const storedTokenData = JSON.parse(sessionStorage.getItem('tokenData'));
         const response_member = await axios.get(MEMBERURL, {
           headers: {
             Authorization: `Bearer ${storedTokenData.accessToken}`,
@@ -92,25 +92,25 @@ function Log_in() {
           name: response_member.data.name,
           realtionship: response_member.data.realtionship,
         };
-        sessionStorage.setItem("userData", JSON.stringify(userData));
+        sessionStorage.setItem('userData', JSON.stringify(userData));
 
-        if (userData.phoneNo === "auth_phoneNo") {
-          window.location.href = "/auth_home";
+        if (userData.phoneNo === 'auth_phoneNo') {
+          window.location.href = '/auth_home';
         } else {
-          window.location.href = "/";
+          window.location.href = '/';
         }
       } catch (error) {
-        console.log("get response_member failed!", error);
+        console.log('get response_member failed!', error);
       }
     } catch (error) {
-      console.log("login failed", error);
+      console.log('login failed', error);
       setLoading(false);
-      setLoginText("아이디 또는 비밀번호가 일치하지 않습니다!");
+      setLoginText('아이디 또는 비밀번호가 일치하지 않습니다!');
       setTextClass(login.wrong);
       if (error.response.status == 404) {
-        console.log("Id wrong");
+        console.log('Id wrong');
       } else if (error.response.status == 401) {
-        console.log("Password wrong");
+        console.log('Password wrong');
       }
     }
   };
@@ -124,7 +124,7 @@ function Log_in() {
 
   return (
     <div className={login.root}>
-      <Link to="/" style={{ textDecoration: "none" }}>
+      <Link to="/" style={{ textDecoration: 'none' }}>
         <header className={login.header}>
           <img className={login.logo_img} src={hamso_logo}></img>
           <div className={login.text_box}>
@@ -135,8 +135,8 @@ function Log_in() {
       </Link>
       <main className={login.main}>
         <form onSubmit={onSubmit} className={login.flex_center}>
-          <div style={{ marginBottom: "12px" }}>
-            <p className={login.text1_head} style={{ marginBottom: "4px" }}>
+          <div style={{ marginBottom: '12px' }}>
+            <p className={login.text1_head} style={{ marginBottom: '4px' }}>
               전화번호(아이디)
             </p>
             <div className={login.input_box1}>
@@ -149,8 +149,8 @@ function Log_in() {
               ></Input>
             </div>
           </div>
-          <div style={{ marginBottom: "40px" }}>
-            <p className={login.text1} style={{ marginBottom: "4px" }}>
+          <div style={{ marginBottom: '40px' }}>
+            <p className={login.text1} style={{ marginBottom: '4px' }}>
               비밀번호
             </p>
             <div className={login.input_box2}>
@@ -166,15 +166,15 @@ function Log_in() {
           </div>
           {clicked && <div className={textClass}>{loginText}</div>}
           <Button
-            style={{ marginBottom: "4px" }}
+            style={{ marginBottom: '4px' }}
             text="로그인하기"
             className={login.submit_btn}
           ></Button>
-          <p style={{ color: "#999", fontSize: "12px", marginBottom: "20px" }}>
+          <p style={{ color: '#999', fontSize: '12px', marginBottom: '20px' }}>
             비밀번호를 잊으셨나요? &nbsp;
             <Link
               to="/password_finding"
-              style={{ color: "#999", fontSize: "12px" }}
+              style={{ color: '#999', fontSize: '12px' }}
             >
               <a>비밀번호 찾기</a>
             </Link>

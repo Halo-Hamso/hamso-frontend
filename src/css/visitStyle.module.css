@@ -110,22 +110,6 @@ button:hover {
   line-height: 20px; /* 125% */
 }
 
-button {
-  width: 180px;
-  height: 44px;
-
-  border: 1px solid var(--Line1, #d0d0d0);
-  padding-left: 16px;
-
-  color: #333;
-  font-family: NanumMyeongjo;
-  font-size: 16px;
-
-  font-weight: 400;
-  line-height: 20px; /* 125% */
-  display: flex;
-  align-items: center;
-}
 li {
   list-style: none;
   display: block;
@@ -137,6 +121,45 @@ button:hover {
   border: 0;
   border-right: 1px solid var(--Line1, #d0d0d0);
   border-left: 1px solid var(--Line1, #d0d0d0);
-
+  padding-left: 16px;
   background-color: #fff;
+
+  width: 180px;
+  height: 44px;
+
+  color: #333;
+  font-family: NanumMyeongjo;
+  font-size: 16px;
+
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+  display: flex;
+  align-items: center;
+}
+
+.form {
+  width: 380px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 480px) and (min-width: 280px) {
+  .visitInfoBox {
+    width: 80vw;
+    margin: 0 auto;
+  }
+  .inputBox {
+    width: 80vw;
+  }
+  .smallInputBox {
+    width: 37vw;
+    white-space: nowrap;
+  }
+  .form {
+    width: 80vw;
+  }
+  .submitBtn {
+    width: 80vw;
+  }
+  .dropDown {
+    width: 38.5vw;
+  }
 }
