@@ -25,6 +25,10 @@
     align-items: center;
 }
 
+
+/* 헤더(함소 로고) 시작*/
+/* 헤더(함소 로고) 시작*/
+/* 헤더(함소 로고) 시작*/
 .header {
     height: 120px;
     display: flex;
@@ -65,6 +69,11 @@
     line-height: 12px;
     /* 100% */
 }
+/* 헤더(함소 로고) 끝*/
+/* 헤더(함소 로고) 끝*/
+/* 헤더(함소 로고) 끝*/
+
+
 
 .main {
     width: 380px;
@@ -144,7 +153,7 @@
     width: 300px;
     height: 44px;
     flex-shrink: 0;
-    
+    margin-bottom:4px;
 
     border: 1px solid #999;
 
@@ -206,8 +215,14 @@
     /* 125% */
     letter-spacing: 2.88px;
 }
-
-
+.wrong{
+    font-size:12px;
+    color:red;
+}
+.loading{
+    font-size:12px;
+    color:gray;
+}
 
 @media screen and (max-width: 480px) and (min-width:280px) {
     * {

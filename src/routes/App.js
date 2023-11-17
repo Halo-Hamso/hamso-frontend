@@ -1,6 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Sign_up from "./Sign_up";
+
+import Sign_up_select from "./Sign_up_select";
+import Sign_up_family from "./Sign_up_family";
+import Sign_up_business from "./Sign_up_business";
+import Sign_up_thanks from "./Sign_up_thanks";
+
+
+
 import Log_in from "./Log_in";
+
 import Home from "./Home";
 import VisitInfo from "./VisitInfo";
 import Home_Account_book from "./Home_Account_book";
@@ -13,7 +21,10 @@ function App() {
       <Routes>
         <Route path={`${process.env.PUBLIC_URL}/`} element={<Log_in />}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
-        <Route path="/sign_up" element={<Sign_up />}></Route>
+        <Route path="/sign_up_select" element={<Sign_up_select/>}></Route>
+        <Route path="/sign_up_family" element={<Sign_up_family/>}></Route>
+        <Route path="/sign_up_business" element={<Sign_up_business/>}></Route>
+        <Route path="/sign_up_thanks" element={<Sign_up_thanks/>}></Route>
         <Route path = '/home_account_book' element={<Home_Account_book></Home_Account_book>}></Route>
         <Route path="/visitinfo" element={<VisitInfo />} />
       </Routes>

@@ -84,12 +84,16 @@ function Log_in() {
       setTextClass(login.wrong);
     }
   };
-  const onSubmit = () => {
+  const onSubmit = (event) => {
+    event.preventDefault();
+    //form태그의 버튼태그가 새로고침하는 걸 막아줌
     setSubmit((prev) => !prev);
     setClicked(true);
   };
+
   useEffect(() => {
     submitLogin();
+    console.log("clicked,submit",clicked,submit);
   }, [submit]);
 
   return (
@@ -133,12 +137,13 @@ function Log_in() {
               ></Input>
               <img src={visibleBtn} onClick={onClick_visible}></img>
             </div>
+            {clicked && <div className={textClass}>{loginText}</div>}
           </div>
-          {clicked && <div className={textClass}>{loginText}</div>}
           <Button
             style={{ marginBottom: "4px" }}
             text="로그인하기"
             className={login.submit_btn}
+            type='submit'
           ></Button>
           <p style={{ color: "#999", fontSize: "12px", marginBottom: "20px" }}>
             비밀번호를 잊으셨나요? &nbsp;
@@ -151,7 +156,7 @@ function Log_in() {
           </p>
         </form>
 
-        <Link to="/Sign_up">
+        <Link to="/Sign_up_select">
           <Button text="회원가입하기" className={login.sign_up}></Button>
         </Link>
       </main>

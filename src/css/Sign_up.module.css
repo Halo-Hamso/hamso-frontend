@@ -24,6 +24,12 @@
   align-items: center;
 }
 
+
+
+
+/* 헤더(함소 로고) 시작*/
+/* 헤더(함소 로고) 시작*/
+/* 헤더(함소 로고) 시작*/
 .header {
   display: flex;
   justify-content: center;
@@ -67,6 +73,12 @@
   line-height: 12px;
   /* 100% */
 }
+/* 헤더(함소 로고) 끝*/
+/* 헤더(함소 로고) 끝*/
+/* 헤더(함소 로고) 끝*/
+
+
+
 
 .main {
   width: 380px;
@@ -233,7 +245,11 @@
 .main .input_box3_abled:hover {
   border: 1px solid var(--AMain, #475A5D);
 }
-
+.timer{
+  color:red;
+  font-size:16px;
+  margin-right:8px;
+}
 .main .input_box4 {
   width: 180px;
   height: 44px;
@@ -556,7 +572,10 @@
     width: 60vw;
     margin-right:5vw;
   }
-
+  .timer{
+    font-size:2vw;
+    margin-right:5vw;
+  }
   .main .btn_o {
     width: 15vw;
     font-size:3vw;
