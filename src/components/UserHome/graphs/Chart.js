@@ -66,7 +66,7 @@ export const ChartContainer = styled.div`
 `;
 const AmountBox = styled.div`
   display: flex;
-  align-content: center;
+  align-items: center;
   padding-left: 30px;
 `;
 const Amount = styled.div`
@@ -79,14 +79,16 @@ const Amount = styled.div`
 const AmountType = styled.div`
   margin-left: 10px;
   display: flex;
-  width: 60px;
-  height: 24px;
-  border-radius: 16px;
-  background-color: #d9d9d9;
-  font-family: NanumMyeongjo;
-  font-size: 10px;
-  font-weight: 400;
 
+  width: 56px;
+  height: 20px;
+  border: 1px solid #799094;
+  border-radius: 16px;
+
+  font-family: NanumMyeongjo;
+  font-size: 8px;
+  font-weight: 400;
+  color: #475a5d;
   align-items: center;
   justify-content: center;
 `;
