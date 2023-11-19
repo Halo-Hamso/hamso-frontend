@@ -19,7 +19,6 @@ export const businessImageApi = (image) => {
   formDataImg.append('image', image);
   return axios.post(`${API}/bill/image`, formDataImg, {
     headers: { 'Content-Type': 'multipart/form-data' },
-    Authorization: 'Bearer a3wegwfe',
   });
 };
 
