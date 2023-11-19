@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import leftArrow from '../../../images/leftArrow.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function ChartDate() {
+function ChartDate(props) {
   const today = new Date();
   const dayOfWeek = ['월', '화', '수', '목', '금', '토', '일'];
   const bigMonth = [1, 3, 5, 7, 8, 10, 12];
+
   const [chartDate, setChartDate] = useState({
     year: today.getFullYear(),
     month: today.getMonth() + 1,
@@ -13,6 +14,9 @@ function ChartDate() {
     day: today.getDay(),
   });
 
+  useEffect(() => {
+    props.setDate(`${chartDate.year}-${chartDate.month}-${chartDate.date}`);
+  }, []);
   const handleLeftArrow = () => {
     let setDate = chartDate.date - 1;
     let setMonth = chartDate.month;
@@ -37,6 +41,7 @@ function ChartDate() {
       date: setDate,
       day: setDay,
     });
+    props.setDate(`${setYear}-${setMonth}-${setDate}`);
   };
 
   const handleRightArrow = () => {
@@ -65,6 +70,7 @@ function ChartDate() {
       date: setDate,
       day: setDay,
     });
+    props.setDate(`${setYear}-${setMonth}-${setDate}`);
   };
   return (
     <DateWrap>

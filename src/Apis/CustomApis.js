@@ -12,3 +12,23 @@ export const visitInfoApi = (visitInfo) => {
     }
   );
 };
+
+export const businessImageApi = (image) => {
+  console.log(image);
+  const formDataImg = new FormData();
+  formDataImg.append('image', image);
+  return axios.post(`${API}/bill/image`, formDataImg, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+    Authorization: 'Bearer a3wegwfe',
+  });
+};
+
+export const ChartApi = async (info) => {
+  return await axios.get(
+    `${API}/account-book/chart`,
+    { params: info },
+    {
+      headers: {},
+    }
+  );
+};
