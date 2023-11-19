@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 function MenuBtn(prop) {
   return (
-    <div>
+    <div style={{ width: '73px' }}>
       <MenuImg>
         <img src={prop.imgName}></img>
       </MenuImg>

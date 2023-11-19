@@ -32,11 +32,17 @@ function TotalGraph() {
       <XAxis dataKey="name" />
       <YAxis domain={[-1000, 1000]} />
       <Tooltip />
-      <Legend wrapperStyle={{ marginLeft: '40px' }} />
-      <Bar dataKey="금액" name="금액(만원)">
+      <Legend
+        wrapperStyle={{
+          marginBottom: '260px',
+          paddingRight: '130px',
+          fontColor: '#fff',
+          fontSize: '10px',
+        }}
+      />
+      <Bar dataKey="금액" name="(단위)만원" fill="#799094">
         {data.map((entry, index) => {
-          const color = entry.금액 < 0 ? '#0000ff' : '#D84315';
-          return <Cell key={`cell-${index}`} fill={color} />;
+          return <Cell key={`cell-${index}`} fill="#799094" />;
         })}
       </Bar>
     </BarChart>

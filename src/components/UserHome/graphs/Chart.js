@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 import TotalGraph from './TotalGraph';
+import styledEngine from '@mui/styled-engine';
 
 function Chart() {
   return (
     <ChartContainer>
-      <div style={{ paddingLeft: '30px', paddingTop: '30px' }}>
-        <AmountBox>
+      <div style={{ paddingTop: '20px', width: '340px', margin: '0 auto' }}>
+        <TotalAmount>
+          <TotalAmountText>잔액</TotalAmountText>
+          12,760,000원
+        </TotalAmount>
+        <AmountBox style={{ marginTop: '20px' }}>
           <Amount>+ 23,900,000원</Amount>
           <AmountType>부의 금액</AmountType>
         </AmountBox>
@@ -22,6 +27,38 @@ function Chart() {
 }
 
 export default Chart;
+
+const TotalAmount = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 340px;
+  height: 40px;
+  border-radius: 8px;
+  background: #493b39;
+
+  font-family: NanumMyeongjo;
+  font-size: 24px;
+  font-weight: 800;
+  text-align: left;
+  color: #ffffff;
+`;
+const TotalAmountText = styled.div`
+  width: 60px;
+  height: 24px;
+  border: 1px solid #998f8c;
+  border-radius: 16px;
+
+  font-family: NanumMyeongjo;
+  font-size: 10px;
+  font-weight: 400;
+
+  background-color: #fff;
+  color: #493b39;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 export const ChartContainer = styled.div`
   background-color: #ececec;
   height: 100vh;
@@ -30,6 +67,7 @@ export const ChartContainer = styled.div`
 const AmountBox = styled.div`
   display: flex;
   align-content: center;
+  padding-left: 30px;
 `;
 const Amount = styled.div`
   font-family: NanumMyeongjo;

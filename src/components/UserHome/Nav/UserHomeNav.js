@@ -18,9 +18,9 @@ function UserHomeNav() {
         </HeaderTitleBox>
         <div style={{ marginRight: '10px' }}>
           <HeaderText>
-            로그아웃 <img src={logOut}></img>
+            로그아웃 <img src={logOut} style={{ marginLeft: '4px' }}></img>
           </HeaderText>
-          <HeaderText>
+          <HeaderText style={{ marginTop: '3px' }}>
             <img src={myPage}></img>김함소님
           </HeaderText>
           <HeaderText>010-3394-3953</HeaderText>
