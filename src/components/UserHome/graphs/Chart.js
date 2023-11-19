@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import TotalGraph from './TotalGraph';
 import styledEngine from '@mui/styled-engine';
 
-function Chart() {
+function Chart(props) {
   return (
     <ChartContainer>
       <div style={{ paddingTop: '20px', width: '340px', margin: '0 auto' }}>
@@ -20,7 +20,7 @@ function Chart() {
         </AmountBox>
       </div>
       <Graph>
-        <TotalGraph />
+        <TotalGraph date={props.date} />
       </Graph>
     </ChartContainer>
   );

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {
   BarChart,
   Bar,
@@ -8,8 +9,22 @@ import {
   ReferenceLine,
   Legend,
 } from 'recharts';
+import { ChartApi } from '../../../Apis/CustomApis';
 
-function TotalGraph() {
+function TotalGraph(props) {
+  const info = { date: props.date, option: 0 };
+  useEffect(() => {
+    console.log(info);
+    if (info.date) {
+      ChartApi(info)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [info.date]);
   const data = [
     { name: '10:00', 금액: -300 },
     { name: '11:00', 금액: -100 },

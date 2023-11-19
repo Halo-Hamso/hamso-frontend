@@ -22,3 +22,13 @@ export const businessImageApi = (image) => {
     Authorization: 'Bearer a3wegwfe',
   });
 };
+
+export const ChartApi = async (info) => {
+  return await axios.get(
+    `${API}/account-book/chart`,
+    { params: info },
+    {
+      headers: {},
+    }
+  );
+};

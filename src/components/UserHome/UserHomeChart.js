@@ -7,18 +7,19 @@ import ExpenditureChart from './graphs/ExpenditureChart';
 
 function UserHomeChart() {
   const [chart, setChart] = useState('all');
-  console.log(chart);
+  const [date, setDate] = useState('');
+
   return (
     <div>
-      <ChartDate />
+      <ChartDate setDate={setDate} />
       <ChartMenu setChart={setChart} />
 
       {chart == 'all' ? (
-        <Chart />
+        <Chart date={date} />
       ) : chart === 'surcharge' ? (
-        <SurchargeChart />
+        <SurchargeChart date={date} />
       ) : (
-        <ExpenditureChart />
+        <ExpenditureChart date={date} />
       )}
     </div>
   );
