@@ -1,7 +1,12 @@
 import { ChartContainer } from './Chart';
 import { ChartApi } from '../../../Apis/CustomApis';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { TotalAmount, Graph, TotalAmountText } from './Chart';
+import TotalGraph from './TotalGraph';
+import ExpenditureGraph from './ExpenditureGraph';
 function ExpenditureChart(props) {
+  const [totalCost, setTotalCost] = useState(0);
+  const [totalProfit, setTotalProfit] = useState(0);
   const info = { date: props.date, option: 2 };
   useEffect(() => {
     console.log(info);
@@ -15,7 +20,24 @@ function ExpenditureChart(props) {
         });
     }
   }, [info.date]);
-  return <ChartContainer></ChartContainer>;
+  return (
+    <ChartContainer>
+      <div style={{ paddingTop: '20px', width: '340px', margin: '0 auto' }}>
+        <TotalAmount>
+          <TotalAmountText>부의금</TotalAmountText>
+          {totalCost.toLocaleString()}원
+        </TotalAmount>
+      </div>
+      <Graph>
+        <ExpenditureGraph
+          date={props.date}
+          setTotalCost={setTotalCost}
+          setTotalProfit={setTotalProfit}
+          option="2"
+        ></ExpenditureGraph>
+      </Graph>
+    </ChartContainer>
+  );
 }
 
 export default ExpenditureChart;

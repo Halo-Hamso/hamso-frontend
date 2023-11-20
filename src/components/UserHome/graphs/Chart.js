@@ -1,26 +1,36 @@
 import styled from 'styled-components';
 import TotalGraph from './TotalGraph';
-import styledEngine from '@mui/styled-engine';
+import { useEffect, useState } from 'react';
 
 function Chart(props) {
+  const [totalCost, setTotalCost] = useState(0);
+  const [totalProfit, setTotalProfit] = useState(0);
+
   return (
     <ChartContainer>
       <div style={{ paddingTop: '20px', width: '340px', margin: '0 auto' }}>
         <TotalAmount>
           <TotalAmountText>잔액</TotalAmountText>
-          12,760,000원
+          {(totalCost + totalProfit).toLocaleString()}원
         </TotalAmount>
         <AmountBox style={{ marginTop: '20px' }}>
-          <Amount>+ 23,900,000원</Amount>
+          <Amount>+{totalProfit.toLocaleString()}원</Amount>
           <AmountType>부의 금액</AmountType>
         </AmountBox>
         <AmountBox>
-          <Amount>- 11,140,000원</Amount>
+          <Amount>
+            {totalCost == 0 ? '-' : ''}
+            {totalCost.toLocaleString()}원
+          </Amount>
           <AmountType>지출액</AmountType>
         </AmountBox>
       </div>
       <Graph>
-        <TotalGraph date={props.date} />
+        <TotalGraph
+          date={props.date}
+          setTotalCost={setTotalCost}
+          setTotalProfit={setTotalProfit}
+        />
       </Graph>
     </ChartContainer>
   );
@@ -28,7 +38,7 @@ function Chart(props) {
 
 export default Chart;
 
-const TotalAmount = styled.div`
+export const TotalAmount = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -43,7 +53,7 @@ const TotalAmount = styled.div`
   text-align: left;
   color: #ffffff;
 `;
-const TotalAmountText = styled.div`
+export const TotalAmountText = styled.div`
   width: 60px;
   height: 24px;
   border: 1px solid #998f8c;
@@ -61,7 +71,7 @@ const TotalAmountText = styled.div`
 `;
 export const ChartContainer = styled.div`
   background-color: #ececec;
-  height: 100vh;
+  height: 60vh;
   width: 100vw;
 `;
 const AmountBox = styled.div`
@@ -92,7 +102,7 @@ const AmountType = styled.div`
   align-items: center;
   justify-content: center;
 `;
-const Graph = styled.div`
+export const Graph = styled.div`
   width: 370px;
   margin: 0 auto;
   margin-top: 50px;

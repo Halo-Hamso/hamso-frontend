@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
   BarChart,
   Bar,
@@ -13,19 +13,15 @@ import { ChartApi } from '../../../Apis/CustomApis';
 
 function TotalGraph(props) {
   const info = { date: props.date, option: 0 };
-  useEffect(() => {
-    console.log(info);
-    if (info.date) {
-      ChartApi(info)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [info.date]);
-  const data = [
+
+  let profit = 0;
+  let cost = 0;
+  let sum = [];
+  const [data, setData] = useState([
+    { name: '06:00', 금액: -300 },
+    { name: '07:00', 금액: -300 },
+    { name: '08:00', 금액: -300 },
+    { name: '09:00', 금액: -300 },
     { name: '10:00', 금액: -300 },
     { name: '11:00', 금액: -100 },
     { name: '12:00', 금액: 200 },
@@ -39,7 +35,30 @@ function TotalGraph(props) {
     { name: '20:00', 금액: -400 },
     { name: '21:00', 금액: 500 },
     { name: '22:00', 금액: 900 },
-  ];
+  ]);
+  useEffect(() => {
+    console.log(info);
+    if (info.date) {
+      ChartApi(info)
+        .then((res) => {
+          console.log(res);
+          res.data.profits.map((e, i) => {
+            profit += e.money;
+            cost -= res.data.costs[i].money;
+            sum[i] = e.money - res.data.costs[i].money;
+          });
+          props.setTotalCost(cost);
+          props.setTotalProfit(profit);
+          sum.map((e, i) => {
+            data[i].금액 = e;
+          });
+          console.log(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [info.date]);
 
   return (
     <BarChart width={350} height={250} data={data}>
