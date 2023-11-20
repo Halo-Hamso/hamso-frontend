@@ -4,18 +4,16 @@ import Pagination from '@mui/material/Pagination';
 import PaymentOne from './PaymentOne';
 
 function PaymentItem() {
-  const data = [
-    { itemType: '식사', count: 10, cost: '10000', active: true },
-    { itemType: '식사', count: 10, cost: '10000', active: true },
-    { itemType: '식사', count: 10, cost: '10000', active: true },
-  ];
+  const [data, setData] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
   const [page, setPage] = useState(1);
-  const info = { page: page, size: 8 };
+  const info = { page: page, size: 3 };
+
   useEffect(() => {
-    console.log(info);
     getItemApi(info)
       .then((res) => {
-        console.log(res);
+        setTotalPages(res.data.pageInfo.totalPages);
+        setData(res.data.billInfos);
       })
       .catch((err) => {
         console.log(err);
@@ -29,11 +27,20 @@ function PaymentItem() {
     <div>
       <div>
         {data.map((e) => {
-          return <PaymentOne paymentInfo={e} />;
+          return <PaymentOne paymentInfo={e} type="item" />;
         })}
       </div>
 
-      <Pagination count={10} onChange={handlePage} shape="rounded" />
+      <div
+        style={{
+          width: '90vw',
+          margin: '20px auto',
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <Pagination count={totalPages} onChange={handlePage} shape="rounded" />
+      </div>
     </div>
   );
 }

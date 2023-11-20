@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 import downArrow from '../../images/downArrow.svg';
-function PaymentNav() {
+function PaymentNav(props) {
+  console.log(props);
+  let title = '';
+  props.type == 'item'
+    ? (title = '용품별 결제 내역')
+    : (title = '실시간 결제 내역');
   return (
     <div>
       <PaymentType>
-        용품별 결제 내역 <img src={downArrow}></img>
+        {title} <img src={downArrow}></img>
       </PaymentType>
       <PaymentCategory>
-        <Box>사용 시간</Box>
-        <Box> 장례용품</Box>
-        <Box>개수</Box>
+        <Box style={{ width: '60px' }}>장례 용품</Box>
+        <Box> 개수</Box>
         <Box>비용</Box>
+        <Box>상태</Box>
       </PaymentCategory>
       <Line></Line>
     </div>
@@ -33,6 +38,10 @@ const PaymentType = styled.div`
   font-family: NanumMyeongjo;
   font-size: 12px;
   font-weight: 700;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const PaymentCategory = styled.div`

@@ -1,7 +1,17 @@
 import styled from 'styled-components';
 import check from '../../images/paymentCheck.svg';
 import x from '../../images/paymentX.svg';
+import { useState } from 'react';
 function SelectPopup(props) {
+  const [type, setType] = useState(props.type);
+  const handleType = (e) => {
+    e.target.textContent == '실시간 결제 내역'
+      ? props.setType('userItem')
+      : props.setType('item');
+
+    props.setPopup(false);
+  };
+
   return (
     <PopupBackground>
       <PopupContainer>
@@ -16,14 +26,14 @@ function SelectPopup(props) {
             ></Left>
           </PopupText>
           <Line />
-          <PopupText>
+          <PopupTextSelect onClick={handleType}>
             실시간 결제 내역
-            <Left src={check}></Left>
-          </PopupText>
-          <PopupText>
+            {type == 'userItem' ? <Left src={check}></Left> : ''}
+          </PopupTextSelect>
+          <PopupTextSelect onClick={handleType}>
             용품별 결제 내역
-            <Left src={check}></Left>
-          </PopupText>
+            {type == 'item' ? <Left src={check}></Left> : ''}
+          </PopupTextSelect>
         </div>
       </PopupContainer>
     </PopupBackground>
@@ -65,4 +75,9 @@ const PopupText = styled.div`
   font-family: NanumMyeongjo;
   font-size: 16px;
   font-weight: 700;
+`;
+const PopupTextSelect = styled(PopupText)`
+  &:hover {
+    cursor: pointer;
+  }
 `;

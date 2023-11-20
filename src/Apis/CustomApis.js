@@ -33,11 +33,9 @@ export const ChartApi = async (info) => {
 };
 
 export const getUseItemApi = (info) => {
-  console.log(info);
   return axios.get(`${API}/account-book/bill/use-time`, { params: info });
 };
 
 export const getItemApi = (info) => {
-  console.log(info);
   return axios.get(`${API}/account-book/bill/item`, { params: info });
 };

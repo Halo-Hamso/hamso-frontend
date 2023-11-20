@@ -13,11 +13,15 @@ function UserHomePayment() {
     <div>
       <UserHomeNav />
       <div onClick={() => setPopup(true)}>
-        <PaymentNav />
+        <PaymentNav type={type} />
       </div>
-      {type == 'useItem' ? <PaymentUseItem /> : <PaymentItem />}
+      {type == 'userItem' ? <PaymentUseItem /> : <PaymentItem />}
 
-      {popup ? <SelectPopup setPopup={setPopup} /> : ''}
+      {popup ? (
+        <SelectPopup setType={setType} setPopup={setPopup} type={type} />
+      ) : (
+        ''
+      )}
     </div>
   );
 }
