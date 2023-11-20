@@ -129,8 +129,8 @@ function Home_Account_Statistics() {
 
                 <div className={home_account.statistics}>
                     <div className={home_account.text_statistics}>부의금 통계</div>
-                    
-                    {fetched && <div className={home_account.flexbox_row} style={{width:'100%'}}>
+
+                    {fetched && <div className={home_account.entire_money} >
                         <div className={home_account.total_money}>부의금 총액</div>
                         <div className={home_account.total_money}>{totalMoney}원</div>
                     </div>}
