@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
 
-import { Link } from 'react-router-dom';
-
 import Button from "../components/Button";
 import Input from "../components/Input";
 import Timer from "../components/Timer"
+import Banner from '../components/Banner';
 
 import sign_up from "../css/Sign_up.module.css";
 
-import direction from "../images/direction.svg"
-import hamso_logo from "../images/hamso_logo.svg";
 import eyeOpen from "../images/eyeOpen.svg";
 import eyeClose from "../images/eyeClose.svg";
 
@@ -602,19 +599,7 @@ function Sign_up_family() {
 
   return (
     <div className={sign_up.root}>
-      <Link to='/' style={{ textDecoration: 'none' }}>
-        <header className={sign_up.header}>
-          <Link to='/' style={{ textDecoration: 'none' }}>
-            <img src={direction} style={{ marginRight: '0.1vw' }}></img>
-          </Link>
-          <img src={hamso_logo} className={sign_up.logo_img}></img>
-          <div className={sign_up.text_box}>
-            <p className={sign_up.text1}>함소</p>
-            <p className={sign_up.text2}>온전히 떠나보낼 수 있도록,</p>
-          </div>
-        </header>
-      </Link>
-
+      <Banner></Banner>
       <main className={sign_up.main}>
 
         <div className={sign_up.text_head}>

@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 import styled from 'styled-components';
 
+import Banner from '../components/Banner';
+
 import login from '../css/Log_in.module.css'
 
 import axios from "axios";
@@ -86,32 +88,106 @@ ${TextBox} {
 const BackPage = styled.div``;
 const Btn_Selection = styled.div``;
 const Main = styled.div`
-width: 380px;
+position:relative;
+width: 518px;
+height: 432px;
 flex-shrink: 0;
-border: 1px solid var(--MAIN, #493B39);
+flex-shrink: 0;
+border-radius: 20px;
+border: 1px solid #766C6B;
+background: rgba(217, 217, 217, 0.00);
 
 padding-top:5%;
 padding-bottom:5%;
 
 display: flex;
 flex-direction: column;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
+gap:20px;
+
+@media screen and (max-width: 480px) and (min-width:280px){
+  padding-top:10vw;
+  
+  width:90vw;
+  height:80vw;
+  gap:10px;
+}
 
 ${BackPage}{
+  position:absolute;
+  top:5%;
+  left:5%;
   display: flex;
     justify-content: center;
     align-items: flex-start;
-img{}
-p{}
+img{
+  width: 24px;
+height: 24px;
+flex-shrink: 0;
+}
+p{
+  color: var(--Font2, #555);
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px; /* 150% */
+}
+}
+${Text3}{
+  color: #333;
+font-size: 24px;
+font-style: normal;
+font-weight: bold;
+line-height: 32px; /* 133.333% */
+}
+${FlexBox_Row}{
+  gap: 12px;
+  @media screen and (max-width: 480px) and (min-width:280px){
+  gap:6px;
 }
 ${Btn_Selection}{
-  ${Text1}{
+  width: 184px;
+height: 184px;
+flex-shrink: 0;
+  border-radius: 16px;
+border: 1px solid var(--BC2, #FC4);
+cursor:pointer;
 
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+align-items:flex-start;
+
+padding:10%;
+padding-bottom:15%;
+
+@media screen and (max-width: 480px) and (min-width:280px){
+  width:40vw;
+  height:40vw;
+}
+
+  ${Text1}{
+    color: var(--Font1, #333);
+font-size: 32px;
+@media screen and (max-width: 480px) and (min-width:280px){
+  font-size:24px;
+}
+font-style: normal;
+font-weight: 600;
+line-height: 48px; /* 150% */
   }
   ${Text2}{
-
+    color: var(--Font2, #555);
+font-size: 16px;
+@media screen and (max-width: 480px) and (min-width:280px){
+  font-size:12px;
+}
+font-style: normal;
+font-weight: 600;
+line-height: 24px; /* 150% */
   }
+}
 }
 `;
 
@@ -121,15 +197,7 @@ function Sign_up_select() {
 
   return (
     <Root>
-      <Link to="/" style={{ textDecoration: "none" }}>
-        <Header>
-          <img src={hamso_logo}></img>
-          <TextBox>
-            <Text1>함소</Text1>
-            <Text2>온전히 떠나보낼 수 있도록,</Text2>
-          </TextBox>
-        </Header>
-      </Link>
+      <Banner></Banner>
       <Main>
         <Link to="/" style={{ textDecoration: "none" }}>
           <BackPage>
@@ -144,13 +212,13 @@ function Sign_up_select() {
           <Link to="/sign_up_family" style={{ textDecoration: "none" }}>
             <Btn_Selection>
               <Text1>유족</Text1>
-              <Text2>유족 회원가입하러가기▶︎</Text2>
+              <Text2>유족<br></br>회원가입하러가기 ▶︎</Text2>
             </Btn_Selection>
           </Link>
           <Link to="/sign_up_business" style={{ textDecoration: "none" }}>
             <Btn_Selection>
               <Text1>비즈니스</Text1>
-              <Text2>비즈니스 회원가입하러가기▶︎</Text2>
+              <Text2>비즈니스<br></br>회원가입하러가기 ▶︎</Text2>
             </Btn_Selection>
           </Link>
         </FlexBox_Row>

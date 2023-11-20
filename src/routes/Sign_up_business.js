@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Button from "../components/Button";
 import Input from "../components/Input";
 import Timer from "../components/Timer"
+import Banner from '../components/Banner';
 
 import sign_up from "../css/Sign_up.module.css";
 
@@ -18,14 +19,12 @@ import axios from 'axios'
 
 function Sign_up_business() {
 
-  const DUPLURL = '/';
-  const JOINURL = "http://3.34.24.140:9998/auth/signup";
+  const DUPLURL = 'http://3.34.24.140:9998/business/id';
+  const JOINURL = "http://3.34.24.140:9998/business/signup";
   const PHONEURL = "http://3.34.24.140:9998/sms/send";
-  const BUSINESSURL = "/";
 
-  const [phoneLength1, setPhoneLength1] = useState(0);
   const [phoneLength, setPhoneLength] = useState(0);
-  const [businessNoLength,setBusinessNoLength]=useState(0);
+  const [businessNoLength, setBusinessNoLength] = useState(0);
 
   const [returnPwsd, setReturnPwsd] = useState("");
   const [returnPswd_check, setReturnPswd_check] = useState("");
@@ -50,20 +49,16 @@ function Sign_up_business() {
   const [btnClass, setBtnClass] = useState(sign_up.next_btn_x);
   const [formValues, setFormValues] = useState({
     name: "",
-    id:"",
+    businessId: "",
     password: "",
     check_pswd: "",
     phoneNo: "",
-    businessName:"",
-    businessNo:"",
-    businessType:"",
-    businessItem:"",
-    relationship1: "",
-    relationship2: "",
+    businessName: "",
+    businessNo: "",
+    businessType: "",
+    businessItem: "",
   });
 
-  const [relationshipInput, setRelationshipInput] = useState(true);
-  const [directlyClass, setDirectlyClass] = useState(sign_up.input_box4);
 
   const [nameText, setNameText] = useState(sign_up.text6);
   const [phoneText, setPhoneText] = useState(sign_up.text6);
@@ -71,8 +66,8 @@ function Sign_up_business() {
   const [codeText, setCodeText] = useState(sign_up.text_none);
   const [idChecked, setIdChecked] = useState(false);
   const [idCheckText, setIdCheckText] = useState(sign_up.text_none);
-  const [businessCheckText,setBusinessCheckText] = useState(sign_up.text_none);
-  const [businessChecked,setBusinessChecked] = useState(false);
+  const [businessCheckText, setBusinessCheckText] = useState(sign_up.text_none);
+  const [businessChecked, setBusinessChecked] = useState(false);
   const [disabledBtn1, setDisabledBtn1] = useState(true);
   const [disabledBtn2, setDisabledBtn2] = useState(true);
   const [accessBtn1, setAccessBtn1] = useState(sign_up.btn_x);
@@ -309,10 +304,10 @@ function Sign_up_business() {
       [name]: value   //수정 및 추가기능 둘 다 수행
     }));
 
-    if(name==='id'){
+    if (name === 'id') {
       setIdCheckText(sign_up.text_none);
       setIdChecked(false);
-    }else if(name==='businessNo'){
+    } else if (name === 'businessNo') {
       setBusinessCheckText(sign_up.text_none);
       setBusinessChecked(false);
     }
@@ -362,18 +357,18 @@ function Sign_up_business() {
     }
   }
 
-  const onClick_idCheck = async (event)=>{
+  const onClick_idCheck = async (event) => {
     event.preventDefault();
-    const id = formValues.id;
-
-      const response = await axios.get(DUPLURL,{id});
-      if (response.data){
-        console.log("duplicate success",response.data);
-        setIdChecked(true);
-        setIdCheckText(sign_up.text6);
-      }else{
-        alert("중복되는 아이디가 있습니다!")
-      }
+    const businessId = formValues.businessId;
+    console.log('businessId :', businessId);
+    const response = await axios.post(DUPLURL, { businessId });
+    if (response.data) {
+      console.log("duplicate success", response.data);
+      setIdChecked(true);
+      setIdCheckText(sign_up.text6);
+    } else {
+      alert("중복되는 아이디가 있습니다!")
+    }
   }
 
   const onClick_phone = async (event) => {
@@ -401,7 +396,7 @@ function Sign_up_business() {
     }
   }
 
- 
+
 
   const onClick_phoneCheck = (event) => {
     event.preventDefault();
@@ -441,52 +436,67 @@ function Sign_up_business() {
       formValues.businessNo.slice(4, 6) +
       formValues.businessNo.slice(7, 12);
     const content = "";
-    
-    try{
-    const response = await axios.post(BUSINESSURL, { to, content });
-    if(response.data.status.b_stt === '계속사업자'){
+
+    if (to.length > 9) {
       setBusinessCheckText(sign_up.text6);
       setBusinessChecked(true);
-    }else{
-      alert("인증된 사용자가 아닙니다!");
     }
-    }catch(error){
-      console.log('onClick_business error :',error);
+    else {
+      alert("올바르지 않은 형식입니다!");
+      setBusinessCheckText(sign_up.text_none);
+      setBusinessChecked(false);
     }
-  
+    // try{
+    // const response = await axios.post(BUSINESSURL, { to, content });
+    // if(response.data.status.b_stt === '계속사업자'){
+    //   setBusinessCheckText(sign_up.text6);
+    //   setBusinessChecked(true);
+    // }else{
+    //   alert("인증된 사용자가 아닙니다!");
+    // }
+    // }catch(error){
+    //   console.log('onClick_business error :',error);
+    // }
+
   }
 
 
   const onSubmit = async (event) => {
     event.preventDefault();
     const name = event.target.name.value;
+    const businessId = event.target.businessId.value;
     const password = event.target.password.value;
     const phoneNo =
       event.target.phoneNo.value.slice(0, 3) +
       event.target.phoneNo.value.slice(4, 8) +
       event.target.phoneNo.value.slice(9, 13);
-    let relation;
-    if (event.target.relationship1.value === "etc") {
-      relation = event.target.relationship2.value;
-    } else {
-      relation = event.target.relationship1.value;
-    }
-    console.log(name, password, phoneNo, relation);
+    const businessName = event.target.businessName.value;
+    const businessNo =
+      event.target.businessNo.value.slice(0, 3) +
+      event.target.businessNo.value.slice(4, 6) +
+      event.target.businessNo.value.slice(7, 12);
+    const businessType = event.target.businessType.value;
+    const businessItem = event.target.businessItem.value;
 
+    console.log(name, businessId, password, phoneNo,
+      businessName, businessNo, businessType, businessItem);
+    try{
     const response = await axios.post(JOINURL, {
-      name, password, phoneNo, relation
+      name, businessId, password, phoneNo,
+      businessName, businessNo, businessType, businessItem
     });
-
+    
     console.log('data 제출 성공', response.data);
 
     if (response.data.name &&
       response.data.phoneNo) {
       console.log("sign_up succceed!");
-      alert("회원가입이 성공적으로 처리되었습니다!");
+      alert("비즈니스 회원가입이 성공적으로 처리되었습니다!");
       window.location.href = "/";
     }
-    else {
-      alert(`${phoneNo}는 이미 존재하는 번호입니다.`);
+  }catch(error){
+      console.log(error)
+      alert(`${phoneNo}는 이미 존재하는 번호입니다!`);
     }
   }
 
@@ -575,7 +585,7 @@ function Sign_up_business() {
   //const 딕셔너리속 프로퍼티 수정하려면 항상 저렇게 set딕셔너리 해야함
 
   useEffect(() => {
-    
+
     const tmp_businessNo = formValues.businessNo;
     setBusinessNoLength(formValues.businessNo.length);
     if ((formValues.businessNo.length === 3 &&
@@ -583,7 +593,7 @@ function Sign_up_business() {
       ||
       (formValues.businessNo.length === 6 &&
         businessNoLength === 5)) {
-          
+
       setFormValues(prevValues => ({
         ...prevValues,
         businessNo: tmp_businessNo + '-'
@@ -648,10 +658,8 @@ function Sign_up_business() {
   }, [...Object.values(formValues)])
 
   useEffect(() => {
-    const allInputsFilled = 
-    Object.values(formValues).slice(0,-2).every(
-      (value) => value !== "") &&
-      (formValues.relationship1 || formValues.relationship2);
+    const allInputsFilled =
+      Object.values(formValues).every((value) => value !== "");
     console.log(allInputsFilled);
     console.log(formValues)
     if (allInputsFilled &&
@@ -682,21 +690,11 @@ function Sign_up_business() {
       setAllCheckedBtn(sign_up.unchecked);
     }
   }, [useChecked, infoChecked, adChecked])
-  
+
   return (
     <div className={sign_up.root}>
-      <Link to='/' style={{ textDecoration: 'none' }}>
-        <header className={sign_up.header}>
-          <Link to='/' style={{ textDecoration: 'none' }}>
-            <img src={direction} style={{ marginRight: '0.1vw' }}></img>
-          </Link>
-          <img src={hamso_logo} className={sign_up.logo_img}></img>
-          <div className={sign_up.text_box}>
-            <p className={sign_up.text1}>함소</p>
-            <p className={sign_up.text2}>온전히 떠나보낼 수 있도록,</p>
-          </div>
-        </header>
-      </Link>
+
+      <Banner></Banner>
 
       <main className={sign_up.main}>
 
@@ -723,7 +721,7 @@ function Sign_up_business() {
             <div style={{ marginBottom: '4px' }}
               className={sign_up.input_btn1}>
               <div className={sign_up.input_box_phone}>
-                <Input name="id" 
+                <Input name="businessId"
                   onChange={onChange} placeholder="ID를 입력해주세요."
                   className={sign_up.input2} />
               </div>
@@ -731,8 +729,8 @@ function Sign_up_business() {
               <Button onClick={onClick_idCheck} type="button"
                 text="중복확인" className={sign_up.btn_o} />
             </div>
-            <p style={{color:'#69534E'}} 
-            className={idCheckText}>* 사용가능한 아이디입니다.</p>
+            <p style={{ color: '#69534E' }}
+              className={idCheckText}>* 사용가능한 아이디입니다.</p>
           </div>
 
           <div style={{ marginBottom: '20px' }}>
@@ -820,7 +818,7 @@ function Sign_up_business() {
               className={sign_up.input_btn1}>
               <div className={sign_up.input_box_phone}>
                 <Input name="businessNo" type="text"
-                 value={formValues.businessNo}
+                  value={formValues.businessNo}
                   onChange={onChange} placeholder="XXX-XX-XXXXX"
                   className={sign_up.input2} />
               </div>
@@ -828,15 +826,15 @@ function Sign_up_business() {
               <Button onClick={onClick_businessNo} type="button"
                 text="인증확인" className={sign_up.btn_o} />
             </div>
-            <p style={{color:'#69534E'}} 
-            className={businessCheckText}>* 인증된 사업지입니다.</p>
+            <p style={{ color: '#69534E' }}
+              className={businessCheckText}>* 인증된 사업지입니다.</p>
           </div>
 
           <div style={{ marginBottom: '20px' }}>
             <p className={sign_up.text1}
               style={{ marginBottom: '4px' }}>업태</p>
             <div className={sign_up.input_box1}>
-              <Input name="name" type="text"
+              <Input name="businessType" type="text"
                 onChange={onChange} placeholder="업태를 입력해주세요"
                 className={sign_up.input1} />
             </div>
@@ -846,7 +844,7 @@ function Sign_up_business() {
             <p className={sign_up.text1}
               style={{ marginBottom: '4px' }}>종목</p>
             <div className={sign_up.input_box1}>
-              <Input name="name" type="text"
+              <Input name="businessItem" type="text"
                 onChange={onChange} placeholder="종목을 입력해주세요"
                 className={sign_up.input1} />
             </div>
@@ -924,9 +922,9 @@ function Sign_up_business() {
             </div>
           </div>
 
-          <Button text="가입하기" 
-          type="submit" className={btnClass}
-          disabled={joinbtn}></Button>
+          <Button text="가입하기"
+            type="submit" className={btnClass}
+            disabled={joinbtn}></Button>
         </form>
       </main>
     </div>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import Button from "../components/Button";
 import Input from "../components/Input";
+import Banner from '../components/Banner';
 
 import login from "../css/Log_in.module.css";
 
@@ -13,7 +14,7 @@ import hamso_logo from "../images/hamso_logo.svg";
 import eyeClose from "../images/eyeClose.svg";
 import eyeOpen from "../images/eyeOpen.svg";
 
-function Log_in() {
+function Log_in_business() {
   const LOGINURL = "http://3.34.24.140:9998/auth/login";
 
   const [loading, setLoading] = useState(false);
@@ -30,7 +31,7 @@ function Log_in() {
   const [clicked, setClicked] = useState(false);
 
   const [formValues, setFormValues] = useState({
-    phoneNo: "",
+    businessId: "",
     password: "",
   });
 
@@ -57,6 +58,7 @@ function Log_in() {
     console.log(visible);
   };
 
+  //로그인 버튼 클릭시(axios)
   const submitLogin = async () => {
     setLoading(true);
     setLoginText("로그인 중입니다...");
@@ -64,18 +66,19 @@ function Log_in() {
     setWrongId(false);
     setWrongPswd(false);
 
-    const phoneNo = formValues.phoneNo;
-    const password = formValues.pswd;
+    const businessId = formValues.businessId;
+    const password = formValues.password;
 
+    console.log('businessId,password',businessId,password);
     try {
-      const response = await axios.post(LOGINURL, { phoneNo, password });
+      const response = await axios.post(LOGINURL, { businessId, password });
 
       const userData = {
-        phoneNo: response.data.phoneNo,
         name: response.data.name,
-        token: response.data.token,
+        phoneNo:response.data.phoneNo,
       };
       sessionStorage.setItem("userData", JSON.stringify(userData));
+      window.location.href='/home_account_analysis';
 
     } catch (error) {
       console.log("login failed", error);
@@ -98,27 +101,19 @@ function Log_in() {
 
   return (
     <div className={login.root}>
-      <Link to="/" style={{ textDecoration: "none" }}>
-        <header className={login.header}>
-          <img className={login.logo_img} src={hamso_logo}></img>
-          <div className={login.text_box}>
-            <p className={login.text1}>함소</p>
-            <p className={login.text2}>온전히 떠나보낼 수 있도록,</p>
-          </div>
-        </header>
-      </Link>
-      <main className={login.main}>
+      <Banner></Banner>
+      <main className={login.main_business}>
         <form onSubmit={onSubmit} className={login.flex_center}>
           <div style={{ marginBottom: "12px" }}>
             <p className={login.text1_head} style={{ marginBottom: "4px" }}>
-              전화번호(아이디)
+              ID(비즈니스회원 전용)
             </p>
             <div className={login.input_box1}>
               <Input
-                name="phoneNo"
+                name="businessId"
                 type="text"
                 onChange={onChange}
-                placeholder="전화번호(아이디)"
+                placeholder="아이디를 입력해주십시오"
                 className={login.input1}
               ></Input>
             </div>
@@ -142,7 +137,7 @@ function Log_in() {
           <Button
             style={{ marginBottom: "4px" }}
             text="로그인하기"
-            className={login.submit_btn}
+            className={login.submit_btn_business}
             type='submit'
           ></Button>
           <p style={{ color: "#999", fontSize: "12px", marginBottom: "20px" }}>
@@ -157,11 +152,22 @@ function Log_in() {
         </form>
 
         <Link to="/Sign_up_select">
-          <Button text="회원가입하기" className={login.sign_up}></Button>
+          <Button text="회원가입하기" className={login.sign_up_business}></Button>
         </Link>
+
+        <p className={login.family_log_in}>
+          유족분이신가요? &nbsp;
+        <Link to='/'
+        style={{
+          textDecoration:'underline',
+          color:'#2c2322'
+        }}>
+        유족회원 로그인
+        </Link>
+        ▶︎ </p>
       </main>
     </div>
   );
 }
 
-export default Log_in;
+export default Log_in_business;
