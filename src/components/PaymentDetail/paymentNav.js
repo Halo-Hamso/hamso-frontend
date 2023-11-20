@@ -12,10 +12,11 @@ function PaymentNav(props) {
         {title} <img src={downArrow}></img>
       </PaymentType>
       <PaymentCategory>
+        {props.type == 'item' ? '' : <Box>시간</Box>}
         <Box style={{ width: '60px' }}>장례 용품</Box>
-        <Box> 개수</Box>
-        <Box>비용</Box>
-        <Box>상태</Box>
+        <Box style={{ width: '70px' }}> 개수</Box>
+        <Box style={{ width: '40px' }}>비용</Box>
+        {props.type == 'item' ? <Box>상태</Box> : ''}
       </PaymentCategory>
       <Line></Line>
     </div>

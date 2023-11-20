@@ -10,6 +10,10 @@ function Chart(props) {
     <ChartContainer>
       <div style={{ paddingTop: '20px', width: '340px', margin: '0 auto' }}>
         <TotalAmount>
+          <TotalAmountText>총 금액</TotalAmountText>
+          {(totalCost + totalProfit).toLocaleString()}원
+        </TotalAmount>
+        <TotalAmount style={{ marginTop: '10px' }}>
           <TotalAmountText>잔액</TotalAmountText>
           {(totalCost + totalProfit).toLocaleString()}원
         </TotalAmount>
