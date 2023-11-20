@@ -46,14 +46,14 @@ function Password_Finding() {
   });
 
   const [phoneText, setPhoneText] = useState(sign_up.text6);
-  const [phoneMessage, setPhoneMessage] = useState("* 전화번호를 입력해주세요");
+  const [phoneMessage, setPhoneMessage] = useState("* 올바른 전화번호를 입력해주세요");
   const [codeText, setCodeText] = useState(sign_up.text_none);
   const [disabledBtn1, setDisabledBtn1] = useState(true);
   const [disabledBtn2, setDisabledBtn2] = useState(true);
   const [accessBtn1, setAccessBtn1] = useState(sign_up.btn_x);
   const [accessBtn2, setAccessBtn2] = useState(sign_up.btn_x);
 
-
+  const [disabledPswd, setDisabledPswd] = useState(true);
   const [returnPwsd, setReturnPwsd] = useState("");
   const [returnPswd_check, setReturnPswd_check] = useState("");
   const [pswd, setPswd] = useState(false);
@@ -107,8 +107,10 @@ function Password_Finding() {
       setDisabledBtn2(true);
       setCodeClass(sign_up.input_box3_abled)
       setTimer(false);
+      setDisabledPswd(false);
     } else {
       alert("인증번호가 일치하지 않습니다!");
+      setDisabledPswd(true);
     }
   }
 
@@ -171,43 +173,27 @@ function Password_Finding() {
   //이중함수 구현
 
   const submitNewPassword = async () => {
-    setLoading(true);
-    setLoginText("로그인 중입니다...");
-    setTextClass(login.loading);
-    setWrongId(false);
-    setWrongPswd(false);
+    const result = window.confirm("입력한 새 비밀번호로 변경하시겠습니까?")
 
-    const phoneNo = formValues.phoneNo;
-    const newPassword = formValues.password;
+    if (result) {
+      const phoneNo = formValues.phoneNo;
+      const newPassword = formValues.password;
 
-    console.log('phoneNo,password', phoneNo, newPassword);
-    try {
-      const response = await axios.post(PSWDURL, { phoneNo, newPassword });
-
-      const userData = {
-        phoneNo: response.data.phoneNo,
-        name: response.data.name,
-        token: response.data.token,
-      };
-      sessionStorage.setItem("userData", JSON.stringify(userData));
-      window.location.href = '/home_account_analysis';
-
-    } catch (error) {
-      console.log("login failed", error);
-      setLoading(false);
-      setLoginText("존재하지 않는 회원이거나 비밀번호가 일치하지 않습니다!");
-      setTextClass(login.wrong);
+      console.log('phoneNo,newPassword', phoneNo, newPassword);
+      try {
+        const response = await axios.post(PSWDURL, { phoneNo, newPassword });
+        if(response.data.slice(0,4)==="비밀번호"){
+          console.log(response.data);
+          alert(response.data);
+          window.location.href = '/';
+        }else{
+          alert(response.data);
+        }
+      } catch (error) {
+        console.log("password changing failed", error);
+      }
     }
   };
-
-  useEffect(() => {
-    console.log(formValues.phoneNo)
-    if (formValues.phoneNo.length === 11) {
-      setDisabledBtn1(false);
-    } else {
-      setDisabledBtn1(true);
-    }
-  }, [formValues.phoneNo])
 
   useEffect(() => { password_check() }, [returnPwsd, returnPswd_check]);
   useEffect(() => {
@@ -217,7 +203,7 @@ function Password_Finding() {
       setPhoneMessage("* 숫자만 입력 가능합니다");
       setAccessBtn1(sign_up.btn_x);
       setDisabledBtn1(true);
-    } else if (formValues.phoneNo.length >= 13) {
+    } else if (formValues.phoneNo.length === 11) {
       setPhoneText(sign_up.text_none);
       setAccessBtn1(sign_up.btn_o);
       setDisabledBtn1(false);
@@ -234,7 +220,18 @@ function Password_Finding() {
 
       <Banner></Banner>
 
-      <main className={login.main}>
+      <main className={sign_up.main}>
+      <p className={login.family_log_in_back}>
+          ◀︎&nbsp;
+          <Link to='/'
+            style={{
+              textDecoration: 'none',
+              color: '#493B39'
+            }}>
+            로그인 페이지
+          </Link>
+          </p>
+
         <div className={login.flex_center}>
           <div style={{ marginBottom: '20px' }}>
             <p style={{ marginBottom: '4px' }}
@@ -284,9 +281,16 @@ function Password_Finding() {
               <div style={{ marginBottom: '20px' }}>
                 <p className={sign_up.text1}>새 비밀번호</p>
                 <div style={{ marginBottom: '4px' }}
-                  className={sign_up.input_box2}>
-                  <Input name="password" type={type} onChange={return_pw} placeholder="●●●●●●●●"
-                    className={sign_up.input1} />
+                  className={
+                    disabledPswd ? sign_up.input_box2_disabled
+                      : sign_up.input_box2}>
+                  <Input name="password" type={type}
+                    onChange={return_pw}
+                    placeholder={
+                      disabledPswd ? "인증을 완료한 뒤 입력하실 수 있습니다"
+                        : "●●●●●●●●"}
+                    className={sign_up.input1}
+                    disabled={disabledPswd} />
                   <img src={visibleBtn} onClick={onClick_visible}></img>
                 </div>
                 <p className={pswdClass1}>{pswdStr1}</p>
@@ -294,10 +298,15 @@ function Password_Finding() {
 
               <div style={{ marginBottom: '20px' }}>
                 <p className={sign_up.text1}>새 비밀번호 확인</p>
-                <div className={sign_up.input_box2}>
+                <div className={
+                  disabledPswd ? sign_up.input_box2_disabled
+                    : sign_up.input_box2}>
                   <Input name="check_pswd" type="password" onChange={return_pw_check}
-                    placeholder="비밀번호를 한번 더 입력해주세요."
-                    className={sign_up.input1} />
+                    placeholder={
+                      disabledPswd ? "인증을 완료한 뒤 입력하실 수 있습니다"
+                        : "새 비밀번호를 한번 더 입력해주십시오"}
+                    className={sign_up.input1}
+                    disabled={disabledPswd} />
                 </div>
                 <p className={pswdClass2}>{pswdStr2}</p>
               </div>
@@ -311,15 +320,7 @@ function Password_Finding() {
           ></Button>
         </div>
 
-        <p className={login.family_log_in}>
-          <Link to='/'
-            style={{
-              textDecoration: 'none',
-              color: '#493B39'
-            }}>
-            로그인 페이지로 돌아가기
-          </Link>
-          ▶︎ </p>
+        
       </main>
     </div>
   );

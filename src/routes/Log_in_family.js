@@ -146,7 +146,7 @@ function Log_in_family() {
               to="/password_finding"
               style={{ color: "#999", fontSize: "12px" }}
             >
-              <a>비밀번호 찾기</a>
+              <a>비밀번호 변경</a>
             </Link>
           </p>
         </form>

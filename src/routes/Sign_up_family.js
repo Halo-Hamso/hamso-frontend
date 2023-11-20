@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import{Link}from 'react-router-dom';
+
 import Button from "../components/Button";
 import Input from "../components/Input";
 import Timer from "../components/Timer"
@@ -18,7 +20,6 @@ function Sign_up_family() {
   const JOINURL = "http://3.34.24.140:9998/auth/signup";
   const PHONEURL = "http://3.34.24.140:9998/sms/send";
 
-  const [phoneLength1, setPhoneLength1] = useState(0);
   const [phoneLength, setPhoneLength] = useState(0);
 
   const [returnPwsd, setReturnPwsd] = useState("");
@@ -601,7 +602,16 @@ function Sign_up_family() {
     <div className={sign_up.root}>
       <Banner></Banner>
       <main className={sign_up.main}>
-
+      <p className={sign_up.log_in_back}>
+          ◀︎&nbsp;
+          <Link to='/sign_up_select'
+            style={{
+              textDecoration: 'none',
+              color: '#493B39'
+            }}>
+            뒤로가기
+          </Link>
+          </p>
         <div className={sign_up.text_head}>
           회원가입을 위해 정보를 입력해주세요.
         </div>

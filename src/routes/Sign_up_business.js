@@ -480,21 +480,21 @@ function Sign_up_business() {
 
     console.log(name, businessId, password, phoneNo,
       businessName, businessNo, businessType, businessItem);
-    try{
-    const response = await axios.post(JOINURL, {
-      name, businessId, password, phoneNo,
-      businessName, businessNo, businessType, businessItem
-    });
-    
-    console.log('data 제출 성공', response.data);
+    try {
+      const response = await axios.post(JOINURL, {
+        name, businessId, password, phoneNo,
+        businessName, businessNo, businessType, businessItem
+      });
 
-    if (response.data.name &&
-      response.data.phoneNo) {
-      console.log("sign_up succceed!");
-      alert("비즈니스 회원가입이 성공적으로 처리되었습니다!");
-      window.location.href = "/";
-    }
-  }catch(error){
+      console.log('data 제출 성공', response.data);
+
+      if (response.data.name &&
+        response.data.phoneNo) {
+        console.log("sign_up succceed!");
+        alert("비즈니스 회원가입이 성공적으로 처리되었습니다!");
+        window.location.href = "/";
+      }
+    } catch (error) {
       console.log(error)
       alert(`${phoneNo}는 이미 존재하는 번호입니다!`);
     }
@@ -697,7 +697,16 @@ function Sign_up_business() {
       <Banner></Banner>
 
       <main className={sign_up.main}>
-
+        <p className={sign_up.log_in_back}>
+          ◀︎&nbsp;
+          <Link to='/sign_up_select'
+            style={{
+              textDecoration: 'none',
+              color: '#493B39'
+            }}>
+            뒤로가기
+          </Link>
+        </p>
         <div className={sign_up.text_head}>
           회원가입을 위해 정보를 입력해주세요.
         </div>
