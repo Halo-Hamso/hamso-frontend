@@ -4,8 +4,9 @@ import Log_in from './Log_in';
 import Home from './Home';
 import VisitInfo from './VisitInfo';
 import Home_Account_book from './Home_Account_book';
-import UserHome from './UserHome';
+import UserHomeHome from './UserHomeHome';
 import BusinessHome from './BusinessHome';
+import UserHomePayment from './UserHomePayment';
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
           element={<Home_Account_book></Home_Account_book>}
         ></Route>
         <Route path="/visitinfo" element={<VisitInfo />} />
-        <Route path="/userhome" element={<UserHome />} />
+        <Route path="/userhome/home" element={<UserHomeHome />} />
+        <Route path="/userhome/payment" element={<UserHomePayment />} />
         <Route path="/businesshome" element={<BusinessHome />} />
       </Routes>
     </Router>

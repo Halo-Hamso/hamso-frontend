@@ -27,10 +27,10 @@ function UserHomeNav() {
         </div>
       </HamsoHeaderWrap>
       <MenuWrap>
-        <MenuBtn imgName={home} text="홈" />
-        <MenuBtn imgName={account} text="부의금 가계부" />
-        <MenuBtn imgName={payment} text="실시간 지출 장부" />
-        <MenuBtn imgName={secretary} text="장례식 비서" />
+        <MenuBtn imgName={home} path="home" text="홈" />
+        <MenuBtn imgName={account} path="home" text="부의금 가계부" />
+        <MenuBtn imgName={payment} path="payment" text="실시간 지출 장부" />
+        <MenuBtn imgName={secretary} path="home" text="장례식 비서" />
       </MenuWrap>
     </div>
   );

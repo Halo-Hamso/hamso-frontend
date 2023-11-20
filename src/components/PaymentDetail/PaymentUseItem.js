@@ -22,12 +22,7 @@ function PaymentUseItem() {
   return (
     <div>
       <div>실시간 결제내역</div>
-      <div style={{ display: 'flex' }}>
-        <div style={{ marginLeft: '10px' }}>사용 시간</div>
-        <div style={{ marginLeft: '10px' }}> 장례용품</div>
-        <div style={{ marginLeft: '10px' }}>개수</div>
-        <div style={{ marginLeft: '10px' }}>비용</div>
-      </div>
+      <div style={{ display: 'flex' }}></div>
       <Pagination count={10} onChange={handlePage} shape="rounded" />
     </div>
   );
