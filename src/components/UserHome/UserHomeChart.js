@@ -13,13 +13,12 @@ function UserHomeChart() {
     <div>
       <ChartDate setDate={setDate} />
       <ChartMenu setChart={setChart} />
-
       {chart == 'all' ? (
         <Chart date={date} />
       ) : chart === 'surcharge' ? (
-        <SurchargeChart date={date} />
-      ) : (
         <ExpenditureChart date={date} />
+      ) : (
+        <SurchargeChart date={date} />
       )}
     </div>
   );

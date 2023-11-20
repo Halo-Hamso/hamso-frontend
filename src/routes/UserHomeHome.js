@@ -1,7 +1,7 @@
 import UserHomeChart from '../components/UserHome/UserHomeChart';
 import UserHomeNav from '../components/UserHome/Nav/UserHomeNav';
 
-function UserHome() {
+function UserHomeHome() {
   return (
     <div>
       <UserHomeNav />
@@ -10,4 +10,4 @@ function UserHome() {
   );
 }
 
-export default UserHome;
+export default UserHomeHome;

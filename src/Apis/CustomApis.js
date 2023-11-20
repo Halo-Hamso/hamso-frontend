@@ -19,7 +19,6 @@ export const businessImageApi = (image) => {
   formDataImg.append('image', image);
   return axios.post(`${API}/bill/image`, formDataImg, {
     headers: { 'Content-Type': 'multipart/form-data' },
-    Authorization: 'Bearer a3wegwfe',
   });
 };
 
@@ -31,4 +30,12 @@ export const ChartApi = async (info) => {
       headers: {},
     }
   );
+};
+
+export const getUseItemApi = (info) => {
+  return axios.get(`${API}/account-book/bill/use-time`, { params: info });
+};
+
+export const getItemApi = (info) => {
+  return axios.get(`${API}/account-book/bill/item`, { params: info });
 };

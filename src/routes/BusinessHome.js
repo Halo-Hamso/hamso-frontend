@@ -17,6 +17,7 @@ function BusinessHome() {
   const handleSendImg = () => {
     businessImageApi(uploadImg)
       .then((res) => {
+        console.log(res);
         alert('이미지 전송이 완료되었습니다.');
       })
       .catch((err) => {
