@@ -23,6 +23,7 @@ export const businessImageApi = (image) => {
 };
 
 export const ChartApi = async (info) => {
+  console.log(API);
   return await axios.get(
     `${API}/account-book/chart`,
     { params: info },
