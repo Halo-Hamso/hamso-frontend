@@ -35,6 +35,7 @@ function SurchargeGrapth(props) {
     { name: '24:00', 금액: 900 },
   ]);
   useEffect(() => {
+    let sum = 0;
     if (info.date) {
       ChartApi(info)
         .then((res) => {

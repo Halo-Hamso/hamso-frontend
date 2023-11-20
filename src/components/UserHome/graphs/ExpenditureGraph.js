@@ -14,7 +14,7 @@ import { ChartApi } from '../../../Apis/CustomApis';
 function ExpenditureGraph(props) {
   const info = { date: props.date, option: 1 };
   let profit = [];
-  let sum = 0;
+
   const [data, setData] = useState([
     { name: '08:00', 금액: 300 },
     { name: '09:00', 금액: 6000 },
@@ -35,6 +35,7 @@ function ExpenditureGraph(props) {
     { name: '24:00', 금액: 900 },
   ]);
   useEffect(() => {
+    let sum = 0;
     if (info.date) {
       ChartApi(info)
         .then((res) => {
