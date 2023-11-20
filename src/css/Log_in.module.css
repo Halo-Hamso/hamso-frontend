@@ -15,7 +15,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding:5%;
+    padding: 5%;
 }
 
 .flex_center {
@@ -25,6 +25,10 @@
     align-items: center;
 }
 
+
+/* 헤더(함소 로고) 시작*/
+/* 헤더(함소 로고) 시작*/
+/* 헤더(함소 로고) 시작*/
 .header {
     height: 120px;
     display: flex;
@@ -32,17 +36,17 @@
     align-items: center;
 }
 
-.header .logo_img {
+.logo_img {
     width: 96px;
     height: 96px;
     flex-shrink: 0;
 }
 
-.header .text_box {
+.text_box {
     width: 186px;
     height: 76px;
-    
-    margin-left:-16px;
+
+    margin-left: -16px;
 
     display: flex;
     flex-direction: column;
@@ -50,43 +54,93 @@
     align-items: flex-start;
 }
 
-.header .text1 {
+.header_text1 {
     color: var(--Main, #493B39);
     font-size: 36px;
     font-weight: 800;
     letter-spacing: 5.76px;
 }
 
-.header .text2 {
+.header_text2 {
     color: #999;
     font-size: 12px;
-    font-style: normal;
     font-weight: 700;
     line-height: 12px;
     /* 100% */
 }
 
+/* 헤더(함소 로고) 끝*/
+/* 헤더(함소 로고) 끝*/
+/* 헤더(함소 로고) 끝*/
+
+
+
 .main {
+    position: relative;
+
     width: 380px;
     flex-shrink: 0;
     border: 1px solid var(--MAIN, #493B39);
 
-    padding-top:5%;
-    padding-bottom:5%;
+    padding-top: 3%;
+    padding-bottom: 5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.main .flex_center {
+.main_business {
+    position: relative;
+
+    width: 380px;
+    flex-shrink: 0;
+    border: 1px solid var(--MAIN, #374649);
+
+    padding-top: 3%;
+    padding-bottom: 5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.main .text1 {
+.business_log_in {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    font-size: 12px;
+    color: #799094;
+
+    text-align: right;
+}
+
+.family_log_in {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    font-size: 12px;
+    color: #493B39;
+
+    text-align: right;
+}
+.family_log_in_back {
+    align-self:flex-start;
+    font-size: 12px;
+    color: #493B39;
+
+    margin-bottom:36px;
+    text-align: right;
+}
+
+.flex_center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text1 {
     color: var(--Asub1, #799094);
     font-size: 12px;
     font-style: normal;
@@ -95,7 +149,7 @@
     /* 100% */
 }
 
-.main .text1_head {
+.text1_head {
     color: var(--Asub1, #799094);
     font-size: 12px;
     font-style: normal;
@@ -104,7 +158,7 @@
     /* 100% */
 }
 
-.main .input_box1 {
+.input_box1 {
     width: 300px;
     height: 44px;
     flex-shrink: 0;
@@ -115,16 +169,17 @@
     font-size: 24px;
     font-weight: 400;
 
-
+    padding-left:12px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
-.main .input_box1:hover {
-    border: 1px solid var(--AMain, #475A5D);
+
+.input_box1:hover {
+    border: 1px solid var(--AMain, #799094);
 }
 
-.main .input1 {
+.input1 {
     justify-self: flex-start;
     border: none;
     color: #999;
@@ -134,17 +189,14 @@
     font-weight: 400;
     outline: none;
 
-
-    padding-left: 12px;
 }
 
 
 
-.main .input_box2 {
+.input_box2 {
     width: 300px;
     height: 44px;
     flex-shrink: 0;
-    
 
     border: 1px solid #999;
 
@@ -152,17 +204,18 @@
     font-size: 24px;
     font-weight: 400;
 
-    padding-left:12px;
-    padding-right:12px;
+    padding-left: 12px;
+    padding-right: 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.main .input_box2:hover {
+
+.input_box2:hover {
     border: 1px solid var(--AMain, #475A5D);
 }
 
-.main .input2 {
+.input2 {
     border: none;
     outline: none;
 
@@ -171,7 +224,8 @@
     font-size: 16px;
     font-weight: 400;
 }
-.main .submit_btn {
+
+.submit_btn {
     width: 300px;
     height: 48px;
     flex-shrink: 0;
@@ -188,7 +242,24 @@
     font-family: 'NanumMyeongjo', serif;
 }
 
-.main .sign_up {
+.submit_btn_business {
+    width: 300px;
+    height: 48px;
+    flex-shrink: 0;
+    background-color: var(--MAIN, #374649);
+
+    border: 0px solid #999;
+    cursor: pointer;
+
+
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2.88px;
+    font-family: 'NanumMyeongjo', serif;
+}
+
+.sign_up {
     width: 300px;
     height: 48px;
     flex-shrink: 0;
@@ -207,73 +278,80 @@
     letter-spacing: 2.88px;
 }
 
+.sign_up_business {
+    width: 300px;
+    height: 48px;
+    flex-shrink: 0;
+    background-color: white;
 
+    border: 1px solid var(--Main, #374649);
+    cursor: pointer;
+
+
+    color: var(--MAIN, #374649);
+    font-family: 'NanumMyeongjo', serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    /* 125% */
+    letter-spacing: 2.88px;
+}
+
+
+.wrong {
+    width: 300px;
+    text-align: center;
+    font-size: 12px;
+    color: red;
+}
+
+.loading {
+    font-size: 12px;
+    color: gray;
+}
 
 @media screen and (max-width: 480px) and (min-width:280px) {
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-    } 
-    .header {
-        width: 320px;
     }
-    
-    .header .logo_img {
-        width: 96px;
-        height: 96px;
-        flex-shrink: 0;
-    }
-    
-    .header .text_box {
-        width: 186px;
-        height: 76px;
-        
-        margin-left:-16px;
-    
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-    }
-    
-    .header .text1 {
-        color: var(--Main, #493B39);
-        font-size: 36px;
-        font-weight: 800;
-        letter-spacing: 5.76px;
-    }
-    
-    .header .text2 {
-        color: #999;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 12px;
-        /* 100% */
-    }
-    
+
     .main {
         width: 260px;
         flex-shrink: 0;
         border: 1px solid var(--MAIN, #493B39);
-    
-        padding-top:5%;
-        padding-bottom:5%;
+
+        padding-top: 5%;
+        padding-bottom: 5%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    
-    .main .flex_center {
+
+    .main_business {
+        width: 260px;
+        flex-shrink: 0;
+        border: 1px solid var(--MAIN, #374649);
+
+        padding-top: 5%;
+        padding-bottom: 5%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    
-    .main .text1 {
+
+    .flex_center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text1 {
         color: var(--Asub1, #799094);
         font-size: 12px;
         font-style: normal;
@@ -281,8 +359,8 @@
         line-height: 12px;
         /* 100% */
     }
-    
-    .main .text1_head {
+
+    .text1_head {
         color: var(--Asub1, #799094);
         font-size: 12px;
         font-style: normal;
@@ -290,100 +368,103 @@
         line-height: 12px;
         /* 100% */
     }
-    
-    .main .input_box1 {
+
+    .input_box1 {
         width: 240px;
         height: 44px;
         flex-shrink: 0;
-    
+
         border: 1px solid #999;
-    
+
         color: #999;
         font-size: 24px;
         font-weight: 400;
-    
-    
+
+
         display: flex;
         justify-content: flex-start;
         align-items: center;
     }
-    .main .input_box1:hover {
-        border: 1px solid var(--AMain, #475A5D);
-    }
-    
-    .main .input1 {
-        justify-self: flex-start;
-        border: none;
-        color: #999;
-    
-        font-family: 'NanumMyeongjo', serif;
-        font-size: 16px;
-        font-weight: 400;
-        outline: none;
-    
-    
-        padding-left: 12px;
-    }
-    
-    
-    
-    .main .input_box2 {
+
+
+
+    .input_box2 {
         width: 240px;
         height: 44px;
         flex-shrink: 0;
-        
-    
+
+
         border: 1px solid #999;
-    
+
         color: #999;
         font-size: 24px;
         font-weight: 400;
-    
-        padding-left:12px;
-        padding-right:12px;
+
+        padding-left: 12px;
+        padding-right: 12px;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
-    .main .input_box2:hover {
+
+    .input_box2:hover {
         border: 1px solid var(--AMain, #475A5D);
     }
-    
-    .main .input2 {
+
+    .input2 {
         border: none;
         outline: none;
-    
+
         color: #999;
         font-family: 'NanumMyeongjo', serif;
         font-size: 16px;
         font-weight: 400;
     }
-    .main .submit_btn {
+
+    .submit_btn {
         width: 240px;
         height: 48px;
         flex-shrink: 0;
         background-color: var(--MAIN, #493B39);
-    
+
         border: 0px solid #999;
         cursor: pointer;
-    
-    
+
+
         color: #FFF;
         font-size: 16px;
         font-weight: 700;
         letter-spacing: 2.88px;
         font-family: 'NanumMyeongjo', serif;
     }
-    
-    .main .sign_up {
+
+    .submit_btn_business {
+        width: 240px;
+        height: 48px;
+        flex-shrink: 0;
+        background-color: var(--MAIN, #374649);
+
+        border: 0px solid #999;
+        cursor: pointer;
+
+
+        color: #FFF;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 2.88px;
+        font-family: 'NanumMyeongjo', serif;
+    }
+
+    .sign_up {
         width: 240px;
         height: 48px;
         flex-shrink: 0;
         background-color: white;
-    
+
         border: 1px solid var(--Main, #493B39);
         cursor: pointer;
-    
+
+        margin-bottom:8px;
         color: var(--MAIN, #493B39);
         font-family: 'NanumMyeongjo', serif;
         font-size: 16px;
@@ -394,4 +475,37 @@
         letter-spacing: 2.88px;
     }
 
+    .sign_up_business {
+        width: 240px;
+        height: 48px;
+        flex-shrink: 0;
+        background-color: white;
+
+        border: 1px solid var(--Main, #374649);
+        cursor: pointer;
+
+        margin-bottom:8px;
+        color: var(--MAIN, #374649);
+        font-family: 'NanumMyeongjo', serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 30px;
+        /* 125% */
+        letter-spacing: 2.88px;
+    }
+
+    .wrong {
+        width: 240px
+    }
+
+    .business_log_in {
+        bottom: 1%;
+        right: 1%;
+    }
+
+    .family_log_in {
+        bottom: 1%;
+        right: 1%;
+    }
 }
