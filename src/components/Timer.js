@@ -21,7 +21,8 @@ function Timer(props){
 
     useEffect(() => {
         if (isTimeUp) {
-            alert('제한 시간이 끝났습니다.');
+            alert('인증번호 입력시간이 종료되었습니다.');
+            props.setTimer(false);
         }
     }, [isTimeUp]);
 
@@ -32,7 +33,7 @@ function Timer(props){
     }
 
     return(
-        <p style={{color:'red'}}>{formatTime(time)}</p>
+        <p className={props.className}>{formatTime(time)}</p>
     )
 }
 

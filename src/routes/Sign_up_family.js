@@ -1,28 +1,26 @@
 import { useState, useEffect } from "react";
 
-import {Link} from 'react-router-dom';
+import{Link}from 'react-router-dom';
 
 import Button from "../components/Button";
 import Input from "../components/Input";
 import Timer from "../components/Timer"
+import Banner from '../components/Banner';
 
 import sign_up from "../css/Sign_up.module.css";
 
-import direction from "../images/direction.svg"
-import hamso_logo from "../images/hamso_logo.svg";
 import eyeOpen from "../images/eyeOpen.svg";
 import eyeClose from "../images/eyeClose.svg";
 
 
 import axios from 'axios'
 
-function Sign_up() {
+function Sign_up_family() {
 
-  const JOINURL = "#";
-  const PHONEURL = "#";
+  const JOINURL = "http://3.34.24.140:9998/auth/signup";
+  const PHONEURL = "http://3.34.24.140:9998/sms/send";
 
-  const [phoneLength1,setPhoneLength1] = useState(0);
-  const [phoneLength,setPhoneLength] = useState(0);
+  const [phoneLength, setPhoneLength] = useState(0);
 
   const [returnPwsd, setReturnPwsd] = useState("");
   const [returnPswd_check, setReturnPswd_check] = useState("");
@@ -41,7 +39,7 @@ function Sign_up() {
   const [disInput, setDisInput] = useState(true);
   const [timer, setTimer] = useState(false);
   const [phoneChecked, setPhoneChecked] = useState(false);
-  const [codeClass,setCodeClass]=useState(sign_up.input_box3);
+  const [codeClass, setCodeClass] = useState(sign_up.input_box3);
 
   const [joinbtn, setJoinBtn] = useState(true);
   const [btnClass, setBtnClass] = useState(sign_up.next_btn_x);
@@ -55,16 +53,16 @@ function Sign_up() {
   });
 
   const [relationshipInput, setRelationshipInput] = useState(true);
-  const [directlyClass,setDirectlyClass]=useState(sign_up.input_box4);
+  const [directlyClass, setDirectlyClass] = useState(sign_up.input_box4);
 
-  const [nameText,setNameText]=useState(sign_up.text6);
-  const [phoneText,setPhoneText]=useState(sign_up.text6);
-  const [phoneMessage,setPhoneMessage]=useState("* 전화번호를 입력해주세요");
-  const [codeText,setCodeText]=useState(sign_up.text_none);
-  const [disabledBtn1,setDisabledBtn1]=useState(true);
-  const [disabledBtn2,setDisabledBtn2]=useState(true);
-  const [accessBtn1,setAccessBtn1] = useState(sign_up.btn_x);
-  const [accessBtn2,setAccessBtn2] = useState(sign_up.btn_x);
+  const [nameText, setNameText] = useState(sign_up.text6);
+  const [phoneText, setPhoneText] = useState(sign_up.text6);
+  const [phoneMessage, setPhoneMessage] = useState("* 전화번호를 입력해주세요");
+  const [codeText, setCodeText] = useState(sign_up.text_none);
+  const [disabledBtn1, setDisabledBtn1] = useState(true);
+  const [disabledBtn2, setDisabledBtn2] = useState(true);
+  const [accessBtn1, setAccessBtn1] = useState(sign_up.btn_x);
+  const [accessBtn2, setAccessBtn2] = useState(sign_up.btn_x);
 
   const agree_text = [
     '(예시) 실명 인증된 아이디로 가입, 위치기반서비스 이용약관(선택), 이벤트 • 혜택 정보 수신(선택) 동의를 포함합니다.',
@@ -290,7 +288,7 @@ function Sign_up() {
   const [adCheckedBtn, setAdCheckedBtn] = useState(sign_up.unchecked)
 
   const onChange = (event) => {
-    console.log(event.target,event.target.name, event.target.value);  //event.target 대상이 안 뜨면 props에서 빠진 게 아닌지 생각
+    console.log(event.target, event.target.name, event.target.value);  //event.target 대상이 안 뜨면 props에서 빠진 게 아닌지 생각
     const { name, value } = event.target; //속성 중 name,value만 골라서 넣어줌
     setFormValues((prevValues) => ({
       ...prevValues,
@@ -330,14 +328,14 @@ function Sign_up() {
       setCheckPswd(true);
       setPswdClass1(sign_up.impossible);
       setPswdStr1("※ 영문자+숫자+특수문자 9자리 이상 15자리 이하를 입력 하십시오.");
-    } 
-    
+    }
+
     if (password !== check_password && check_password !== "") {
       setPswd(true);
       setCheckPswd(false);
       setPswdClass2(sign_up.impossible);
       setPswdStr2("※ 작성하신 비밀번호와 일치하지 않습니다.");
-    }else{
+    } else {
       setPswdClass2(sign_up.text_none);
     }
   }
@@ -345,26 +343,41 @@ function Sign_up() {
   const onClick_phone = async (event) => {
     event.preventDefault();
     setTimer(false);
-    const to = formValues.phoneNo;
+    const to =
+      formValues.phoneNo.slice(0, 3) +
+      formValues.phoneNo.slice(4, 8) +
+      formValues.phoneNo.slice(9, 13);
     const content = "";
     const response = await axios.post(PHONEURL, { to, content });
 
-    setDisInput(false);
-    setBackCode(response.data);
-    setCodeText(sign_up.text6);
-    setAccessBtn2(sign_up.btn_o);
-    setDisabledBtn2(false);
-    console.log(response.data);
-    console.log("요청 성공");
-    setCodeClass(sign_up.input_box3_abled)
-    setTimer(true);
+    console.log(typeof (response.data));
+    if (typeof (response.data == 'number')) {
+      console.log("요청 성공");
+      setDisInput(false);
+      setBackCode(response.data);
+      setCodeText(sign_up.text6);
+      setAccessBtn2(sign_up.btn_o);
+      setDisabledBtn2(false);
+      setCodeClass(sign_up.input_box3_abled)
+      setTimer(true);
+    } else {
+      console.log(response.data);
+    }
   }
 
   const onClick_phoneCheck = (event) => {
     event.preventDefault();
-    if (backCode === event.target.value) {
+    console.log(Number(backCode), Number(formValues.code))
+    if (Number(backCode) === Number(formValues.code)) {
       alert("인증이 완료되었습니다!");
       setPhoneChecked(true);
+
+      setDisInput(true);
+      setCodeText(sign_up.text_none);
+      setAccessBtn2(sign_up.btn_x);
+      setDisabledBtn2(true);
+      setCodeClass(sign_up.input_box3_abled)
+      setTimer(false);
     } else {
       alert("인증번호가 일치하지 않습니다!");
     }
@@ -397,27 +410,32 @@ function Sign_up() {
     event.preventDefault();
     const name = event.target.name.value;
     const password = event.target.password.value;
-    const phoneNo = 
-    event.target.phoneNo.value.slice(0,3) +
-    event.target.phoneNo.value.slice(4,8) +
-    event.target.phoneNo.value.slice(9,13);
-    let relationship;
+    const phoneNo =
+      event.target.phoneNo.value.slice(0, 3) +
+      event.target.phoneNo.value.slice(4, 8) +
+      event.target.phoneNo.value.slice(9, 13);
+    let relation;
     if (event.target.relationship1.value === "etc") {
-      relationship = event.target.relationship2.value;
+      relation = event.target.relationship2.value;
     } else {
-      relationship = event.target.relationship1.value;
+      relation = event.target.relationship1.value;
     }
-    console.log(name, password, phoneNo, relationship);
+    console.log(name, password, phoneNo, relation);
 
     const response = await axios.post(JOINURL, {
-      password, name, phoneNo, relationship
+      name, password, phoneNo, relation
     });
 
     console.log('data 제출 성공', response.data);
 
-    if (response.data) {
+    if (response.data.name &&
+      response.data.phoneNo) {
       console.log("sign_up succceed!");
-      window.location.href = "/sign_up_success";
+      alert("회원가입이 성공적으로 처리되었습니다!");
+      window.location.href = "/";
+    }
+    else {
+      alert(`${phoneNo}는 이미 존재하는 번호입니다.`);
     }
   }
 
@@ -438,10 +456,10 @@ function Sign_up() {
       setUseCheckedBtn(sign_up.unchecked);
       setInfoChecked(false);
       setInfoCheckedBtn(sign_up.unchecked);
-      setAdChecked(false); 
+      setAdChecked(false);
       setAdCheckedBtn(sign_up.unchecked);
     }
-    
+
   }
   const handleUseChecked = () => {
     if (useChecked === true) {
@@ -470,35 +488,41 @@ function Sign_up() {
       setAdCheckedBtn(sign_up.checked);
     }
   }
-
   useEffect(()=>{
+    setFormValues((prev)=>({
+      ...prev,
+      relationship1:'father'
+    }))
+  },[])
+
+  useEffect(() => {
     const tmp_phoneNo = formValues.phoneNo;
     setPhoneLength(formValues.phoneNo.length);
-    if((formValues.phoneNo.length===3 &&
+    if ((formValues.phoneNo.length === 3 &&
       phoneLength === 2)
       ||
-    (formValues.phoneNo.length===8 &&
-      phoneLength===7)){
+      (formValues.phoneNo.length === 8 &&
+        phoneLength === 7)) {
       setFormValues(prevValues => ({
         ...prevValues,
         phoneNo: tmp_phoneNo + '-'
       }));
-    }else if((formValues.phoneNo.length===3 &&
+    } else if ((formValues.phoneNo.length === 3 &&
       phoneLength === 4)
       ||
-    (formValues.phoneNo.length===8 &&
-      phoneLength===9)){
-        setFormValues(prevValues => ({
-          ...prevValues,
-          phoneNo: tmp_phoneNo.slice(0,-1)
-        }));
-      }else if(formValues.phoneNo.length>13){
-        setFormValues(prevValues => ({
-          ...prevValues,
-          phoneNo: tmp_phoneNo.slice(0,13)
-        }));
-      }
-  },[formValues.phoneNo]);  
+      (formValues.phoneNo.length === 8 &&
+        phoneLength === 9)) {
+      setFormValues(prevValues => ({
+        ...prevValues,
+        phoneNo: tmp_phoneNo.slice(0, -1)
+      }));
+    } else if (formValues.phoneNo.length > 13) {
+      setFormValues(prevValues => ({
+        ...prevValues,
+        phoneNo: tmp_phoneNo.slice(0, 13)
+      }));
+    }
+  }, [formValues.phoneNo]);
   //전화번호 입력창에 자동으로 '-'삽입하는 알고리즘
   //이전 번호의 길이 변수 활용, slice로 길이제한 적극활용
   //state의 비동기 적극적으로 활용
@@ -507,30 +531,30 @@ function Sign_up() {
 
   useEffect(() => { password_check() }, [returnPwsd, returnPswd_check]);
   useEffect(() => { onRelationship() }, [formValues.relationship1]);
-  useEffect(()=>{
-    if(formValues.name){  //onClick은 조건문과 반대상황으로 명령실행, onChange는 조건문에 맞게 명령실행
+  useEffect(() => {
+    if (formValues.name) {  //onClick은 조건문과 반대상황으로 명령실행, onChange는 조건문에 맞게 명령실행
       setNameText(sign_up.text_none);
-    }else{
+    } else {
       setNameText(sign_up.text6);
     }
 
     const regex = /^[0-9\-]*$/;
-    if(formValues.phoneNo){
-      if(!regex.test(formValues.phoneNo)){
+    if (formValues.phoneNo) {
+      if (!regex.test(formValues.phoneNo)) {
         setPhoneText(sign_up.text6);
         setPhoneMessage("* 숫자만 입력 가능합니다");
         setAccessBtn1(sign_up.btn_x);
         setDisabledBtn1(true);
-      }else if(formValues.phoneNo.length>=13){
-      setPhoneText(sign_up.text_none);
-      setAccessBtn1(sign_up.btn_o);
-      setDisabledBtn1(false);
-      }else{
+      } else if (formValues.phoneNo.length >= 13) {
+        setPhoneText(sign_up.text_none);
+        setAccessBtn1(sign_up.btn_o);
+        setDisabledBtn1(false);
+      } else {
         setPhoneText(sign_up.text6);
         setAccessBtn1(sign_up.btn_x);
         setDisabledBtn1(true);
       }
-    }else{
+    } else {
       setPhoneText(sign_up.text6);
       setPhoneMessage("* 전화번호를 입력해주세요");
       setAccessBtn1(sign_up.btn_x);
@@ -538,10 +562,13 @@ function Sign_up() {
       setDisabledBtn1(true);
       setDisabledBtn2(true);
     }
-  },[...Object.values(formValues)])
-  
+  }, [...Object.values(formValues)])
+
   useEffect(() => {
-    const allInputsFilled = Object.values(formValues).every((value) => value !== "");
+    const allInputsFilled = 
+    Object.values(formValues).slice(0,-2).every(
+      (value) => value !== "") &&
+      (formValues.relationship1 || formValues.relationship2);
     console.log(allInputsFilled);
     console.log(formValues)
     if (allInputsFilled &&
@@ -573,66 +600,68 @@ function Sign_up() {
 
   return (
     <div className={sign_up.root}>
-      <Link to = '/' style={{textDecoration:'none'}}>
-      <header className={sign_up.header}>
-      <Link to = '/' style={{textDecoration:'none'}}>
-        <img src={direction} style={{marginRight:'0.1vw'}}></img>
-        </Link>
-        <img src={hamso_logo} className={sign_up.logo_img}></img>
-        <div className={sign_up.text_box}>
-          <p className={sign_up.text1}>함소</p>
-          <p className={sign_up.text2}>온전히 떠나보낼 수 있도록,</p>
-        </div>
-      </header>
-      </Link>
-
+      <Banner></Banner>
       <main className={sign_up.main}>
-
+      <p className={sign_up.log_in_back}>
+          ◀︎&nbsp;
+          <Link to='/sign_up_select'
+            style={{
+              textDecoration: 'none',
+              color: '#493B39'
+            }}>
+            뒤로가기
+          </Link>
+          </p>
         <div className={sign_up.text_head}>
-            회원가입을 위해 정보를 입력해주세요.
+          회원가입을 위해 정보를 입력해주세요.
         </div>
 
         <form onSubmit={onSubmit} className={sign_up.flex_center}>
-          <div style={{marginBottom:'20px'}}>
+          <div style={{ marginBottom: '20px' }}>
             <p className={sign_up.text1}
-            style={{marginBottom:'4px'}}>이름</p>
+              style={{ marginBottom: '4px' }}>이름</p>
             <div className={sign_up.input_box1}>
               <Input name="name" type="text"
                 onChange={onChange} placeholder="이름 입력"
                 className={sign_up.input1} />
             </div>
             <p className={nameText}
-            style={{marginBottom:'4px'}}>* 이름을 입력해주세요</p>
+              style={{ marginBottom: '4px' }}>* 이름을 입력해주세요</p>
           </div>
 
-          <div style={{marginBottom:'20px'}}>
-            <p style={{marginBottom:'4px'}}
-            className={sign_up.text1}>전화번호</p>
-            <div style={{marginBottom:'4px'}}
-            className={sign_up.input_btn1}>
+          <div style={{ marginBottom: '20px' }}>
+            <p style={{ marginBottom: '4px' }}
+              className={sign_up.text1}>전화번호</p>
+            <div style={{ marginBottom: '4px' }}
+              className={sign_up.input_btn1}>
               <div className={sign_up.input_box_phone}>
                 <Input name="phoneNo" type="text"
-                  onChange={onChange} 
-                  value = {formValues.phoneNo}
+                  onChange={onChange}
+                  value={formValues.phoneNo}
                   placeholder="010-XXXX-XXXX"
                   className={sign_up.input2} />
               </div>
-              <Button onClick={onClick_phone} type="button" disabled={disabledBtn1}
+              <Button onClick={onClick_phone} type="button"
+                disabled={disabledBtn1}
                 text="인증요청" className={accessBtn1} />
             </div>
             <p className={phoneText}>{phoneMessage}</p>
           </div>
 
-          <div style={{marginBottom:'20px'}}>
-            <p style={{marginBottom:'4px'}}
-            className={sign_up.text1}>인증번호</p>
-            <div style={{marginBottom:'4px'}}
-            className={sign_up.input_btn1}>
+          <div style={{ marginBottom: '20px' }}>
+            <p style={{ marginBottom: '4px' }}
+              className={sign_up.text1}>인증번호</p>
+            <div style={{ marginBottom: '4px' }}
+              className={sign_up.input_btn1}>
               <div className={codeClass}>
                 <Input name="code" type="number" disabled={disInput}
                   onChange={onChange} placeholder="인증번호를 입력해주세요."
                   className={sign_up.input2} />
-                {timer && <Timer limitTime={300}></Timer>}
+                {timer &&
+                  <Timer limitTime={180}
+                    className={sign_up.timer}
+                    setTimer={setTimer}></Timer>}
+
               </div>
 
               <Button onClick={onClick_phoneCheck} type="button" disabled={disabledBtn2}
@@ -642,11 +671,11 @@ function Sign_up() {
           </div>
 
 
-          <div style={{marginBottom:'20px'}}>
+          <div style={{ marginBottom: '20px' }}>
             <div style={{ marginBottom: '20px' }}>
               <p className={sign_up.text1}>비밀번호</p>
-              <div style={{marginBottom:'4px'}}
-              className={sign_up.input_box2}>
+              <div style={{ marginBottom: '4px' }}
+                className={sign_up.input_box2}>
                 <Input name="password" type={type} onChange={return_pw} placeholder="●●●●●●●●"
                   className={sign_up.input1} />
                 <img src={visibleBtn} onClick={onClick_visible}></img>
@@ -654,7 +683,7 @@ function Sign_up() {
               <p className={pswdClass1}>{pswdStr1}</p>
             </div>
 
-            <div style={{marginBottom:'20px'}}>
+            <div style={{ marginBottom: '20px' }}>
               <p className={sign_up.text1}>비밀번호 확인</p>
               <div className={sign_up.input_box2}>
                 <Input name="check_pswd" type="password" onChange={return_pw_check}
@@ -665,7 +694,7 @@ function Sign_up() {
             </div>
           </div>
 
-          <div style={{marginBottom:'36px'}}>
+          <div style={{ marginBottom: '36px' }}>
             <p className={sign_up.text1}>고인과의 관계</p>
 
             <div className={sign_up.input_select}>
@@ -685,14 +714,16 @@ function Sign_up() {
           </div>
 
           <div className={sign_up.flex_center}>
-            <div style={{marginBottom:'24px'}}
-            className={sign_up.flex_center}>
-              <label style={{marginBottom:'8px'}}
-              htmlFor="all" className={sign_up.checkbox_label}>
-                <div style={{width:'28px', height:'28px',
-                marginRight:'8px'}} 
-                className = {allCheckedBtn}></div>
-                <Input id = "all" type="checkbox" style={{display:'none'}}
+            <div style={{ marginBottom: '24px' }}
+              className={sign_up.flex_center}>
+              <label style={{ marginBottom: '8px' }}
+                htmlFor="all" className={sign_up.checkbox_label}>
+                <div style={{
+                  width: '28px', height: '28px',
+                  marginRight: '8px'
+                }}
+                  className={allCheckedBtn}></div>
+                <Input id="all" type="checkbox" style={{ display: 'none' }}
                   checked={allChecked} onClick={handleAllChecked}
                   className={allCheckedBtn} />
                 <p className={sign_up.text3}>전체 동의하기</p>
@@ -702,14 +733,16 @@ function Sign_up() {
               </div>
             </div>
 
-            <div style={{marginBottom:'24px'}}
-            className={sign_up.flex_center} >
-              <label style={{marginBottom:'8px'}}
-              htmlFor = "use" className={sign_up.checkbox_label}>
-                <div style={{width:'24px', height:'24px',
-              marginRight:'4px'}} className={useCheckedBtn}></div>
-                <Input id="use" type="checkbox" style={{display:'none'}}
-                  checked={useChecked} onClick={handleUseChecked}/>
+            <div style={{ marginBottom: '24px' }}
+              className={sign_up.flex_center} >
+              <label style={{ marginBottom: '8px' }}
+                htmlFor="use" className={sign_up.checkbox_label}>
+                <div style={{
+                  width: '24px', height: '24px',
+                  marginRight: '4px'
+                }} className={useCheckedBtn}></div>
+                <Input id="use" type="checkbox" style={{ display: 'none' }}
+                  checked={useChecked} onClick={handleUseChecked} />
                 <p className={sign_up.text3}><a style={{ color: '#69534E' }}>[필수]</a>&nbsp;함소 이용약관</p>
               </label>
               <div className={sign_up.text5}>
@@ -717,15 +750,17 @@ function Sign_up() {
               </div>
             </div>
 
-            <div style={{marginBottom:'24px'}}
-            className={sign_up.flex_center} >
-              <label style={{marginBottom:'8px'}}
-              htmlFor="info" className={sign_up.checkbox_label}>
-                <div style={{marginRight:'4px', 
-                width:'24px', height:'24px'}} className={infoCheckedBtn}></div>
+            <div style={{ marginBottom: '24px' }}
+              className={sign_up.flex_center} >
+              <label style={{ marginBottom: '8px' }}
+                htmlFor="info" className={sign_up.checkbox_label}>
+                <div style={{
+                  marginRight: '4px',
+                  width: '24px', height: '24px'
+                }} className={infoCheckedBtn}></div>
                 <Input id="info" type="checkbox"
                   checked={infoChecked} onClick={handleInfoChecked}
-                  style={{display:'none'}}/>
+                  style={{ display: 'none' }} />
                 <p className={sign_up.text3}><a style={{ color: '#69534E' }}>[필수]</a>&nbsp;개인정보 수집 및 이용</p>
               </label>
               <div className={sign_up.text5}>
@@ -733,13 +768,15 @@ function Sign_up() {
               </div>
             </div>
 
-            <div className={sign_up.flex_center} style={{marginBottom:'56px'}}>
-              <label style={{marginBottom:'8px'}}
-              htmlFor="ad" className={sign_up.checkbox_label}>
-                <div style={{marginRight:'4px', 
-                width:'24px', height:'24px'}} className={adCheckedBtn}></div>
-                <Input id="ad" type="checkbox" style={{display:'none'}}
-                  checked={adChecked} onClick={handleAdChecked}/>
+            <div className={sign_up.flex_center} style={{ marginBottom: '56px' }}>
+              <label style={{ marginBottom: '8px' }}
+                htmlFor="ad" className={sign_up.checkbox_label}>
+                <div style={{
+                  marginRight: '4px',
+                  width: '24px', height: '24px'
+                }} className={adCheckedBtn}></div>
+                <Input id="ad" type="checkbox" style={{ display: 'none' }}
+                  checked={adChecked} onClick={handleAdChecked} />
                 <p className={sign_up.text3}><a style={{ color: '#69534E' }}>[선택]</a>&nbsp;홍보 및 이벤트 활용</p>
               </label>
               <div className={sign_up.text5}>
@@ -748,7 +785,9 @@ function Sign_up() {
             </div>
           </div>
 
-          <Button text="가입하기" onClick={onSubmit} className={btnClass}></Button>
+          <Button text="가입하기" 
+          type="submit" className={btnClass}
+          disabled={joinbtn}></Button>
         </form>
       </main>
     </div>
@@ -756,4 +795,4 @@ function Sign_up() {
 };
 
 
-export default Sign_up;
+export default Sign_up_family;
