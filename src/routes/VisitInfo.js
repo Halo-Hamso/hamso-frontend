@@ -43,7 +43,7 @@ function VisitInfo() {
     visitInfoApi(visitInfo)
       .then((res) => {
         console.log(res);
-        navigate('/');
+        navigate('/visitInfo/complete');
       })
       .catch((err) => console.log(err));
   };

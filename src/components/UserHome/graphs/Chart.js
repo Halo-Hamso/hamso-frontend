@@ -5,7 +5,10 @@ import { useEffect, useState } from 'react';
 function Chart(props) {
   const [totalCost, setTotalCost] = useState(0);
   const [totalProfit, setTotalProfit] = useState(0);
-
+  useEffect(() => {
+    setTotalCost(0);
+    setTotalProfit(0);
+  }, []);
   return (
     <ChartContainer>
       <div style={{ paddingTop: '20px', width: '340px', margin: '0 auto' }}>

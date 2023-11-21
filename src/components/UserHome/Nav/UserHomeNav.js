@@ -7,6 +7,7 @@ import home from '../../../images/userMainHome.svg';
 import account from '../../../images/userMainAccount.svg';
 import payment from '../../../images/userMainPayment.svg';
 import secretary from '../../../images/userMainSecretary.svg';
+import { Link } from 'react-router-dom';
 function UserHomeNav() {
   return (
     <div>
@@ -28,9 +29,11 @@ function UserHomeNav() {
       </HamsoHeaderWrap>
       <MenuWrap>
         <MenuBtn imgName={home} path="home" text="홈" />
-        <MenuBtn imgName={account} path="home" text="부의금 가계부" />
+        <Link to="/home_account_table" style={{ textDecoration: 'none' }}>
+          <MenuBtn imgName={account} path="account" text="부의금 가계부" />
+        </Link>
         <MenuBtn imgName={payment} path="payment" text="실시간 지출 장부" />
-        <MenuBtn imgName={secretary} path="home" text="장례식 비서" />
+        <MenuBtn imgName={secretary} path="helper" text="장례식 비서" />
       </MenuWrap>
     </div>
   );
