@@ -217,7 +217,6 @@ function VisitInfo() {
 export default VisitInfo;
 
 const Error = styled.div`
-  font-family: NanumMyeongjo;
   font-size: 12px;
   font-weight: 400;
   margin-top: 5px;
