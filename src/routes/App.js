@@ -1,3 +1,4 @@
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Log_in_business from "./Log_in_business";
@@ -19,10 +20,16 @@ import Home_Account_Statistics from "./Home_Account_Statistics";
 
 
 
+import UserHomeHome from './UserHomeHome';
+import BusinessHome from './BusinessHome';
+import UserHomePayment from './UserHomePayment';
+
+
 function App() {
   return (
     <Router>
       <Routes>
+
         <Route path={`${process.env.PUBLIC_URL}/`} element={<Log_in_family />}></Route>
         <Route path='/log_in_business' element={<Log_in_business />}></Route>
         <Route path='/password_finding' element={<Password_Finding/>}></Route>
@@ -36,7 +43,11 @@ function App() {
         <Route path = '/home_account_table' element={<Home_Account_Table></Home_Account_Table>}></Route>
         <Route path = '/home_account_statistics' element={<Home_Account_Statistics></Home_Account_Statistics>}></Route>
 
+
         <Route path="/visitinfo" element={<VisitInfo />} />
+        <Route path="/userhome/home" element={<UserHomeHome />} />
+        <Route path="/userhome/payment" element={<UserHomePayment />} />
+        <Route path="/businesshome" element={<BusinessHome />} />
       </Routes>
     </Router>
   );
