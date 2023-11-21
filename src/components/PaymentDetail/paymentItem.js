@@ -6,7 +6,7 @@ import PaymentOne from './PaymentOne';
 function PaymentItem() {
   const [data, setData] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const info = { page: page, size: 3 };
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function PaymentItem() {
   }, [page]);
   const handlePage = (e, v) => {
     console.log(page);
-    setPage(v);
+    setPage(v - 1);
   };
   return (
     <div>

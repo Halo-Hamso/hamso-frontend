@@ -5,7 +5,7 @@ import PaymentOne from './PaymentOne';
 
 function PaymentUseItem() {
   const [data, setData] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
   const info = { page: page, size: 8 };
 
@@ -22,7 +22,7 @@ function PaymentUseItem() {
   }, [info.page]);
   const handlePage = (e, v) => {
     console.log(page);
-    setPage(v);
+    setPage(v - 1);
   };
   return (
     <div>
