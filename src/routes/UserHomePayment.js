@@ -7,7 +7,7 @@ import SelectPopup from '../components/PaymentDetail/SelectPopup';
 
 function UserHomePayment() {
   const [popup, setPopup] = useState(false);
-  const [type, setType] = useState('item');
+  const [type, setType] = useState('userItem');
 
   return (
     <div>
