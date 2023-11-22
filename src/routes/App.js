@@ -5,10 +5,17 @@ import Log_in_family from './Log_in_family';
 
 import Password_Finding from './Password_Finding';
 
-import Sign_up_select from './Sign_up_select';
-import Sign_up_family from './Sign_up_family';
-import Sign_up_business from './Sign_up_business';
-import Sign_up_thanks from './Sign_up_thanks';
+import Sign_up_select from "./Sign_up_select";
+import Sign_up_family from "./Sign_up_family";
+import Sign_up_business from "./Sign_up_business";
+import Sign_up_thanks from "./Sign_up_thanks";
+
+import VisitInfo from "./VisitInfo";
+
+import Home_Account_Payment from "./Home_Account_Payment";
+
+
+
 
 import VisitInfo from './VisitInfo';
 
@@ -25,6 +32,7 @@ function App() {
   return (
     <Router>
       <Routes>
+
         <Route
           path={`${process.env.PUBLIC_URL}/`}
           element={<Log_in_family />}
@@ -45,10 +53,13 @@ function App() {
           path="/home_account_table"
           element={<Home_Account_Table></Home_Account_Table>}
         ></Route>
+                           <Route path = '/home_account_payment' element={<Home_Account_Payment></Home_Account_Payment>}></Route>
         <Route
           path="/home_account_statistics"
           element={<Home_Account_Statistics></Home_Account_Statistics>}
         ></Route>
+                   
+
 
         <Route path="/visitinfo" element={<VisitInfo />} />
         <Route path="/userhome/home" element={<UserHomeHome />} />
@@ -72,3 +83,7 @@ abc까지만 포함. package.json의 homepage에서 efg까지 포함되어있다
 // "/movie"를 붙이면 Detail.js로 이동
 // "/:id"를 붙이면 해당 movie 컴포넌트의 id표시 (Home.js에서 id property를 생성, movie.id를 대입해서 받아옴)
 export default App;
+
+
+
+//울 주소 : http://43.201.91.105/

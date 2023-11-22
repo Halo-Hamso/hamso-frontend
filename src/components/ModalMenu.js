@@ -55,6 +55,7 @@ function ModalMenu({ modalMenu, userData }) {
                 {userData.phoneNo.slice(7, 11)}
               </p>
             </div>
+
             <Button
               className={home_account.log_out}
               onClick={log_out}
@@ -104,5 +105,6 @@ function ModalMenu({ modalMenu, userData }) {
       )}
     </div>
   );
+
 }
 export default ModalMenu;

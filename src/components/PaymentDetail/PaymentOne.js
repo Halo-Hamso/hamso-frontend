@@ -5,9 +5,9 @@ function PaymentOne(props) {
 
   return props.type == 'item' ? (
     <PaymentCategory>
-      <Box style={{ width: '60px' }}>{paymentInfo.itemType}</Box>
+      <Box>{paymentInfo.itemType}</Box>
       <Box>{paymentInfo.count}개</Box>
-      <Box style={{ width: '70px' }}>
+      <Box>
         {' '}
         {paymentInfo.cost.toLocaleString()}원
       </Box>
@@ -15,9 +15,9 @@ function PaymentOne(props) {
     </PaymentCategory>
   ) : (
     <PaymentCategory>
-      <Box style={{ width: '60px' }}>{paymentInfo.itemType}</Box>
-      <Box style={{ width: '30px' }}>{paymentInfo.count}개</Box>
-      <Box style={{ width: '60px' }}>
+      <Box>{paymentInfo.itemType}</Box>
+      <Box>{paymentInfo.count}개</Box>
+      <Box>
         {' '}
         {paymentInfo.cost.toLocaleString()}원
       </Box>

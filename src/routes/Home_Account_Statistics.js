@@ -129,10 +129,10 @@ function Home_Account_Statistics() {
 
                 <div className={home_account.statistics}>
                     <div className={home_account.text_statistics}>부의금 통계</div>
-                    
-                    {fetched && <div className={home_account.flexbox_row} style={{width:'100%'}}>
+
+                    {fetched && <div className={home_account.entire_money} >
                         <div className={home_account.total_money}>부의금 총액</div>
-                        <div className={home_account.total_money}>{totalMoney}원</div>
+                        <div className={home_account.total_money}>{totalMoney.toLocaleString()}원</div>
                     </div>}
 
                     {fetched && <div className={home_account.ChartBox}>
@@ -160,7 +160,7 @@ function Home_Account_Statistics() {
                                             </div>
                                             <img className={home_account.legend_dotBar1}
                                             src={dotBar}></img>
-                                            <p>{item.money}원</p>
+                                            <p>{item.money.toLocaleString()}원</p>
                                         </div>)}
                             </div>
                         </div>
@@ -186,7 +186,7 @@ function Home_Account_Statistics() {
                                             </div>
                                             <img className={home_account.legend_dotBar2}
                                             src={dotBar}></img>
-                                            <p>{item.money}원</p>
+                                            <p>{item.money.toLocaleString()}원</p>
                                         </div>)}
                             </div>
                         </div>

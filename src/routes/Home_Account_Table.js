@@ -147,7 +147,8 @@ function Home_Account_Table() {
                 <div className={home_account.board}>
                     <div>
                         <p className={home_account.text_account}>부의금 가계부</p>
-                        <p className={home_account.text_update}>업데이트 : 2023-09-20 19:16:04 </p>
+                        <p className={home_account.text_update}>업데이트 : {(new Date()).toLocaleString()} </p>
+                        {/* 시간을 문자열로 바로 반환해주는 메소드 */}
                     </div>
                     <div className={home_account.flexbox_row}
                         style={{ width: '100%', justifyContent: 'space-between' }}>
@@ -205,7 +206,7 @@ function Home_Account_Table() {
                                                 <td>{item.visitedTo}</td>
                                                 <td>{item.team}</td>
                                                 <td>{item.relation}</td>
-                                                <td>{item.money}원</td>
+                                                <td>{item.money.toLocaleString()}원</td>
                                             </tr>
                                         })
 
@@ -217,7 +218,7 @@ function Home_Account_Table() {
                             style={{ width: '100%',
                             marginBottom:'8px'}}>
                                 <div className={home_account.total_money}>부의금 총액</div>
-                                <div className={home_account.total_money}>{totalMoney}원</div>
+                                <div className={home_account.total_money}>{totalMoney.toLocaleString()}원</div>
                             </div>
 
                             <div className={home_account.index}>
