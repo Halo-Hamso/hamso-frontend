@@ -29,8 +29,9 @@ function UserHomeNav() {
             <HeaderSemiTitle>온전히 떠나보낼 수 있도록</HeaderSemiTitle>
           </Link>
         </HeaderTitleBox>
-        <div style={{ marginRight: '10px' }}>
-          {sessionStorage.getItem('userData') === '' ? (
+
+        {sessionStorage.getItem('userData') != '' ? (
+          <div style={{ marginRight: '10px' }}>
             <HeaderText>
               로그아웃
               <img
@@ -38,21 +39,21 @@ function UserHomeNav() {
                 onClick={log_out}
                 style={{ marginLeft: '4px' }}
               ></img>{' '}
-              <HeaderText style={{ marginTop: '3px' }}>
-                <img src={myPage}></img>
-                {userData.name}
-              </HeaderText>
-              <HeaderText>
-                {userData.phoneNo.slice(0, 3)}-{userData.phoneNo.slice(3, 7)}-
-                {userData.phoneNo.slice(7, 11)}
-              </HeaderText>
             </HeaderText>
-          ) : (
-            <Link to="/" style={{ textDecoration: 'none' }}>
-              <HeaderText style={{ fontSize: '12px' }}>로그인</HeaderText>
-            </Link>
-          )}
-        </div>
+            <HeaderText style={{ marginTop: '3px' }}>
+              <img src={myPage}></img>
+              {userData.name}
+            </HeaderText>
+            <HeaderText>
+              {userData.phoneNo.slice(0, 3)}-{userData.phoneNo.slice(3, 7)}-
+              {userData.phoneNo.slice(7, 11)}
+            </HeaderText>
+          </div>
+        ) : (
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <HeaderText style={{ fontSize: '12px' }}>로그인</HeaderText>
+          </Link>
+        )}
       </HamsoHeaderWrap>
       <MenuWrap>
         <MenuBtn imgName={home} path="home" text="홈" />
