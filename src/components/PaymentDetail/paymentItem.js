@@ -9,7 +9,7 @@ function PaymentItem() {
   const [data, setData] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
   const [page, setPage] = useState(0);
-  const info = { page: page, size: 3 };
+  const info = { page: page, size: 8 };
 
   useEffect(() => {
     getItemApi(info)

@@ -16,43 +16,51 @@ function SurchargeGrapth(props) {
   let profit = [];
   let sum = 0;
   const [data, setData] = useState([
-    { name: '08:00', 금액: 300 },
-    { name: '09:00', 금액: 6000 },
-    { name: '10:00', 금액: 300 },
-    { name: '11:00', 금액: 300 },
-    { name: '12:00', 금액: 300 },
-    { name: '13:00', 금액: 100 },
-    { name: '14:00', 금액: 200 },
-    { name: '15:00', 금액: 100 },
-    { name: '16:00', 금액: 200 },
-    { name: '17:00', 금액: 400 },
-    { name: '18:00', 금액: 500 },
-    { name: '19:00', 금액: 800 },
-    { name: '20:00', 금액: 200 },
-    { name: '21:00', 금액: 100 },
-    { name: '22:00', 금액: 400 },
-    { name: '23:00', 금액: 500 },
-    { name: '24:00', 금액: 900 },
+    { name: '08:00', 금액: 0 },
+    { name: '09:00', 금액: 0 },
+    { name: '10:00', 금액: 0 },
+    { name: '11:00', 금액: 0 },
+    { name: '12:00', 금액: 0 },
+    { name: '13:00', 금액: 0 },
+    { name: '14:00', 금액: 0 },
+    { name: '15:00', 금액: 0 },
+    { name: '16:00', 금액: 0 },
+    { name: '17:00', 금액: 0 },
+    { name: '18:00', 금액: 0 },
+    { name: '19:00', 금액: 0 },
+    { name: '20:00', 금액: 0 },
+    { name: '21:00', 금액: 0 },
+    { name: '22:00', 금액: 0 },
+    { name: '23:00', 금액: 0 },
+    { name: '24:00', 금액: 0 },
   ]);
   useEffect(() => {
     let sum = 0;
     if (info.date) {
+      let newData;
       ChartApi(info)
         .then((res) => {
-          console.log(res);
-          let newData = data.map((item, i) => {
-            // profits 배열의 길이가 data 배열의 길이보다 작을 수 있으므로 체크합니다.
-            if (i < res.data.costs.length) {
-              let profit = res.data.costs[i];
-              sum += profit.money;
-              // 새로운 객체를 반환하여 불변성을 유지합니다.
-              return { ...item, 금액: profit.money };
-            } else {
-              // profits 배열에 해당 인덱스가 없으면 원래 item을 그대로 반환합니다.
-              return item;
-            }
-          });
-          props.setTotalProfit(sum);
+          if (res.data.costs != '') {
+            newData = data.map((item, i) => {
+              // profits 배열의 길이가 data 배열의 길이보다 작을 수 있으므로 체크합니다.
+              if (i < res.data.costs.length) {
+                let profit = res.data.costs[i];
+                sum += profit.money;
+                // 새로운 객체를 반환하여 불변성을 유지합니다.
+                return { ...item, 금액: profit.money };
+              } else {
+                // profits 배열에 해당 인덱스가 없으면 원래 item을 그대로 반환합니다.
+                return item;
+              }
+            });
+          } else {
+            newData = data.map((item, i) => {
+              sum = 0;
+              return { ...item, 금액: 0 };
+            });
+          }
+
+          props.setTotalCost(sum);
           newData = accumulate(newData);
           setData(newData); // setData를 사용하여 상태를 업데이트합니다.
         })

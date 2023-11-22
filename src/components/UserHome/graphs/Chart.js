@@ -5,15 +5,18 @@ import { useEffect, useState } from 'react';
 function Chart(props) {
   const [totalCost, setTotalCost] = useState(0);
   const [totalProfit, setTotalProfit] = useState(0);
-
+  useEffect(() => {
+    setTotalCost(0);
+    setTotalProfit(0);
+  }, []);
   return (
     <ChartContainer>
       <div style={{ paddingTop: '20px', width: '340px', margin: '0 auto' }}>
-        <TotalAmount>
+        {/* <TotalAmount>
           <TotalAmountText>총 금액</TotalAmountText>
           {(totalCost + totalProfit).toLocaleString()}원
-        </TotalAmount>
-        <TotalAmount style={{ marginTop: '10px' }}>
+        </TotalAmount> */}
+        <TotalAmount>
           <TotalAmountText>잔액</TotalAmountText>
           {(totalCost + totalProfit).toLocaleString()}원
         </TotalAmount>
@@ -43,6 +46,7 @@ function Chart(props) {
 export default Chart;
 
 export const TotalAmount = styled.div`
+  margin-top: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -75,7 +79,7 @@ export const TotalAmountText = styled.div`
 `;
 export const ChartContainer = styled.div`
   background-color: #ececec;
-  height: 60vh;
+  height: 80vh;
   width: 100vw;
 `;
 const AmountBox = styled.div`

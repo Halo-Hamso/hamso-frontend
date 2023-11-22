@@ -8,10 +8,14 @@ function ChartDate(props) {
   const bigMonth = [1, 3, 5, 7, 8, 10, 12];
 
   const [chartDate, setChartDate] = useState({
-    year: today.getFullYear(),
-    month: today.getMonth() + 1,
-    date: today.getDate(),
-    day: today.getDay(),
+    // year: today.getFullYear(),
+    // month: today.getMonth() + 1,
+    // date: today.getDate(),
+    // day: today.getDay(),
+    year: 2023,
+    month: 11,
+    date: 15,
+    day: 4,
   });
 
   useEffect(() => {
