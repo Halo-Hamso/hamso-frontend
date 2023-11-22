@@ -5,6 +5,7 @@ function MenuBtn(prop) {
   const handleClickMenu = () => {
     if (prop.path === 'home' || prop.path === 'payment')
       navigate(`/userhome/${prop.path}`);
+    else if (prop.path == 'helper') navigate('/home_account_statistics');
   };
   const location = window.location.pathname.slice(10);
   return (

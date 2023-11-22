@@ -16,7 +16,7 @@ function Chart(props) {
           <TotalAmountText>총 금액</TotalAmountText>
           {(totalCost + totalProfit).toLocaleString()}원
         </TotalAmount> */}
-        <TotalAmount style={{ marginTop: '10px' }}>
+        <TotalAmount>
           <TotalAmountText>잔액</TotalAmountText>
           {(totalCost + totalProfit).toLocaleString()}원
         </TotalAmount>
@@ -46,6 +46,7 @@ function Chart(props) {
 export default Chart;
 
 export const TotalAmount = styled.div`
+  margin-top: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
