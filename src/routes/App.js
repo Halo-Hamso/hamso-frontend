@@ -64,3 +64,7 @@ abc까지만 포함. package.json의 homepage에서 efg까지 포함되어있다
 // "/movie"를 붙이면 Detail.js로 이동
 // "/:id"를 붙이면 해당 movie 컴포넌트의 id표시 (Home.js에서 id property를 생성, movie.id를 대입해서 받아옴)
 export default App;
+
+
+
+//울 주소 : http://43.201.91.105/

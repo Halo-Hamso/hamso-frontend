@@ -206,7 +206,7 @@ function Home_Account_Table() {
                                                 <td>{item.visitedTo}</td>
                                                 <td>{item.team}</td>
                                                 <td>{item.relation}</td>
-                                                <td>{item.money}원</td>
+                                                <td>{item.money.toLocaleString()}원</td>
                                             </tr>
                                         })
 
@@ -218,7 +218,7 @@ function Home_Account_Table() {
                             style={{ width: '100%',
                             marginBottom:'8px'}}>
                                 <div className={home_account.total_money}>부의금 총액</div>
-                                <div className={home_account.total_money}>{totalMoney}원</div>
+                                <div className={home_account.total_money}>{totalMoney.toLocaleString()}원</div>
                             </div>
 
                             <div className={home_account.index}>
