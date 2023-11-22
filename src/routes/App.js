@@ -10,8 +10,6 @@ import Sign_up_family from "./Sign_up_family";
 import Sign_up_business from "./Sign_up_business";
 import Sign_up_thanks from "./Sign_up_thanks";
 
-import VisitInfo from "./VisitInfo";
-
 import Home_Account_Payment from "./Home_Account_Payment";
 
 
