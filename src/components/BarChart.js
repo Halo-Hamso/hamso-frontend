@@ -21,17 +21,18 @@ function BarChart({ data }) {
         theme={theme}
         //x축 y축 value 설정(시작))
         keys={[
-            '비용',
+            '수입',
+            '지출',
         ]}
         indexBy="time"
         //x축 y축 value 설정 (끝)
 
-        margin={{ top: 100, right: 20, bottom: 100, left: 60 }}
+        margin={{ top: 50, right: 20, bottom: 100, left: 60 }}
         //순수 그래프내부 사각형을 기준으로 하는 마진값
         padding={0.4}
         valueScale={{ type: 'linear' }}
         indexScale={{ type: 'band', round: true }}
-        colors={'#B09977'}
+        colors={['#B09977','#799094']}
         defs={[
             {
                 id: 'dots',
@@ -90,7 +91,7 @@ function BarChart({ data }) {
             tickSize: 5,
             tickPadding: 0,
             tickRotation: 0,
-            legend: '지출 (만원)',
+            legend: '금액 (만원)',
             legendPosition: 'middle',
             legendOffset: -50,
             truncateTickAt: 0
