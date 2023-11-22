@@ -72,7 +72,7 @@ function ModalMenu({ modalMenu, userData }) {
                 <img src={book} className={home_account.icon}></img>
                 <p className={home_account.text4}>부의금 가계부</p>
             </Link>
-            <Link to='/home_account_statistics'
+            <Link to='/home_account_payment'
                 style={{ textDecoration: 'none' }}
                 className={home_account.stuff}>
                 <img src={right_now} className={home_account.icon}></img>

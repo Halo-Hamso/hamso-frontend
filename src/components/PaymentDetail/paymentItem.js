@@ -3,6 +3,8 @@ import { getItemApi } from '../../Apis/CustomApis';
 import Pagination from '@mui/material/Pagination';
 import PaymentOne from './PaymentOne';
 
+import styled from 'styled-components';
+
 function PaymentItem() {
   const [data, setData] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
@@ -24,25 +26,38 @@ function PaymentItem() {
     setPage(v - 1);
   };
   return (
-    <div>
-      <div>
+    <FlexBox_Column>
+       <FlexBox_Column style={{marginBottom:'4vw'}}>
         {data.map((e) => {
           return <PaymentOne paymentInfo={e} type="item" />;
         })}
-      </div>
+      </FlexBox_Column>
 
-      <div
-        style={{
-          width: '90vw',
-          margin: '20px auto',
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-      >
-        <Pagination count={totalPages} onChange={handlePage} shape="rounded" />
-      </div>
-    </div>
+      <Pagination 
+        sx={{
+          width: '100vw',
+        display: 'flex',
+        justifyContent: 'center',
+      }}
+        count={totalPages} 
+        onChange={handlePage} 
+        shape="rounded" />
+    </FlexBox_Column>
   );
 }
 
 export default PaymentItem;
+
+const PaymentItems = styled.div`
+
+width:80vw;
+height:80vh;
+display: grid;
+grid-template-columns : 2fr 1fr 3fr 2fr;
+`;
+const FlexBox_Column = styled.div`
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+`;

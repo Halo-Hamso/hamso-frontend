@@ -147,7 +147,8 @@ function Home_Account_Table() {
                 <div className={home_account.board}>
                     <div>
                         <p className={home_account.text_account}>부의금 가계부</p>
-                        <p className={home_account.text_update}>업데이트 : 2023-09-20 19:16:04 </p>
+                        <p className={home_account.text_update}>업데이트 : {(new Date()).toLocaleString()} </p>
+                        {/* 시간을 문자열로 바로 반환해주는 메소드 */}
                     </div>
                     <div className={home_account.flexbox_row}
                         style={{ width: '100%', justifyContent: 'space-between' }}>

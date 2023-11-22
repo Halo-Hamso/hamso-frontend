@@ -9,6 +9,7 @@ import axios from 'axios'
 
 function Home_Account_Analysis() {
     //로그인 여부 확인 (시작)//
+    let first = true;
     const [login, setLogin] = useState(false);
     const [userData, setUserData] = useState({});
     const login_check = () => {
@@ -20,9 +21,10 @@ function Home_Account_Analysis() {
         } else {
             alert("로그인이 필요한 페이지입니다!");
             window.location.href = "/";
+            first = false;
         }
     }
-    useEffect(login_check, []);
+    useEffect(() => { if (first) login_check(); }, []);
     //로그인 여부 확인 (끝)//
 
     const analysisURL = `http://3.34.24.140:9998/account-book/chart`;
@@ -39,7 +41,7 @@ function Home_Account_Analysis() {
             "expense": 100,
         },
     ])
-    const [dateList,setDateList]=useState([
+    const [dateList, setDateList] = useState([
         '2023-11-17',
         '2023-11-16',
         '2023-11-15'
@@ -69,7 +71,7 @@ function Home_Account_Analysis() {
                 console.log('response.data:', response.data['costs'])
 
             setExpensesData(response.data['costs'].map((item) => ({
-                'time': Number(item.date.slice(0,2)),
+                'time': Number(item.date.slice(0, 2)),
                 '비용': Math.floor(item.money / 1000) / 10
             })))
             console.log("ExpenseData get succeeded!");
@@ -77,7 +79,7 @@ function Home_Account_Analysis() {
             console.log("ExpenseData get failed ;", error);
         }
     }
-    const onChange=(event)=>{
+    const onChange = (event) => {
         event.preventDefault();
         setDateParams(new Date(event.target.value))
     }
@@ -98,30 +100,28 @@ function Home_Account_Analysis() {
 
             <ModalMenu modalMenu={modalMenu} userData={userData}></ModalMenu>
 
-            <main className={home_account.mainboard}>
-                <div className={home_account.board}>
-                    <div className={home_account.upper_bar}>
-                        <p>비용 분석 리포트</p>
-                        <div className={home_account.legend_box}>
-                            <div className={home_account.brown_icon}></div>
-                            <p className>지출 그래프</p>
-                        </div>
-                        <select 
+            <main className={home_account.board}>
+                <div className={home_account.upper_bar}>
+                    <p>비용 분석 리포트</p>
+                    <div className={home_account.legend_box}>
+                        <div className={home_account.brown_icon}></div>
+                        <p className>지출 그래프</p>
+                    </div>
+                    <select
                         className={home_account.selection}
                         onChange={onChange}>
-                            {dateList.map((item,key)=>{
-                                return <option 
+                        {dateList.map((item, key) => {
+                            return <option
                                 key={key}
                                 value={item}>
-                                    {`${Number(item.slice(5,7))}월 ${item.slice(8,10)}일`}
-                                </option>
-                            })}
-                        </select>
-                    </div>
-                    <div className={home_account.graph}>
-                        <BarChart data={expenseData}
-                        ></BarChart>
-                    </div>
+                                {`${Number(item.slice(5, 7))}월 ${item.slice(8, 10)}일`}
+                            </option>
+                        })}
+                    </select>
+                </div>
+                <div className={home_account.graph}>
+                    <BarChart data={expenseData}
+                    ></BarChart>
                 </div>
             </main>
         </div>

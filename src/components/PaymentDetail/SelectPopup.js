@@ -47,9 +47,17 @@ const Left = styled.img`
   display: flex;
   margin-left: auto;
 `;
-const PopupContainer = styled.div`
-  width: 350px;
-  height: 152px;
+const PopupContainer = styled.div` 
+  position:absolute;
+  top:40%;
+  left:40%;
+  @media screen and (max-width:1024px) and (min-width:280px)
+  {
+    width:100%;
+    left:0;
+  }
+  width: 360px;
+  height: 160px;
   border-radius: 16px;
   margin: 0 auto;
   margin-bottom: 20px;
@@ -72,7 +80,6 @@ const PopupText = styled.div`
   display: flex;
   align-items: center;
   margin-top: 10px;
-  font-family: NanumMyeongjo;
   font-size: 16px;
   font-weight: 700;
 `;

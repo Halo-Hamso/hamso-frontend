@@ -15,6 +15,7 @@ import VisitInfo from "./VisitInfo";
 
 import Home_Account_Analysis from "./Home_Account_Analysis";
 import Home_Account_Table from "./Home_Account_Table";
+import Home_Account_Payment from "./Home_Account_Payment";
 import Home_Account_Statistics from "./Home_Account_Statistics";
 
 
@@ -41,6 +42,7 @@ function App() {
 
         <Route path = '/home_account_analysis' element={<Home_Account_Analysis></Home_Account_Analysis>}></Route>
         <Route path = '/home_account_table' element={<Home_Account_Table></Home_Account_Table>}></Route>
+        <Route path = '/home_account_payment' element={<Home_Account_Payment></Home_Account_Payment>}></Route>
         <Route path = '/home_account_statistics' element={<Home_Account_Statistics></Home_Account_Statistics>}></Route>
 
 
