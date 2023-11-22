@@ -26,8 +26,8 @@ function SurchargeChart(props) {
     <ChartContainer>
       <div style={{ paddingTop: '20px', width: '340px', margin: '0 auto' }}>
         <TotalAmount>
-          <TotalAmountText>지출</TotalAmountText>-{' '}
-          {totalProfit.toLocaleString()}원
+          <TotalAmountText>지출</TotalAmountText>- {totalCost.toLocaleString()}
+          원
         </TotalAmount>
       </div>
       <Graph>

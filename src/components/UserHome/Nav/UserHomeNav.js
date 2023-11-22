@@ -7,30 +7,61 @@ import home from '../../../images/userMainHome.svg';
 import account from '../../../images/userMainAccount.svg';
 import payment from '../../../images/userMainPayment.svg';
 import secretary from '../../../images/userMainSecretary.svg';
+import { Link } from 'react-router-dom';
 function UserHomeNav() {
+  const log_out = () => {
+    sessionStorage.clear();
+    window.location.href = '/';
+  };
+  const userData = JSON.parse(sessionStorage.getItem('userData'));
+
+  console.log(userData);
+
   return (
     <div>
       <HamsoHeaderWrap>
-        <Logo src={hamsoLogo}></Logo>
+        <Link to="/userhome/home">
+          <Logo src={hamsoLogo}></Logo>
+        </Link>
         <HeaderTitleBox>
-          <HeaderTitle>함소</HeaderTitle>
-          <HeaderSemiTitle>온전히 떠나보낼 수 있도록</HeaderSemiTitle>
+          <Link to="/userhome/home" style={{ textDecoration: 'none' }}>
+            <HeaderTitle>함소</HeaderTitle>
+            <HeaderSemiTitle>온전히 떠나보낼 수 있도록</HeaderSemiTitle>
+          </Link>
         </HeaderTitleBox>
-        <div style={{ marginRight: '10px' }}>
-          <HeaderText>
-            로그아웃 <img src={logOut} style={{ marginLeft: '4px' }}></img>
-          </HeaderText>
-          <HeaderText style={{ marginTop: '3px' }}>
-            <img src={myPage}></img>김함소님
-          </HeaderText>
-          <HeaderText>010-3394-3953</HeaderText>
-        </div>
+
+        {sessionStorage.getItem('userData') != '' ? (
+          <div style={{ marginRight: '10px' }}>
+            <HeaderText>
+              로그아웃
+              <img
+                src={logOut}
+                onClick={log_out}
+                style={{ marginLeft: '4px' }}
+              ></img>{' '}
+            </HeaderText>
+            <HeaderText style={{ marginTop: '3px' }}>
+              <img src={myPage}></img>
+              {userData.name}
+            </HeaderText>
+            <HeaderText>
+              {userData.phoneNo.slice(0, 3)}-{userData.phoneNo.slice(3, 7)}-
+              {userData.phoneNo.slice(7, 11)}
+            </HeaderText>
+          </div>
+        ) : (
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <HeaderText style={{ fontSize: '12px' }}>로그인</HeaderText>
+          </Link>
+        )}
       </HamsoHeaderWrap>
       <MenuWrap>
         <MenuBtn imgName={home} path="home" text="홈" />
-        <MenuBtn imgName={account} path="home" text="부의금 가계부" />
+        <Link to="/home_account_table" style={{ textDecoration: 'none' }}>
+          <MenuBtn imgName={account} path="account" text="부의금 가계부" />
+        </Link>
         <MenuBtn imgName={payment} path="payment" text="실시간 지출 장부" />
-        <MenuBtn imgName={secretary} path="home" text="장례식 비서" />
+        <MenuBtn imgName={secretary} path="helper" text="장례식 비서" />
       </MenuWrap>
     </div>
   );
@@ -54,6 +85,7 @@ const HeaderTitle = styled.div`
   font-weight: 800;
   letter-spacing: 0.12em;
   display: flex;
+  color: #493b39;
   justify-content: center;
 `;
 const HeaderSemiTitle = styled.div`
@@ -70,6 +102,7 @@ const HeaderText = styled.div`
   display: flex;
   justify-content: end;
   text-align: left;
+  color: #493b39;
 `;
 const Logo = styled.img`
   width: 72px;
