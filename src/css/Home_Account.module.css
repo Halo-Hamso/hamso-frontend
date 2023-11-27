@@ -269,20 +269,33 @@
     justify-content:space-between;
     align-self:center
 }
+.legend_boxes{
+    margin-top:5%;
+    margin-left:8%;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:16px;
+}
 .legend_box{
-    position:absolute;
-    top:250%;
-    left:5%;
     font-size:16px;
 
     display:flex;
     justify-content: space-between;
     align-items: center;
 }
-.brown_icon{
+.light_brown_icon{
     width:16px;
     height:16px;
     background-color: #B09977;
+    
+    margin-right:4px;
+}
+.light_blue_icon{
+    width:16px;
+    height:16px;
+    background-color: #799094;
     
     margin-right:4px;
 }
@@ -297,7 +310,7 @@ font-size:12px;
 }
 .graph{
     width:100%;
-    height:90%;
+    height:80%;
 }
 /* mainboard - 비용분석 (끝) */
 /* mainboard - 비용분석 (끝) */

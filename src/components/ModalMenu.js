@@ -79,7 +79,7 @@ function ModalMenu({ modalMenu, userData }) {
             <p className={home_account.text4}>부의금 가계부</p>
           </Link>
           <Link
-            to="/userhome/payment"
+            to="/home_account_payment"
             style={{ textDecoration: 'none' }}
             className={home_account.stuff}
           >
