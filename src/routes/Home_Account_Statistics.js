@@ -140,6 +140,9 @@ function Home_Account_Statistics() {
                         <div className={home_account.chart}>
                             <div className={home_account.chart_box}>
                                 <PieChart
+                                    animate={true}
+                                    animationDuration={500}
+                                    animationEasing="linear"
                                     data={familyChart}
                                     label={({ dataEntry }) => dataEntry.title}
                                     viewBoxSize={[100, 100]}
@@ -167,6 +170,9 @@ function Home_Account_Statistics() {
                         <div className={home_account.chart}>
                             <div className={home_account.chart_box}>
                                 <PieChart
+                                    animate={true}
+                                    animationDuration={500}
+                                    animationEasing="linear"
                                     data={visitedChart}
                                     label={({ dataEntry }) => dataEntry.title}
                                     viewBoxSize={[100, 100]}
