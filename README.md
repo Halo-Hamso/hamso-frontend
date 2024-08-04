@@ -1,5 +1,6 @@
 # <img width=50 height = 50 src="https://github.com/user-attachments/assets/c9e06990-db05-4b2c-aa73-fd40a3c5eac3"> &nbsp;함소
 온라인 장례지도 서비스 플랫폼
+<br>
 
 ## 실행 환경 및 기술스택
 * AWS를 통한 사이트 배포가 이루어졌으나 현재는 중단
